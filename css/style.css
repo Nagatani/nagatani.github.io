@@ -1382,8 +1382,13 @@ pre .javascript .function {
 }
 .widget ul,
 .widget ol {
-  list-style: none;
+  list-style: circle;
   margin: 0;
+}
+.widget ul li,
+.widget ol li {
+  margin-left: 1em;
+  font-size: 0.9em;
 }
 .widget ul ul,
 .widget ol ul,
@@ -1539,6 +1544,25 @@ pre .javascript .function {
   .blogicon-chevron-down {
     margin-right: 0;
   }
+}
+.google-ads {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+i.fa {
+  font-family: FontAwesome;
+  font-style: normal;
+  font-size: 1.25em;
+  padding-right: 0.5em;
+}
+i.fa.fa-twitter-square:before {
+  content: "\f081";
+}
+i.fa.fa-facebook-square:before {
+  content: "\f082";
+}
+i.fa.fa-bookmark:before {
+  content: "\f02e";
 }
 @-moz-keyframes circle {
   50% {
