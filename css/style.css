@@ -118,46 +118,46 @@ button::-moz-focus-inner {
   src: url("fonts/fontawesome-webfont.eot?#iefix&v=#4.0.3") format("embedded-opentype"), url("fonts/fontawesome-webfont.woff?v=#4.0.3") format("woff"), url("fonts/fontawesome-webfont.ttf?v=#4.0.3") format("truetype"), url("fonts/fontawesome-webfont.svg#fontawesomeregular?v=#4.0.3") format("svg");
 }
 @font-face {
-  font-family: YakuHanJP;
+  font-family: 'YakuHanJP';
   font-style: normal;
   font-weight: 100;
-  src: url("fonts/YakuHanJP/YakuHanJP-Thin.woff2") format("woff2"), url("fonts/YakuHanJP/YakuHanJP-Thin.woff") format("woff"), url("fonts/YakuHanJP/YakuHanJP-Thin.eot");
+  src: url("fonts/YakuHanJP/YakuHanJP-Thin.woff2") format('woff2'), url("fonts/YakuHanJP/YakuHanJP-Thin.woff") format('woff'), url("fonts/YakuHanJP/YakuHanJP-Thin.eot");
 }
 @font-face {
-  font-family: YakuHanJP;
+  font-family: 'YakuHanJP';
   font-style: normal;
   font-weight: 200;
-  src: url("fonts/YakuHanJP/YakuHanJP-Light.woff2") format("woff2"), url("fonts/YakuHanJP/YakuHanJP-Light.woff") format("woff"), url("fonts/YakuHanJP/YakuHanJP-Light.eot");
+  src: url("fonts/YakuHanJP/YakuHanJP-Light.woff2") format('woff2'), url("fonts/YakuHanJP/YakuHanJP-Light.woff") format('woff'), url("fonts/YakuHanJP/YakuHanJP-Light.eot");
 }
 @font-face {
-  font-family: YakuHanJP;
+  font-family: 'YakuHanJP';
   font-style: normal;
   font-weight: 300;
-  src: url("fonts/YakuHanJP/YakuHanJP-DemiLight.woff2") format("woff2"), url("fonts/YakuHanJP/YakuHanJP-DemiLight.woff") format("woff"), url("fonts/YakuHanJP/YakuHanJP-DemiLight.eot");
+  src: url("fonts/YakuHanJP/YakuHanJP-DemiLight.woff2") format('woff2'), url("fonts/YakuHanJP/YakuHanJP-DemiLight.woff") format('woff'), url("fonts/YakuHanJP/YakuHanJP-DemiLight.eot");
 }
 @font-face {
-  font-family: YakuHanJP;
+  font-family: 'YakuHanJP';
   font-style: normal;
   font-weight: 400;
-  src: url("fonts/YakuHanJP/YakuHanJP-Regular.woff2") format("woff2"), url("fonts/YakuHanJP/YakuHanJP-Regular.woff") format("woff"), url("fonts/YakuHanJP/YakuHanJP-Regular.eot");
+  src: url("fonts/YakuHanJP/YakuHanJP-Regular.woff2") format('woff2'), url("fonts/YakuHanJP/YakuHanJP-Regular.woff") format('woff'), url("fonts/YakuHanJP/YakuHanJP-Regular.eot");
 }
 @font-face {
-  font-family: YakuHanJP;
+  font-family: 'YakuHanJP';
   font-style: normal;
   font-weight: 500;
-  src: url("fonts/YakuHanJP/YakuHanJP-Medium.woff2") format("woff2"), url("fonts/YakuHanJP/YakuHanJP-Medium.woff") format("woff"), url("fonts/YakuHanJP/YakuHanJP-Medium.eot");
+  src: url("fonts/YakuHanJP/YakuHanJP-Medium.woff2") format('woff2'), url("fonts/YakuHanJP/YakuHanJP-Medium.woff") format('woff'), url("fonts/YakuHanJP/YakuHanJP-Medium.eot");
 }
 @font-face {
-  font-family: YakuHanJP;
+  font-family: 'YakuHanJP';
   font-style: normal;
   font-weight: 700;
-  src: url("fonts/YakuHanJP/YakuHanJP-Bold.woff2") format("woff2"), url("fonts/YakuHanJP/YakuHanJP-Bold.woff") format("woff"), url("fonts/YakuHanJP/YakuHanJP-Bold.eot");
+  src: url("fonts/YakuHanJP/YakuHanJP-Bold.woff2") format('woff2'), url("fonts/YakuHanJP/YakuHanJP-Bold.woff") format('woff'), url("fonts/YakuHanJP/YakuHanJP-Bold.eot");
 }
 @font-face {
-  font-family: YakuHanJP;
+  font-family: 'YakuHanJP';
   font-style: normal;
   font-weight: 900;
-  src: url("fonts/YakuHanJP/YakuHanJP-Black.woff2") format("woff2"), url("fonts/YakuHanJP/YakuHanJP-Black.woff") format("woff"), url("fonts/YakuHanJP/YakuHanJP-Black.eot");
+  src: url("fonts/YakuHanJP/YakuHanJP-Black.woff2") format('woff2'), url("fonts/YakuHanJP/YakuHanJP-Black.woff") format('woff'), url("fonts/YakuHanJP/YakuHanJP-Black.eot");
 }
 html,
 body,
@@ -165,7 +165,7 @@ body,
   height: 100%;
 }
 body {
-  background: #eee;
+  background: #f0f0f0;
   font: 16px YakuHanJP, "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", "Meiryo UI", Meiryo, "メイリオ", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", arial, sans-serif;
   -webkit-text-size-adjust: 100%;
 }
@@ -216,7 +216,7 @@ body {
   -ms-transition: 0.2s ease-out;
   transition: 0.2s ease-out;
   z-index: 1;
-  background: #eee;
+  background: #f0f0f0;
 }
 .mobile-nav-on #wrap {
   left: 280px;
@@ -644,7 +644,7 @@ a.article-title:hover {
 }
 .article-entry img,
 .article-entry video {
-  max-width: 100%;
+  max-width: calc(100% - 36px);
   height: auto;
   display: block;
   margin: auto;
@@ -724,7 +724,7 @@ a.article-title:hover {
   padding: 6px 15px;
   -webkit-border-radius: 15px;
   border-radius: 15px;
-  background: #eee;
+  background: #f0f0f0;
   color: #999;
   text-shadow: 0 1px #fff;
   text-decoration: none;
@@ -894,7 +894,7 @@ a.article-title:hover {
   line-height: 36px;
 }
 .article-share-links {
-  background: #eee;
+  background: #f0f0f0;
 }
 .article-share-links:before,
 .article-share-links:after {
@@ -1163,7 +1163,7 @@ a.article-title:hover {
   font-family: "Source Code Pro", Consolas, Monaco, Menlo, Consolas, monospace;
 }
 .article-entry code {
-  background: #eee;
+  background: #f0f0f0;
   text-shadow: 0 1px #fff;
   padding: 0 0.3em;
 }
@@ -1348,10 +1348,10 @@ pre .javascript .function {
 .widget {
   color: #777;
   text-shadow: 0 1px #fff;
-  background: #ddd;
-  -webkit-box-shadow: 0 -1px 4px #ccc inset;
-  box-shadow: 0 -1px 4px #ccc inset;
-  border: 1px solid #ccc;
+  background: #e0e0e0;
+  -webkit-box-shadow: 0 -1px 4px #ddd inset;
+  box-shadow: 0 -1px 4px #ddd inset;
+  border: 1px solid #ddd;
   padding: 15px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
