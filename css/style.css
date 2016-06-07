@@ -165,7 +165,7 @@ body,
   height: 100%;
 }
 body {
-  background: #f0f0f0;
+  background: #fff;
   font: 16px YakuHanJP, "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", "Meiryo UI", Meiryo, "メイリオ", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", arial, sans-serif;
   -webkit-text-size-adjust: 100%;
 }
@@ -216,7 +216,7 @@ body {
   -ms-transition: 0.2s ease-out;
   transition: 0.2s ease-out;
   z-index: 1;
-  background: #f0f0f0;
+  background: #fff;
 }
 .mobile-nav-on #wrap {
   left: 280px;
@@ -234,9 +234,9 @@ body {
 .archive-year,
 .widget-title {
   text-decoration: none;
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: 2px;
-  color: #999;
+  color: #555;
   margin-bottom: 1em;
   margin-left: 5px;
   line-height: 1em;
@@ -275,7 +275,7 @@ body {
 .article-entry h6,
 .widget h6 {
   font-size: 1em;
-  color: #999;
+  color: #555;
 }
 .article-entry hr,
 .widget hr {
@@ -524,7 +524,7 @@ body {
 .search-form-input {
   border: none;
   background: none;
-  color: #555;
+  color: #232323;
   width: 100%;
   font: 13px YakuHanJP, "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", "Meiryo UI", Meiryo, "メイリオ", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", arial, sans-serif;
   outline: none;
@@ -585,7 +585,7 @@ body {
   text-decoration: none;
   font-size: 2em;
   font-weight: bold;
-  color: #555;
+  color: #232323;
   line-height: 1.1em;
   -webkit-transition: color 0.2s;
   -moz-transition: color 0.2s;
@@ -596,7 +596,7 @@ a.article-title:hover {
   color: #258fb8;
 }
 .article-entry {
-  color: #555;
+  color: #232323;
   padding: 0 20px;
 }
 .article-entry:before,
@@ -644,7 +644,7 @@ a.article-title:hover {
 }
 .article-entry img,
 .article-entry video {
-  max-width: calc(100% - 36px);
+  max-width: calc(100% - 80px);
   height: auto;
   display: block;
   margin: auto;
@@ -695,7 +695,7 @@ a.article-title:hover {
   margin-left: 1em;
 }
 .article-entry .caption {
-  color: #999;
+  color: #555;
   display: block;
   font-size: 0.9em;
   margin-top: 0.5em;
@@ -724,8 +724,8 @@ a.article-title:hover {
   padding: 6px 15px;
   -webkit-border-radius: 15px;
   border-radius: 15px;
-  background: #f0f0f0;
-  color: #999;
+  background: #fff;
+  color: #555;
   text-shadow: 0 1px #fff;
   text-decoration: none;
 }
@@ -751,11 +751,11 @@ a.article-title:hover {
   clear: both;
 }
 .article-footer a {
-  color: #999;
+  color: #555;
   text-decoration: none;
 }
 .article-footer a:hover {
-  color: #555;
+  color: #232323;
 }
 .article-tag-list-item {
   float: left;
@@ -816,7 +816,7 @@ a.article-title:hover {
 .article-nav-link-wrap {
   text-decoration: none;
   text-shadow: 0 1px #fff;
-  color: #999;
+  color: #555;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -825,7 +825,7 @@ a.article-title:hover {
   display: block;
 }
 .article-nav-link-wrap:hover {
-  color: #555;
+  color: #232323;
 }
 @media screen and (min-width: 768px) {
   .article-nav-link-wrap {
@@ -885,7 +885,7 @@ a.article-title:hover {
   box-sizing: border-box;
   font: 14px YakuHanJP, "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", "Meiryo UI", Meiryo, "メイリオ", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", arial, sans-serif;
   padding: 0 15px;
-  color: #555;
+  color: #232323;
   outline: none;
   border: 1px solid #ddd;
   -webkit-border-radius: 3px 3px 0 0;
@@ -894,7 +894,7 @@ a.article-title:hover {
   line-height: 36px;
 }
 .article-share-links {
-  background: #f0f0f0;
+  background: #fff;
 }
 .article-share-links:before,
 .article-share-links:after {
@@ -1048,7 +1048,7 @@ a.article-title:hover {
 .archive-article-title {
   text-decoration: none;
   font-weight: bold;
-  color: #555;
+  color: #232323;
   -webkit-transition: color 0.2s;
   -moz-transition: color 0.2s;
   -ms-transition: color 0.2s;
@@ -1062,7 +1062,7 @@ a.article-title:hover {
   margin-top: 1em;
 }
 .archive-article-date {
-  color: #999;
+  color: #555;
   text-decoration: none;
   font-size: 0.85em;
   line-height: 1em;
@@ -1078,7 +1078,7 @@ a.article-title:hover {
   -webkit-border-radius: 3px;
   border-radius: 3px;
   text-align: center;
-  color: #999;
+  color: #555;
   overflow: hidden;
 }
 #page-nav:before,
@@ -1096,11 +1096,11 @@ a.article-title:hover {
   height: 2ex;
 }
 #page-nav a {
-  color: #999;
+  color: #555;
   text-decoration: none;
 }
 #page-nav a:hover {
-  background: #999;
+  background: #555;
   color: #fff;
 }
 #page-nav .prev {
@@ -1118,7 +1118,7 @@ a.article-title:hover {
   }
 }
 #page-nav .current {
-  color: #555;
+  color: #232323;
   font-weight: bold;
 }
 #page-nav .space {
@@ -1128,7 +1128,7 @@ a.article-title:hover {
   background: #262a30;
   padding: 50px 0;
   border-top: 1px solid #ddd;
-  color: #999;
+  color: #555;
 }
 #footer a {
   color: #258fb8;
@@ -1163,7 +1163,7 @@ a.article-title:hover {
   font-family: "Source Code Pro", Consolas, Monaco, Menlo, Consolas, monospace;
 }
 .article-entry code {
-  background: #f0f0f0;
+  background: #fff;
   text-shadow: 0 1px #fff;
   padding: 0 0.3em;
 }
@@ -1325,7 +1325,7 @@ pre .javascript .function {
 @media screen and (max-width: 479px) {
   .mobile-nav-link {
     display: block;
-    color: #999;
+    color: #555;
     text-decoration: none;
     padding: 15px 20px;
     font-weight: bold;
@@ -1348,10 +1348,10 @@ pre .javascript .function {
 .widget {
   color: #777;
   text-shadow: 0 1px #fff;
-  background: #e0e0e0;
-  -webkit-box-shadow: 0 -1px 4px #ddd inset;
-  box-shadow: 0 -1px 4px #ddd inset;
-  border: 1px solid #ddd;
+  background: #f0f0f0;
+  -webkit-box-shadow: 0 -1px 4px #eee inset;
+  box-shadow: 0 -1px 4px #eee inset;
+  border: 1px solid #eee;
   padding: 15px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
@@ -1403,7 +1403,7 @@ pre .javascript .function {
 .tag-list-count,
 .archive-list-count {
   padding-left: 5px;
-  color: #999;
+  color: #555;
   font-size: 0.85em;
 }
 .category-list-count:before,
@@ -1441,4 +1441,138 @@ pre .javascript .function {
 }
 .widget.profile .profile-container p {
   font-size: 0.75em;
+}
+.sns-header,
+.sns-footer {
+  padding: 0 24px;
+}
+.sns-area {
+  margin: 30px auto 10px;
+  padding: 0;
+  overflow: hidden;
+  table-layout: fixed;
+  display: table;
+  width: 100%;
+}
+.sns-area li {
+  list-style-type: none;
+  display: table-cell;
+  vertical-align: middle;
+}
+.sns-area li:last-child {
+  margin-right: 0;
+}
+.sns-link {
+  position: relative;
+  display: block;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  overflow: hidden;
+  height: 42px;
+  line-height: 42px;
+}
+.sns-link::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  display: block;
+  content: '';
+  width: 0;
+  height: 0;
+  background-color: rgba(255,255,255,0.3);
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+.sns-link:hover {
+  text-decoration: none;
+}
+.sns-link:hover::after {
+  -webkit-animation: circle 0.75s;
+  -webkit-animation: circle 0.75s;
+  -moz-animation: circle 0.75s;
+  -ms-animation: circle 0.75s;
+  animation: circle 0.75s;
+}
+@-webkit-keyframes circle {
+  50% {
+    opacity: 1;
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+  }
+}
+.sns-twitter {
+  background: #55acee;
+}
+.sns-facebook {
+  background: #3a5795;
+}
+.sns-bookmark {
+  background: #00a5de;
+}
+.sns-pocket {
+  background: #ed4055;
+}
+.blogicon-twitter,
+.blogicon-facebook,
+.blogicon-bookmark,
+.blogicon-chevron-down {
+  margin-right: 5px;
+}
+@media only screen and (max-width: 767px) {
+  .sns-txt {
+    display: none;
+  }
+  .blogicon-twitter,
+  .blogicon-facebook,
+  .blogicon-bookmark,
+  .blogicon-chevron-down {
+    margin-right: 0;
+  }
+}
+@-moz-keyframes circle {
+  50% {
+    opacity: 1;
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+  }
+}
+@-webkit-keyframes circle {
+  50% {
+    opacity: 1;
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+  }
+}
+@-o-keyframes circle {
+  50% {
+    opacity: 1;
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+  }
+}
+@keyframes circle {
+  50% {
+    opacity: 1;
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+  }
 }
