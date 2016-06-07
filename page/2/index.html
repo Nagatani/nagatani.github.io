@@ -81,6 +81,74 @@ ga('send', 'pageview');
       <div class="outer">
         <section id="main">
   
+    <article id="post-hexo-image-add" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/09/13/hexo-image-add/" class="article-date">
+  <time datetime="2014-09-12T18:55:09.000Z" itemprop="datePublished">2014-09-13(土曜日)</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CMS/">CMS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/09/13/hexo-image-add/">GitHub Pagesで運用するHexoで画像を記事内に挿入する（アップロードする）方法の最適解ってあるの？</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>タイトルの通りです。</p>
+<h2 id="Hexoで画像を挿入する方法"><a href="#Hexoで画像を挿入する方法" class="headerlink" title="Hexoで画像を挿入する方法"></a>Hexoで画像を挿入する方法</h2><p>調べたけど、どれもしっくり来ない。<br>プラグインはコレジャナイ感ある。</p>
+<h2 id="自己流"><a href="#自己流" class="headerlink" title="自己流"></a>自己流</h2><p>で、自分がやってみてる方法は、</p>
+<ol>
+<li>「image」ページを作成する。</li>
+<li>作成した「image」ページのディレクトリに画像を突っ込む。</li>
+<li>記事からは、「/image/突っ込んだ画像」で画像を参照させる。</li>
+<li>公開するタイミングで、ページの画像もgit pushできる。</li>
+<li>画像差し込めた。</li>
+</ol>
+<p>という流れになってる。</p>
+<h3 id="順を追う"><a href="#順を追う" class="headerlink" title="順を追う"></a>順を追う</h3><h4 id="1-「image」ページを作成する。"><a href="#1-「image」ページを作成する。" class="headerlink" title="1. 「image」ページを作成する。"></a>1. 「image」ページを作成する。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page <span class="string">"image"</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-作成した「image」ページのディレクトリに画像を突っ込む。"><a href="#2-作成した「image」ページのディレクトリに画像を突っ込む。" class="headerlink" title="2. 作成した「image」ページのディレクトリに画像を突っ込む。"></a>2. 作成した「image」ページのディレクトリに画像を突っ込む。</h4><p>ファイル名が被らないように、記事毎でユニークにしておくといいかも。</p>
+<h4 id="3-記事からは、「-image-突っ込んだ画像」で画像を参照させる。"><a href="#3-記事からは、「-image-突っ込んだ画像」で画像を参照させる。" class="headerlink" title="3. 記事からは、「/image/突っ込んだ画像」で画像を参照させる。"></a>3. 記事からは、「/image/突っ込んだ画像」で画像を参照させる。</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![](/image/screenshot.png)</span><br></pre></td></tr></table></figure>
+<p>みたいな感じで。<br>タイトルとか入れたければ入れる。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>でローカルプレビューして画像が見えてれば多分OK。</p>
+<h4 id="4-公開するタイミングで、ページの画像もgit-pushできる。"><a href="#4-公開するタイミングで、ページの画像もgit-pushできる。" class="headerlink" title="4. 公開するタイミングで、ページの画像もgit pushできる。"></a>4. 公開するタイミングで、ページの画像もgit pushできる。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d -g</span><br></pre></td></tr></table></figure>
+<p>とかこんなんで良いと思う。<br>（記事の公開、毎回このコマンド使ってるけど、これもあってるのか正直よくわからん。）<br>（ていうか記事の公開だけでこのコマンドは間違ってる。あとでちゃんと調べます。）</p>
+<h4 id="5-画像差し込めた。"><a href="#5-画像差し込めた。" class="headerlink" title="5. 画像差し込めた。"></a>5. 画像差し込めた。</h4><p>デデーン</p>
+<p>前回の記事：<a href="http://nagatani.github.io/2014/09/12/Markdown-cms/">Markdownで書けるCMS | nagatani.github.io</a>では、この方法でスクリーンショットの差し込みをしてる。</p>
+<h2 id="なんかもっといい方法ないスか？"><a href="#なんかもっといい方法ないスか？" class="headerlink" title="なんかもっといい方法ないスか？"></a>なんかもっといい方法ないスか？</h2><p>ページ作成してるの、多分用途として間違ってる気がするし、でもHexoインストールしたディレクトリ直下とか画像置きたくないし、で何かいい方法知ってたら教えて欲しいっす。<br>そもそもGitがよくわからん。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://nagatani.github.io/2014/09/13/hexo-image-add/" data-id="cip5648n5000b0te19foxr1dd" class="article-share-link">Share</a>
+      
+        <a href="http://nagatani.github.io/2014/09/13/hexo-image-add/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+
+
+  
     <article id="post-Markdown-cms" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/09/12/Markdown-cms/" class="article-date">
@@ -231,7 +299,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://nagatani.github.io/2014/09/12/Markdown-cms/" data-id="cip55igzw0006yqe1t8641a3t" class="article-share-link">Share</a>
+      <a data-url="http://nagatani.github.io/2014/09/12/Markdown-cms/" data-id="cip5648mt00060te18gwvttu7" class="article-share-link">Share</a>
       
         <a href="http://nagatani.github.io/2014/09/12/Markdown-cms/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -283,7 +351,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://nagatani.github.io/2014/09/11/hello-world/" data-id="cip55ih06000byqe1eqqvn5ii" class="article-share-link">Share</a>
+      <a data-url="http://nagatani.github.io/2014/09/11/hello-world/" data-id="cip5648n100090te1lijibojg" class="article-share-link">Share</a>
       
         <a href="http://nagatani.github.io/2014/09/11/hello-world/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -339,7 +407,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Andriod/">Andriod</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CMS/">CMS</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Diary/">Diary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaFX8/">JavaFX8</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Andriod/">Andriod</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CMS/">CMS</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Diary/">Diary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaFX8/">JavaFX8</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spark/">Spark</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -349,6 +417,10 @@ ga('send', 'pageview');
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/06/01/netbeans-spark-web-1/">NetBeansでSparkを使ってサクッとWebアプリケーションを作る①Hello,World!!</a>
+          </li>
         
           <li>
             <a href="/2014/10/08/JavaFX8-fxml-lookandfeel/">JavaFX8でのLook and Feelを設定する</a>
@@ -366,10 +438,6 @@ ga('send', 'pageview');
             <a href="/2014/09/14/androidstudio-adb/">Android Studioを入れたMacBook Airでbashからadbコマンドを使えるようにする</a>
           </li>
         
-          <li>
-            <a href="/2014/09/13/hexo-image-add/">GitHub Pagesで運用するHexoで画像を記事内に挿入する（アップロードする）方法の最適解ってあるの？</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -379,7 +447,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">10月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">9月 2014</a><span class="archive-list-count">5</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">6月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">10月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">9月 2014</a><span class="archive-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -388,7 +456,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AndroidStudio/">AndroidStudio</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CMS/">CMS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FXML/">FXML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaFX8/">JavaFX8</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaFXSceneBuilder2/">JavaFXSceneBuilder2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/adb/">adb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/terminal/">terminal</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AndroidStudio/">AndroidStudio</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CMS/">CMS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FXML/">FXML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java8/">Java8</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaFX8/">JavaFX8</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaFXSceneBuilder2/">JavaFXSceneBuilder2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spark/">Spark</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tutorial/">Tutorial</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/adb/">adb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/terminal/">terminal</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -397,7 +465,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/AndroidStudio/" style="font-size: 10px;">AndroidStudio</a> <a href="/tags/CMS/" style="font-size: 10px;">CMS</a> <a href="/tags/FXML/" style="font-size: 20px;">FXML</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/JavaFX8/" style="font-size: 20px;">JavaFX8</a> <a href="/tags/JavaFXSceneBuilder2/" style="font-size: 10px;">JavaFXSceneBuilder2</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/terminal/" style="font-size: 10px;">terminal</a>
+      <a href="/tags/AndroidStudio/" style="font-size: 10px;">AndroidStudio</a> <a href="/tags/CMS/" style="font-size: 10px;">CMS</a> <a href="/tags/FXML/" style="font-size: 20px;">FXML</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Java8/" style="font-size: 10px;">Java8</a> <a href="/tags/JavaFX8/" style="font-size: 20px;">JavaFX8</a> <a href="/tags/JavaFXSceneBuilder2/" style="font-size: 10px;">JavaFXSceneBuilder2</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Spark/" style="font-size: 10px;">Spark</a> <a href="/tags/Tutorial/" style="font-size: 10px;">Tutorial</a> <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/terminal/" style="font-size: 10px;">terminal</a>
     </div>
   </div>
 
