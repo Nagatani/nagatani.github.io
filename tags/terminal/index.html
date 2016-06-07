@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Tag: terminal | ながたにの技術メモ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ながたにの技術メモ">
+<meta property="og:url" content="http://nagatani.github.io/tags/terminal/index.html">
+<meta property="og:site_name" content="ながたにの技術メモ">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ながたにの技術メモ">
+<meta name="twitter:description">
+<meta name="twitter:creator" content="@Nagatani">
+  
+    <link rel="alternative" href="/atom.xml" title="ながたにの技術メモ" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-43292130-3', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">ながたにの技術メモ</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">書くことがあれば書く</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://nagatani.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-mac-finder-view-allfile" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/07/mac-finder-view-allfile/" class="article-date">
+  <time datetime="2014-10-07T05:40:51.000Z" itemprop="datePublished">2014-10-07(火曜日)</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Mac/">Mac</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/07/mac-finder-view-allfile/">MacのFinederで不可視となっているディレクトリやファイルを表示する方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="ターミナル開いてls-a使え！"><a href="#ターミナル開いてls-a使え！" class="headerlink" title="ターミナル開いてls -a使え！"></a>ターミナル開いて<code>ls -a</code>使え！</h1><p>嘘です。ごめん。</p>
+<h1 id="ls-a使えば見れるけど、Finderでも見たい。"><a href="#ls-a使えば見れるけど、Finderでも見たい。" class="headerlink" title="ls -a使えば見れるけど、Finderでも見たい。"></a><code>ls -a</code>使えば見れるけど、Finderでも見たい。</h1><p>そんなあなたに、以下のコマンドを捧げる。<br>ターミナル開いて、2行入れるだけ。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ defaults write com.apple.finder AppleShowAllFiles <span class="literal">true</span></span><br><span class="line">$ killall Finder</span><br></pre></td></tr></table></figure>
+<p>※<code>killall Finder</code>でFinderが再起動されるので一応注意すること。</p>
+<h1 id="戻し方も教えとく"><a href="#戻し方も教えとく" class="headerlink" title="戻し方も教えとく"></a>戻し方も教えとく</h1><p>1行目のコマンドの最後を<code>true</code>から<code>false</code>に変えるだけ。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ defaults write com.apple.finder AppleShowAllFiles <span class="literal">false</span></span><br><span class="line">$ killall Finder</span><br></pre></td></tr></table></figure>
+<h1 id="Finderでシステム関連の大事なファイルやディレクトリも表示される"><a href="#Finderでシステム関連の大事なファイルやディレクトリも表示される" class="headerlink" title="Finderでシステム関連の大事なファイルやディレクトリも表示される"></a>Finderでシステム関連の大事なファイルやディレクトリも表示される</h1><p>なので、特に理由がないなら、不可視なものは不可視の方が何かと安全ですね。<br>用事が済んだら、元に戻しておくのがオススメ。</p>
+<p>p.s.<br>JavaFXの記事を書くといったな、あれはまだ下書きだ！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://nagatani.github.io/2014/10/07/mac-finder-view-allfile/" data-id="cip552w8x0007xfe1lbp66452" class="article-share-link">Share</a>
+      
+        <a href="http://nagatani.github.io/2014/10/07/mac-finder-view-allfile/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/">Mac</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/terminal/">terminal</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+
+
+  
+  <div class="article-inner" style="margin-bottom:10px;">
+    <section class="google-ads">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- nagatani.github.io -->
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-8746484816226004"
+           data-ad-slot="6347879104"
+           data-ad-format="auto"></ins>
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </section>
+  </div>
+  
+</section>
+        
+          <aside id="sidebar">
+  
+      <div class="widget-wrap">
+    <h3 class="widget-title">Ads</h3>
+    <div class="widget">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- nagatani.github.io-side250 -->
+      <ins class="adsbygoogle"
+           style="display:inline-block;width:250px;height:250px"
+           data-ad-client="ca-pub-8746484816226004"
+           data-ad-slot="5789475901"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  </div>
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Andriod/">Andriod</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CMS/">CMS</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Diary/">Diary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaFX8/">JavaFX8</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/10/08/JavaFX8-fxml-lookandfeel/">JavaFX8でのLook and Feelを設定する</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/07/mac-finder-view-allfile/">MacのFinederで不可視となっているディレクトリやファイルを表示する方法</a>
+          </li>
+        
+          <li>
+            <a href="/2014/09/17/JavaFX8-intro/">JavaFX8 FXMLでのGUIアプリケーション開発 - 事始め</a>
+          </li>
+        
+          <li>
+            <a href="/2014/09/14/androidstudio-adb/">Android Studioを入れたMacBook Airでbashからadbコマンドを使えるようにする</a>
+          </li>
+        
+          <li>
+            <a href="/2014/09/13/hexo-image-add/">GitHub Pagesで運用するHexoで画像を記事内に挿入する（アップロードする）方法の最適解ってあるの？</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">10月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">9月 2014</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AndroidStudio/">AndroidStudio</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CMS/">CMS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FXML/">FXML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaFX8/">JavaFX8</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaFXSceneBuilder2/">JavaFXSceneBuilder2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/adb/">adb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/terminal/">terminal</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AndroidStudio/" style="font-size: 10px;">AndroidStudio</a> <a href="/tags/CMS/" style="font-size: 10px;">CMS</a> <a href="/tags/FXML/" style="font-size: 20px;">FXML</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/JavaFX8/" style="font-size: 20px;">JavaFX8</a> <a href="/tags/JavaFXSceneBuilder2/" style="font-size: 10px;">JavaFXSceneBuilder2</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/terminal/" style="font-size: 10px;">terminal</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Nagatani<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'nagatanigithubio';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
