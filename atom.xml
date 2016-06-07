@@ -244,9 +244,9 @@
     
       <category term="JavaFX8" scheme="http://nagatani.github.io/tags/JavaFX8/"/>
     
-      <category term="FXML" scheme="http://nagatani.github.io/tags/FXML/"/>
-    
       <category term="JavaFXSceneBuilder2" scheme="http://nagatani.github.io/tags/JavaFXSceneBuilder2/"/>
+    
+      <category term="FXML" scheme="http://nagatani.github.io/tags/FXML/"/>
     
   </entry>
   

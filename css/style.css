@@ -574,6 +574,11 @@ body {
 .article-meta:after {
   clear: both;
 }
+@media (max-width: 767px) {
+  .article-meta {
+    display: block;
+  }
+}
 .article-date {
   margin: 0;
   padding: 0 20px;
