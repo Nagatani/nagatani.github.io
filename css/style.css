@@ -117,6 +117,48 @@ button::-moz-focus-inner {
   src: url("fonts/fontawesome-webfont.eot?v=#4.0.3");
   src: url("fonts/fontawesome-webfont.eot?#iefix&v=#4.0.3") format("embedded-opentype"), url("fonts/fontawesome-webfont.woff?v=#4.0.3") format("woff"), url("fonts/fontawesome-webfont.ttf?v=#4.0.3") format("truetype"), url("fonts/fontawesome-webfont.svg#fontawesomeregular?v=#4.0.3") format("svg");
 }
+@font-face {
+  font-family: YakuHanJP;
+  font-style: normal;
+  font-weight: 100;
+  src: url("fonts/YakuHanJP/YakuHanJP-Thin.woff2") format("woff2"), url("fonts/YakuHanJP/YakuHanJP-Thin.woff") format("woff"), url("fonts/YakuHanJP/YakuHanJP-Thin.eot");
+}
+@font-face {
+  font-family: YakuHanJP;
+  font-style: normal;
+  font-weight: 200;
+  src: url("fonts/YakuHanJP/YakuHanJP-Light.woff2") format("woff2"), url("fonts/YakuHanJP/YakuHanJP-Light.woff") format("woff"), url("fonts/YakuHanJP/YakuHanJP-Light.eot");
+}
+@font-face {
+  font-family: YakuHanJP;
+  font-style: normal;
+  font-weight: 300;
+  src: url("fonts/YakuHanJP/YakuHanJP-DemiLight.woff2") format("woff2"), url("fonts/YakuHanJP/YakuHanJP-DemiLight.woff") format("woff"), url("fonts/YakuHanJP/YakuHanJP-DemiLight.eot");
+}
+@font-face {
+  font-family: YakuHanJP;
+  font-style: normal;
+  font-weight: 400;
+  src: url("fonts/YakuHanJP/YakuHanJP-Regular.woff2") format("woff2"), url("fonts/YakuHanJP/YakuHanJP-Regular.woff") format("woff"), url("fonts/YakuHanJP/YakuHanJP-Regular.eot");
+}
+@font-face {
+  font-family: YakuHanJP;
+  font-style: normal;
+  font-weight: 500;
+  src: url("fonts/YakuHanJP/YakuHanJP-Medium.woff2") format("woff2"), url("fonts/YakuHanJP/YakuHanJP-Medium.woff") format("woff"), url("fonts/YakuHanJP/YakuHanJP-Medium.eot");
+}
+@font-face {
+  font-family: YakuHanJP;
+  font-style: normal;
+  font-weight: 700;
+  src: url("fonts/YakuHanJP/YakuHanJP-Bold.woff2") format("woff2"), url("fonts/YakuHanJP/YakuHanJP-Bold.woff") format("woff"), url("fonts/YakuHanJP/YakuHanJP-Bold.eot");
+}
+@font-face {
+  font-family: YakuHanJP;
+  font-style: normal;
+  font-weight: 900;
+  src: url("fonts/YakuHanJP/YakuHanJP-Black.woff2") format("woff2"), url("fonts/YakuHanJP/YakuHanJP-Black.woff") format("woff"), url("fonts/YakuHanJP/YakuHanJP-Black.eot");
+}
 html,
 body,
 #container {
@@ -124,7 +166,7 @@ body,
 }
 body {
   background: #eee;
-  font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 16px YakuHanJP, "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", "Meiryo UI", Meiryo, "メイリオ", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", arial, sans-serif;
   -webkit-text-size-adjust: 100%;
 }
 .outer {
@@ -408,9 +450,9 @@ body {
 .nav-icon {
   font-family: FontAwesome;
   text-align: center;
-  font-size: 14px;
-  width: 14px;
-  height: 14px;
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
   padding: 20px 15px;
   position: relative;
   cursor: pointer;
@@ -484,7 +526,7 @@ body {
   background: none;
   color: #555;
   width: 100%;
-  font: 13px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 13px YakuHanJP, "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", "Meiryo UI", Meiryo, "メイリオ", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", arial, sans-serif;
   outline: none;
 }
 .search-form-input::-webkit-search-results-decoration,
@@ -568,7 +610,7 @@ a.article-title:hover {
 .article-entry p,
 .article-entry table {
   line-height: 1.6em;
-  margin: 1.6em 0;
+  margin: 0.6em 0;
 }
 .article-entry h1,
 .article-entry h2,
@@ -631,9 +673,9 @@ a.article-title:hover {
   text-align: center;
 }
 .article-entry blockquote footer {
-  font-size: 14px;
+  font-size: 16px;
   margin: 1.6em 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: YakuHanJP, "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", "Meiryo UI", Meiryo, "メイリオ", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", arial, sans-serif;
 }
 .article-entry blockquote footer cite:before {
   content: "—";
@@ -841,7 +883,7 @@ a.article-title:hover {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 14px YakuHanJP, "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", "Meiryo UI", Meiryo, "メイリオ", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", arial, sans-serif;
   padding: 0 15px;
   color: #555;
   outline: none;
@@ -1109,7 +1151,7 @@ a.article-title:hover {
   border-width: 1px 0;
   overflow: auto;
   color: #ccc;
-  line-height: 22.400000000000002px;
+  line-height: 25.6px;
 }
 .article-entry .highlight .gutter pre,
 .article-entry .gist .gist-file .gist-data .line-numbers {
@@ -1165,7 +1207,7 @@ a.article-title:hover {
   padding-right: 20px;
 }
 .article-entry .highlight .line {
-  height: 22.400000000000002px;
+  height: 25.6px;
 }
 .article-entry .gist {
   margin: 0 -20px;
@@ -1200,7 +1242,7 @@ a.article-title:hover {
 .article-entry .gist .gist-file .gist-meta {
   background: #2d2d2d;
   color: #999;
-  font: 0.85em "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 0.85em YakuHanJP, "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", "Meiryo UI", Meiryo, "メイリオ", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", arial, sans-serif;
   text-shadow: 0 0;
   padding: 0;
   margin-top: 1em;

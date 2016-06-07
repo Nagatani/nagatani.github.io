@@ -118,7 +118,7 @@ ga('send', 'pageview');
 <h2 id="Spark-Frameworkについて"><a href="#Spark-Frameworkについて" class="headerlink" title="Spark Frameworkについて"></a>Spark Frameworkについて</h2><ul>
 <li><a href="http://sparkjava.com/" target="_blank" rel="external">Spark Framework - A tiny Java web framework</a></li>
 </ul>
-<p><img src="/image/netbeans-spark-web-1-spark.png" alt=""></p>
+<p><img src="/image/netbeans-spark-web-1/spark.png" alt=""></p>
 <p>Apache Sparkではないのでググラビリティ低いから注意が必要。<br>Spark Frameworkは、JavaでサクッとちょっとしたWebアプリケーションを作るのに便利なマイクロフレームワーク。</p>
 <h2 id="事前準備"><a href="#事前準備" class="headerlink" title="事前準備"></a>事前準備</h2><ul>
 <li>NetBeans<ul>
@@ -129,12 +129,12 @@ ga('send', 'pageview');
 <p>インストールしておく。</p>
 <h2 id="Mavenプロジェクトの作成"><a href="#Mavenプロジェクトの作成" class="headerlink" title="Mavenプロジェクトの作成"></a>Mavenプロジェクトの作成</h2><p>Gradle使いたい気持ちもあるけど、SparkのサイトでもMavenで書いてあるからここはMavenで行こうと思う。</p>
 <h4 id="NetBeansで新規プロジェクトを作成"><a href="#NetBeansで新規プロジェクトを作成" class="headerlink" title="NetBeansで新規プロジェクトを作成"></a>NetBeansで新規プロジェクトを作成</h4><p>「Maven」の「Javaアプリケーション」で良い。</p>
-<p><img src="/image/netbeans-spark-web-1-01.png" alt=""></p>
+<p><img src="/image/netbeans-spark-web-1/01.png" alt=""></p>
 <p>ここで、違うのにするといろいろおかしくなる。</p>
 <p>続いて、プロジェクトの詳細を設定する。<br>プロジェクト名とかは好きなの設定すればいいと思う。<br>自分のドメインを持っている場合は、com.sampleとか変えたほうがいいんじゃないかな。</p>
-<p><img src="/image/netbeans-spark-web-1-02.png" alt=""></p>
+<p><img src="/image/netbeans-spark-web-1/02.png" alt=""></p>
 <h2 id="pom-xmlを編集してSparkをプロジェクトに追加"><a href="#pom-xmlを編集してSparkをプロジェクトに追加" class="headerlink" title="pom.xmlを編集してSparkをプロジェクトに追加"></a>pom.xmlを編集してSparkをプロジェクトに追加</h2><p>Mavenなのでpom.xmlを編集して依存関係を追加する。<br>pom.xmlはプロジェクトウィンドウの以下のところにある。</p>
-<p><img src="/image/netbeans-spark-web-1-03.png" alt=""></p>
+<p><img src="/image/netbeans-spark-web-1/03.png" alt=""></p>
 <p>pom.xmlは以下のようになっている。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.sample<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spark-project<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.build.sourceEncoding</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">maven.compiler.source</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.source</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">maven.compiler.target</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.target</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>ここから、<a href="http://sparkjava.com/documentation.html" target="_blank" rel="external">Sparkのドキュメント</a>にあるように以下の依存関係を追加する訳だけど、Sparkのドキュメントでは<code>dependency</code>のノードしか書かれていない。</p>
@@ -142,12 +142,12 @@ ga('send', 'pageview');
 <p>NetBeansでプロジェクト作った状態だと、これを入れる<code>dependencies</code>のノード自体がないので以下のように<code>dependencies</code>ノードから追加する必要がある。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    modelVersionとかなんかいろいろある</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.sparkjava<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spark-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="一度ビルドする"><a href="#一度ビルドする" class="headerlink" title="一度ビルドする"></a>一度ビルドする</h2><p>ショートカットの<code>F11</code>キーか、メニューバーの「実行」→「プロジェクトをビルド」で良い。</p>
-<p><img src="/image/netbeans-spark-web-1-04.png" alt=""></p>
+<p><img src="/image/netbeans-spark-web-1/04.png" alt=""></p>
 <p>これでpom.xmlのdependenciesにあるライブラリのjarを依存関係込みで、手っ取り早くダウンロードしてきてくれる。</p>
 <h2 id="クラスを追加する"><a href="#クラスを追加する" class="headerlink" title="クラスを追加する"></a>クラスを追加する</h2><p>プロジェクト作成時に作成されているpackage内に、新規クラスを追加する。</p>
-<p><img src="/image/netbeans-spark-web-1-05.png" alt=""></p>
+<p><img src="/image/netbeans-spark-web-1/05.png" alt=""></p>
 <p>クラス名はSparkのサイトに合わせて<code>HelloWorld</code>にしておく。</p>
-<p><img src="/image/netbeans-spark-web-1-06.png" alt=""></p>
+<p><img src="/image/netbeans-spark-web-1/06.png" alt=""></p>
 <h4 id="importでspark-Spark-を追加する"><a href="#importでspark-Spark-を追加する" class="headerlink" title="importでspark.Spark.*を追加する"></a>importで<code>spark.Spark.*</code>を追加する</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> spark.Spark.*;</span><br></pre></td></tr></table></figure>
 <p><code>static</code>インポートする点に注意。</p>
 <h4 id="mainメソッドを追加する"><a href="#mainメソッドを追加する" class="headerlink" title="mainメソッドを追加する"></a>mainメソッドを追加する</h4><p>追加した<code>HelloWorld</code>クラスに、以下のmainメソッドを入れる。</p>
@@ -155,12 +155,12 @@ ga('send', 'pageview');
 <p>Sparkのドキュメントと違う点は、Sparkが動作するJettyのWebサーバーを停止するstopの受付を増やす必要がある点。  (理由は後述)</p>
 <p>以上で、SparkのHelloWorldは作成完了。<br>あとは起動して動作確認しよう。</p>
 <h2 id="起動"><a href="#起動" class="headerlink" title="起動"></a>起動</h2><p><code>F6</code>キーかメニューバーの「実行」から「プロジェクトの実行」で起動できる。<br>メインクラスの指定は、HelloWorldを選択する。</p>
-<p><img src="/image/netbeans-spark-web-1-07.png" alt=""></p>
+<p><img src="/image/netbeans-spark-web-1/07.png" alt=""></p>
 <p>実行後、出力ウィンドウでエラーが出てないことを確認する。  </p>
-<p><img src="/image/netbeans-spark-web-1-08.png" alt=""></p>
+<p><img src="/image/netbeans-spark-web-1/08.png" alt=""></p>
 <p>エラーが出てると、何かしらどこかで間違えてるのでもう一度よく確認する。<br>エラーが出てなければ、今度はブラウザを立ち上げて動作確認しよう。</p>
 <h2 id="ブラウザからアクセス"><a href="#ブラウザからアクセス" class="headerlink" title="ブラウザからアクセス"></a>ブラウザからアクセス</h2><p><code>http://localhost:4567/hello</code>にアクセスしてみると、以下のような結果が得られる。</p>
-<p><img src="/image/netbeans-spark-web-1-09.png" alt=""></p>
+<p><img src="/image/netbeans-spark-web-1/09.png" alt=""></p>
 <p>これでひとまずSparkの世界に挨拶を済ますことができた。</p>
 <p>動作の確認が終了したら、NetBeansで実行を停止することに加えて、以下のURLにアクセスし、Jettyのプロセスも終了させる。</p>
 <p><code>http://localhost:4567/stop</code></p>
