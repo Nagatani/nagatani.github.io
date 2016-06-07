@@ -61,10 +61,6 @@ ga('send', 'pageview');
         
           <a class="main-nav-link" href="/">Home</a>
         
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-          <a class="main-nav-link" href="/about">About</a>
-        
       </nav>
       <nav id="sub-nav">
         
@@ -290,137 +286,6 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-androidstudio-adb" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/09/14/androidstudio-adb/" class="article-date">
-  <time datetime="2014-09-14T09:39:30.000Z" itemprop="datePublished">2014-09-14(日曜日)</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Andriod/">Andriod</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/09/14/androidstudio-adb/">Android Studioを入れたMacBook Airでbashからadbコマンドを使えるようにする</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>なんやかんやあれやこれやでadbコマンド使わないといけなくなったので、その手順をメモしておく。<br>母艦のWindowsマシンには、Android SDKを手動セットアップしてたのでそれ使えば良いだけの話なんだけど、たまたま手元にあるのはMacBook Airだったので、adbコマンド使えるようにしとこう、というわけです。</p>
-<p>前提として、Android Studioはインストール済み。</p>
-<h2 id="Android-SDKを別途入れなくても、Android-StudioにはSDKが含まれてる"><a href="#Android-SDKを別途入れなくても、Android-StudioにはSDKが含まれてる" class="headerlink" title="Android SDKを別途入れなくても、Android StudioにはSDKが含まれてる"></a>Android SDKを別途入れなくても、Android StudioにはSDKが含まれてる</h2><p>ので、それのPATHを通してやれば良いわけです。</p>
-<h2 id="Android-Studioに含まれるSDKの場所"><a href="#Android-Studioに含まれるSDKの場所" class="headerlink" title="Android Studioに含まれるSDKの場所"></a>Android Studioに含まれるSDKの場所</h2><p>環境によって異なるかもしれないので注意が必要。<br>僕のMacBook AirにインストールしたAndroid Studioの構成では以下のパス以下にSDKが含まれていた。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Applications/Android\ Studio.app/sdk/</span><br></pre></td></tr></table></figure>
-<p>目的のadb本体は、<code>sdk</code>ディレクトリ以下の、<code>platform-tools</code>にある。</p>
-<h2 id="adbコマンドを使用できるように、PATHを通す"><a href="#adbコマンドを使用できるように、PATHを通す" class="headerlink" title="adbコマンドを使用できるように、PATHを通す"></a>adbコマンドを使用できるように、PATHを通す</h2><p>ターミナルに使うのが何かで設定が異なる。<br>僕のMacBook Airは初期設定のままのbashを使ってるので、以下のようにする。</p>
-<h3 id="bashの場合"><a href="#bashの場合" class="headerlink" title="bashの場合"></a>bashの場合</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/.bash_profile</span><br></pre></td></tr></table></figure>
-<p>に以下の一行を追加する。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=$PATH:/Applications/Android\ Studio.app/sdk/platform-tools</span><br></pre></td></tr></table></figure>
-<p>エディタはお好きにどうぞ。</p>
-<h3 id="普段あんま使わないけど、zshの場合は……"><a href="#普段あんま使わないけど、zshの場合は……" class="headerlink" title="普段あんま使わないけど、zshの場合は……"></a>普段あんま使わないけど、zshの場合は……</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/.zshrc</span><br></pre></td></tr></table></figure>
-<p>に以下同文。</p>
-<h2 id="adbが動作するか確認する。"><a href="#adbが動作するか確認する。" class="headerlink" title="adbが動作するか確認する。"></a>adbが動作するか確認する。</h2><p>設定を読み込みし直さないといけないので、ターミナル再起動。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ adb <span class="built_in">help</span></span><br></pre></td></tr></table></figure>
-<p>とかでヘルプが出て来ればオッケーなんじゃないですかね。</p>
-<p>僕からは以上です。</p>
-
-      
-    </div>
-
-    
-    <footer class="article-footer">
-      
-        <a href="http://nagatani.github.io/2014/09/14/androidstudio-adb/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AndroidStudio/">AndroidStudio</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/adb/">adb</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-hexo-image-add" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/09/13/hexo-image-add/" class="article-date">
-  <time datetime="2014-09-12T18:55:09.000Z" itemprop="datePublished">2014-09-13(土曜日)</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/CMS/">CMS</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/09/13/hexo-image-add/">GitHub Pagesで運用するHexoで画像を記事内に挿入する（アップロードする）方法の最適解ってあるの？</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>タイトルの通りです。</p>
-<h2 id="Hexoで画像を挿入する方法"><a href="#Hexoで画像を挿入する方法" class="headerlink" title="Hexoで画像を挿入する方法"></a>Hexoで画像を挿入する方法</h2><p>調べたけど、どれもしっくり来ない。<br>プラグインはコレジャナイ感ある。</p>
-<h2 id="自己流"><a href="#自己流" class="headerlink" title="自己流"></a>自己流</h2><p>で、自分がやってみてる方法は、</p>
-<ol>
-<li>「image」ページを作成する。</li>
-<li>作成した「image」ページのディレクトリに画像を突っ込む。</li>
-<li>記事からは、「/image/突っ込んだ画像」で画像を参照させる。</li>
-<li>公開するタイミングで、ページの画像もgit pushできる。</li>
-<li>画像差し込めた。</li>
-</ol>
-<p>という流れになってる。</p>
-<h3 id="順を追う"><a href="#順を追う" class="headerlink" title="順を追う"></a>順を追う</h3><h4 id="1-「image」ページを作成する。"><a href="#1-「image」ページを作成する。" class="headerlink" title="1. 「image」ページを作成する。"></a>1. 「image」ページを作成する。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page <span class="string">"image"</span></span><br></pre></td></tr></table></figure>
-<h4 id="2-作成した「image」ページのディレクトリに画像を突っ込む。"><a href="#2-作成した「image」ページのディレクトリに画像を突っ込む。" class="headerlink" title="2. 作成した「image」ページのディレクトリに画像を突っ込む。"></a>2. 作成した「image」ページのディレクトリに画像を突っ込む。</h4><p>ファイル名が被らないように、記事毎でユニークにしておくといいかも。</p>
-<h4 id="3-記事からは、「-image-突っ込んだ画像」で画像を参照させる。"><a href="#3-記事からは、「-image-突っ込んだ画像」で画像を参照させる。" class="headerlink" title="3. 記事からは、「/image/突っ込んだ画像」で画像を参照させる。"></a>3. 記事からは、「/image/突っ込んだ画像」で画像を参照させる。</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![](/image/screenshot.png)</span><br></pre></td></tr></table></figure>
-<p>みたいな感じで。<br>タイトルとか入れたければ入れる。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>でローカルプレビューして画像が見えてれば多分OK。</p>
-<h4 id="4-公開するタイミングで、ページの画像もgit-pushできる。"><a href="#4-公開するタイミングで、ページの画像もgit-pushできる。" class="headerlink" title="4. 公開するタイミングで、ページの画像もgit pushできる。"></a>4. 公開するタイミングで、ページの画像もgit pushできる。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d -g</span><br></pre></td></tr></table></figure>
-<p>とかこんなんで良いと思う。<br>（記事の公開、毎回このコマンド使ってるけど、これもあってるのか正直よくわからん。）<br>（ていうか記事の公開だけでこのコマンドは間違ってる。あとでちゃんと調べます。）</p>
-<h4 id="5-画像差し込めた。"><a href="#5-画像差し込めた。" class="headerlink" title="5. 画像差し込めた。"></a>5. 画像差し込めた。</h4><p>デデーン</p>
-<p>前回の記事：<a href="http://nagatani.github.io/2014/09/12/Markdown-cms/">Markdownで書けるCMS | nagatani.github.io</a>では、この方法でスクリーンショットの差し込みをしてる。</p>
-<h2 id="なんかもっといい方法ないスか？"><a href="#なんかもっといい方法ないスか？" class="headerlink" title="なんかもっといい方法ないスか？"></a>なんかもっといい方法ないスか？</h2><p>ページ作成してるの、多分用途として間違ってる気がするし、でもHexoインストールしたディレクトリ直下とか画像置きたくないし、で何かいい方法知ってたら教えて欲しいっす。<br>そもそもGitがよくわからん。</p>
-
-      
-    </div>
-
-    
-    <footer class="article-footer">
-      
-        <a href="http://nagatani.github.io/2014/09/13/hexo-image-add/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
   <div class="article-inner" style="margin-bottom:10px;">
     <section class="google-ads">
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -437,7 +302,7 @@ ga('send', 'pageview');
   </div>
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2014/page/2/">2</a><a class="extend next" rel="next" href="/archives/2014/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/archives/2014/page/2/">2</a><a class="page-number" href="/archives/2014/page/3/">3</a><a class="extend next" rel="next" href="/archives/2014/page/2/">Next &raquo;</a>
     </nav>
   
 </section>
@@ -563,10 +428,6 @@ ga('send', 'pageview');
     <nav id="mobile-nav">
   
     <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-    <a href="/about" class="mobile-nav-link">About</a>
   
 </nav>
     

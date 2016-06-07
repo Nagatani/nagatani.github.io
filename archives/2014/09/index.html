@@ -61,10 +61,6 @@ ga('send', 'pageview');
         
           <a class="main-nav-link" href="/">Home</a>
         
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-          <a class="main-nav-link" href="/about">About</a>
-        
       </nav>
       <nav id="sub-nav">
         
@@ -306,224 +302,6 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-Markdown-cms" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/09/12/Markdown-cms/" class="article-date">
-  <time datetime="2014-09-11T19:00:46.000Z" itemprop="datePublished">2014-09-12(金曜日)</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/CMS/">CMS</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/09/12/Markdown-cms/">Markdownで書けるCMS</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="前置き"><a href="#前置き" class="headerlink" title="前置き"></a>前置き</h2><p>CMSについての話です。<br>いつもは大抵Wordpress使ってるんだけど、なんだかんだ言って更新がめんどいんですよ。<br>ただ私が面倒くさがりってこともあるんですが……。</p>
-<p>講師業で使う資料作成にMarkdownをよく使うようになって、<br>「Markdownマジ楽。」<br>からの<br>「もうMarkdownで記事書けば良くね？」<br>ってなった次第です。</p>
-<p>で、いろいろあって今このブログでHexo使ってます。<br>だけどこのブログは、ほとんど自分のメモ書きみたいな感じで使っていきたい。</p>
-<p>そのいろいろあった時にMarkdownで記事書けるCMSというかブログシステム探した結果報告と言うか見つけたものを雑に紹介しておこうと思ってこれ書きました。</p>
-<h1 id="Markdownで記事が書けるCMS"><a href="#Markdownで記事が書けるCMS" class="headerlink" title="Markdownで記事が書けるCMS"></a>Markdownで記事が書けるCMS</h1><p>前置きが長くなりましたが、良さそうかなーって思ったものをとりあえず一覧で。</p>
-<ul>
-<li><a href="http://picocms.org/" target="_blank" rel="external">Pico</a></li>
-<li><a href="http://noshi.cundd.net/" target="_blank" rel="external">NoShi</a></li>
-<li><a href="http://dropplets.com/" target="_blank" rel="external">Dropplets</a></li>
-<li><a href="https://github.com/csu/singularity-cms" target="_blank" rel="external">Singularity</a></li>
-<li><a href="http://hexo.io/" target="_blank" rel="external">Hexo</a></li>
-</ul>
-<p>以降個別に紹介していきます。</p>
-<h2 id="Pico"><a href="#Pico" class="headerlink" title="Pico"></a>Pico</h2><p><a href="http://picocms.org/" target="_blank" rel="external">Pico - A stupidly simple, blazing fast, flat file CMS.</a><br><img src="/image/sc-pico.png" alt=""></p>
-<h3 id="詳細"><a href="#詳細" class="headerlink" title="詳細"></a>詳細</h3><table>
-<thead>
-<tr>
-<th style="text-align:left">項目名</th>
-<th style="text-align:left">詳細</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">動作環境</td>
-<td style="text-align:left">PHP 5.3以上 Apache:mod_rewrite</td>
-</tr>
-<tr>
-<td style="text-align:left">ライセンス</td>
-<td style="text-align:left">MIT</td>
-</tr>
-</tbody>
-</table>
-<p>私が管理しているサイトでも一部で使用している。<br>Markdownファイルをアップロードすると、初回アクセス時にHTMLページが生成される。<br>ドキュメントが豊富で、プラグインも豊富。<br>テンプレートエンジンにTwigが使われてて分かりやすい。（個人的な感想）<br>プラグインの開発も比較的簡単な印象。（これも個人的な感想）</p>
-<p>Picoから派生したCoqooなんてのもある。<br><a href="http://coqoo.net/" target="_blank" rel="external">Markdown CMS Coqoo ―虚空― | Markdown CMS Coqoo ―虚空―</a><br>日本人作者なので妙な安心感がある。</p>
-<p>ただ、PHPである程度わかって、Picoプラグインの開発ができるのなら、こういった派生のものを使用するより、Picoそのもの使った方が良いってぐらいPicoは簡単かと。<br>レンタルサーバーで運用する場合は、PHPのバージョンが5.3以上になってることを確認しよう！（自戒を込めて）</p>
-<h2 id="NoShi"><a href="#NoShi" class="headerlink" title="NoShi"></a>NoShi</h2><p><a href="http://noshi.cundd.net/" target="_blank" rel="external">NoShi - The no shi! CMS</a><br><img src="/image/sc-noshi.png" alt=""></p>
-<h3 id="詳細-1"><a href="#詳細-1" class="headerlink" title="詳細"></a>詳細</h3><table>
-<thead>
-<tr>
-<th style="text-align:left">項目名</th>
-<th style="text-align:left">詳細</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">動作環境</td>
-<td style="text-align:left">PHP 5.4以上</td>
-</tr>
-<tr>
-<td style="text-align:left">ライセンス</td>
-<td style="text-align:left">MIT</td>
-</tr>
-</tbody>
-</table>
-<p>和風っぽいけど日本製ではないのです。<br>Apacheじゃなくても運用できるので良さ気な印象を受けたが、まだ新しいので、ドキュメントも少なく若干敷居が高く感じた。<br>サイトのデザインが良さそうな雰囲気だったので紹介しておきます。</p>
-<h2 id="Dropplets"><a href="#Dropplets" class="headerlink" title="Dropplets"></a>Dropplets</h2><p><a href="http://dropplets.com/" target="_blank" rel="external">Dropplets - Welcome to an Easier Way to Blog</a><br><img src="/image/sc-dropplets.png" alt=""></p>
-<h3 id="詳細-2"><a href="#詳細-2" class="headerlink" title="詳細"></a>詳細</h3><table>
-<thead>
-<tr>
-<th style="text-align:left">項目名</th>
-<th style="text-align:left">詳細</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">動作環境</td>
-<td style="text-align:left">PHP (必須バージョン不明)</td>
-</tr>
-<tr>
-<td style="text-align:left">ライセンス</td>
-<td style="text-align:left">MIT</td>
-</tr>
-</tbody>
-</table>
-<p>使いやすそうなんだけど、ドキュメントが少ないなーって思って使うのを諦めました。<br>使うの諦めたので、PHPの必須バージョンとか詳細がわからない……。</p>
-<h2 id="Singularity"><a href="#Singularity" class="headerlink" title="Singularity"></a>Singularity</h2><p><a href="https://github.com/csu/singularity-cms" target="_blank" rel="external">Singularity - GitHub:csu/singularity-cms</a><br>リンク先がGitHubなのでスクリーンショットはなし。</p>
-<h3 id="詳細-3"><a href="#詳細-3" class="headerlink" title="詳細"></a>詳細</h3><table>
-<thead>
-<tr>
-<th style="text-align:left">項目名</th>
-<th style="text-align:left">詳細</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">動作環境</td>
-<td style="text-align:left">PHP (必須バージョン不明)</td>
-</tr>
-<tr>
-<td style="text-align:left">ライセンス</td>
-<td style="text-align:left">MIT</td>
-</tr>
-</tbody>
-</table>
-<p><a href="http://strapdownjs.com/" target="_blank" rel="external">Strapdown.js</a>を使って表示のタイミングで都度MarkdownからHTMLに変換するタイプのCMS。<br>PHPのソース40行しかなく、あとはhtaccessのみで構成されてて非常にシンプルです。<br>都度Markdownから変換してるので、キャッシュとかそういった観点から中規模から大規模なサイトには使用しづらいかなーって思い、使用を断念しました。<br>このCMSを知ったおかげでStrapdown.jsも知ることができたので良い。</p>
-<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><p><a href="http://hexo.io/" target="_blank" rel="external">Hexo</a><br><img src="/image/sc-hexo.png" alt=""></p>
-<h3 id="詳細-4"><a href="#詳細-4" class="headerlink" title="詳細"></a>詳細</h3><table>
-<thead>
-<tr>
-<th style="text-align:left">項目名</th>
-<th style="text-align:left">詳細</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">動作環境</td>
-<td style="text-align:left">Node.js</td>
-</tr>
-<tr>
-<td style="text-align:left">ライセンス</td>
-<td style="text-align:left">MIT</td>
-</tr>
-</tbody>
-</table>
-<p>このブログがそう。<br>何が良いって、GitHub Pagesで運用が可能ってところです。<br>Gitの使い方とかを学ぶついでに良いってところもこれを使用しているポイントですね。<br>日本語で書かれたブログ記事も豊富なので、インストールにつまずくことは少ないような気がします。</p>
-<p>※読み方がわからん。ヘクソでいいの？？</p>
-<h1 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h1><p>だいぶ雑に紹介した感ある。</p>
-<p>Markdown便利だからMarkdownでブログ書くのマジオススメ。<br>あと、紹介したCMSはどれもデータベースを使用しないファイルベースのものばかりなので、MySQLとかそういう呪縛に囚われない。</p>
-<p>個人的に一押しなのがPicoですかね。<br>カスタマイズしやすいのが一番の理由。</p>
-<p>「雑に紹介した」というのを免罪符にしたい気持ちでいっぱいです。</p>
-
-      
-    </div>
-
-    
-    <footer class="article-footer">
-      
-        <a href="http://nagatani.github.io/2014/09/12/Markdown-cms/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CMS/">CMS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/">Markdown</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/09/11/hello-world/" class="article-date">
-  <time datetime="2014-09-11T06:11:01.000Z" itemprop="datePublished">2014-09-11(木曜日)</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Diary/">Diary</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/09/11/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>GitHub Pagesに<a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>入れた。</p>
-<p>何書くかは決めてない。<br>テキトーに何かしら書いていきたい。</p>
-<h2 id="HexoをGitHub-Pagesに構築するのに参考にしたサイト"><a href="#HexoをGitHub-Pagesに構築するのに参考にしたサイト" class="headerlink" title="HexoをGitHub Pagesに構築するのに参考にしたサイト"></a>HexoをGitHub Pagesに構築するのに参考にしたサイト</h2><ul>
-<li><a href="http://qiita.com/bird_nitryn/items/5988a1efe47e0d47132b" target="_blank" rel="external">Hexo と GitHub Pages でブログ環境を構築して公開する - Qiita</a></li>
-<li><a href="http://liginc.co.jp/web/programming/server/104594" target="_blank" rel="external">所要時間3分!? Github PagesとHEXOで爆速ブログ構築してみよう！ | 株式会社LIG</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    <footer class="article-footer">
-      
-        <a href="http://nagatani.github.io/2014/09/11/hello-world/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
   <div class="article-inner" style="margin-bottom:10px;">
     <section class="google-ads">
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -538,6 +316,10 @@ ga('send', 'pageview');
       </script>
     </section>
   </div>
+  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/archives/2014/09/page/2/">2</a><a class="extend next" rel="next" href="/archives/2014/09/page/2/">Next &raquo;</a>
+    </nav>
   
 </section>
         
@@ -662,10 +444,6 @@ ga('send', 'pageview');
     <nav id="mobile-nav">
   
     <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-    <a href="/about" class="mobile-nav-link">About</a>
   
 </nav>
     

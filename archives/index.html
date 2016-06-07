@@ -61,10 +61,6 @@ ga('send', 'pageview');
         
           <a class="main-nav-link" href="/">Home</a>
         
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-          <a class="main-nav-link" href="/about">About</a>
-        
       </nav>
       <nav id="sub-nav">
         
@@ -301,163 +297,6 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-JavaFX8-intro" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/09/17/JavaFX8-intro/" class="article-date">
-  <time datetime="2014-09-17T06:11:01.000Z" itemprop="datePublished">2014-09-17(水曜日)</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/JavaFX8/">JavaFX8</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/09/17/JavaFX8-intro/">JavaFX8 FXMLでのGUIアプリケーション開発 - 事始め</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今回から、JavaFX8(JavaFX on Java8)についての記事を幾つか書こうと思う。<br>前持って言って置かなければならないんだけど、私はJavaFXでの開発実績がない。<br>この記事もある程度勉強進めた段階で書いてるけど、自分がわかるように書くだけなので参考にならなくても知らんし、間違った内容もあるかもしれんし、途中で飽きたら放置するのでそのつもりでお願いします。</p>
-<h2 id="Java8から標準機能となったJavaFX"><a href="#Java8から標準機能となったJavaFX" class="headerlink" title="Java8から標準機能となったJavaFX"></a>Java8から標準機能となったJavaFX</h2><p>Swingと取って代わって、JavaFXがJavaのGUI開発の標準的な位置づけになりつつある（なった）と思って差し支えないかと思う。<br>何言ってんだSwingが標準だろうが！ってお怒りの方、落ち着いてください。そういう意見もあります。(あるのかどうかも知らんけど)</p>
-<h2 id="とりあえず-Java-8-を-NetBeans-8-で開発できるようにしよう"><a href="#とりあえず-Java-8-を-NetBeans-8-で開発できるようにしよう" class="headerlink" title="とりあえず Java 8 を NetBeans 8 で開発できるようにしよう"></a>とりあえず Java 8 を NetBeans 8 で開発できるようにしよう</h2><p>Eclipse？<br>そんなものは知らん。</p>
-<p>IntelliJ IDEA？<br>ライセンス欲しい。</p>
-<p>Java8とNetBeans8がセットになったJava SE 8が以下のサイト(Oracle)よりダウンロードできる。<br>JavaでGUIアプリケーションを今から始める。という方は、迷わずNetBeans付きのものをダウンロードすると良いだろう。</p>
-<p><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk-netbeans-jsp-142931.html" target="_blank" rel="external">Java SE Downloads - Netbeans + JDK Bundle</a></p>
-<p>NetBeansはGUIアプリケーション開発に非常に向いているIDEだと思う。<br>Oracleが配布してるし、なんとなく安心感を得られます。<br>……よく落ちるけど。</p>
-<p>ダウンロードからインストールまでは、それほど躓くところはないと思う。<br>PATHも多分インストーラーが通してくれるはず。</p>
-<p>余談だけど、WindowsでNetBeans立ち上げると、フォント見た瞬間に拒絶反応出る。<br>最近はJavaでの開発はもっぱらMac OSでやってる。<br>WindowsでNetBeans使う場合は、まず最初にエディタのフォントを見やすいのに変えることをオススメしたい。</p>
-<h2 id="FXMLのアプリケーションには必需品と言ってもいい-JavaFX-Scene-Builder-2-0"><a href="#FXMLのアプリケーションには必需品と言ってもいい-JavaFX-Scene-Builder-2-0" class="headerlink" title="FXMLのアプリケーションには必需品と言ってもいい JavaFX Scene Builder 2.0"></a>FXMLのアプリケーションには必需品と言ってもいい JavaFX Scene Builder 2.0</h2><p>これ入れておくと捗る場合がほとんどだと思うので、入れておく。<br>じゃないとGUIの調整に、FXMLと呼ばれるJavaFX用のXMLを直接直す必要性が出てくる。<br>慣れてる人なら入れなくてもいいかもしれないが、便利なツールなので入れておくに越したことはないと思う。</p>
-<p><a href="http://www.oracle.com/technetwork/java/javase/downloads/sb2download-2177776.html" target="_blank" rel="external">JavaFX Scene Builder 2.0 Download</a></p>
-<p>また、JavaFX8には、Swing互換っぽい動きをするJavaFX in Swingなるものと、JavaFX FXMLなるものがある。<br>Swingに慣れている人は前者を使えば良い。それなら Scene Builderはいらない。<br>だけど、どうせなら FXML を覚えた方が後々役に立つだろうと思う。</p>
-<h2 id="とりあえず-JavaFX8-で世界に挨拶をしとこう。"><a href="#とりあえず-JavaFX8-で世界に挨拶をしとこう。" class="headerlink" title="とりあえず JavaFX8 で世界に挨拶をしとこう。"></a>とりあえず JavaFX8 で世界に挨拶をしとこう。</h2><p>みんな最初は世界に挨拶することから始まります。<br>手順は以下のとおり。</p>
-<ol>
-<li>NetBeans8を起動</li>
-<li>メニューバーの[ファイル]→[新規プロジェクト]  (Macなら[shift] + [⌘] + [n])</li>
-<li>カテゴリから「JavaFX」を選択</li>
-<li>プロジェクトから「JavaFX FXMLアプリケーション」を選択</li>
-<li>「次へ」</li>
-<li>プロジェクトの保存先等を設定する</li>
-<li>「終了」</li>
-<li>プロジェクトを実行</li>
-</ol>
-<h2 id="もう少し詳しく"><a href="#もう少し詳しく" class="headerlink" title="もう少し詳しく"></a>もう少し詳しく</h2><h3 id="1-NetBeans8を起動"><a href="#1-NetBeans8を起動" class="headerlink" title="1. NetBeans8を起動"></a>1. NetBeans8を起動</h3><h3 id="2-メニューバーの-ファイル-→-新規プロジェクト-Macなら-shift-⌘-n"><a href="#2-メニューバーの-ファイル-→-新規プロジェクト-Macなら-shift-⌘-n" class="headerlink" title="2. メニューバーの[ファイル]→[新規プロジェクト]  (Macなら[shift] + [⌘] + [n])"></a>2. メニューバーの[ファイル]→[新規プロジェクト]  (Macなら[shift] + [⌘] + [n])</h3><p><img src="/image/sc-javafx8-intro-01.png" alt="これ"></p>
-<h3 id="3-カテゴリから「JavaFX」を選択"><a href="#3-カテゴリから「JavaFX」を選択" class="headerlink" title="3. カテゴリから「JavaFX」を選択"></a>3. カテゴリから「JavaFX」を選択</h3><p><img src="/image/sc-javafx8-intro-02.png" alt="「次へ」を押すのはまだ早い！"></p>
-<h3 id="4-プロジェクトから「JavaFX-FXMLアプリケーション」を選択"><a href="#4-プロジェクトから「JavaFX-FXMLアプリケーション」を選択" class="headerlink" title="4. プロジェクトから「JavaFX FXMLアプリケーション」を選択"></a>4. プロジェクトから「JavaFX FXMLアプリケーション」を選択</h3><h3 id="5-「次へ」"><a href="#5-「次へ」" class="headerlink" title="5. 「次へ」"></a>5. 「次へ」</h3><p><img src="/image/sc-javafx8-intro-03.png" alt="ちゃんとJavaFX FXMLアプリケーションを選ぼう。"></p>
-<h3 id="6-プロジェクトの保存先等を設定する"><a href="#6-プロジェクトの保存先等を設定する" class="headerlink" title="6. プロジェクトの保存先等を設定する"></a>6. プロジェクトの保存先等を設定する</h3><p><img src="/image/sc-javafx8-intro-04.png" alt="保存先とかは分かりやすいところにまとめておいたほうが良いと思う。"></p>
-<h3 id="7-「終了」"><a href="#7-「終了」" class="headerlink" title="7. 「終了」"></a>7. 「終了」</h3><p><img src="/image/sc-javafx8-intro-05.png" alt="プロジェクトが生成できた。"></p>
-<h3 id="8-プロジェクトを実行"><a href="#8-プロジェクトを実行" class="headerlink" title="8. プロジェクトを実行"></a>8. プロジェクトを実行</h3><p><img src="/image/sc-javafx8-intro-06.png" alt="こんなボタンがあるはず。探して押そう。"></p>
-<h2 id="実行すると"><a href="#実行すると" class="headerlink" title="実行すると"></a>実行すると</h2><p>以下の様な小さい画面が出てくる。<br><img src="/image/sc-javafx8-intro-07.png" alt=""></p>
-<p>さも押してほしそうなボタン、「Click Me!」をクリック<br><img src="/image/sc-javafx8-intro-09.png" alt=""></p>
-<p>これで通過儀礼である世界への挨拶が完了した。</p>
-<h2 id="生成されたソースコードを見てみよう。"><a href="#生成されたソースコードを見てみよう。" class="headerlink" title="生成されたソースコードを見てみよう。"></a>生成されたソースコードを見てみよう。</h2><p><img src="/image/sc-javafx8-intro-05.png" alt="プロジェクトのソースから各ファイルを見れる"><br>まずは、<code>FXMLDocument.fxml</code>をダブルクリックすると、JavaFX Scene Builder 2.0が立ち上がる。(もちろんインストールが完了していれば)<br><img src="/image/sc-javafx8-intro-10.png" alt=""></p>
-<p>この画面でGUIを直感的に操作できるし、コントロールの追加もドラッグアンドドロップでできる。<br>全部英語なのは我慢すべし。</p>
-<p>NetBeansに戻ると、以下の様にXMLが書かれた<code>FXMLDocument.fxml</code>が開かれていると思う。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"></span><br><span class="line">&lt;?import java.lang.*?&gt;</span><br><span class="line">&lt;?import java.util.*?&gt;</span><br><span class="line">&lt;?import javafx.scene.*?&gt;</span><br><span class="line">&lt;?import javafx.scene.control.*?&gt;</span><br><span class="line">&lt;?import javafx.scene.layout.*?&gt;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">AnchorPane</span> <span class="attr">id</span>=<span class="string">"AnchorPane"</span> <span class="attr">prefHeight</span>=<span class="string">"200"</span> <span class="attr">prefWidth</span>=<span class="string">"320"</span> <span class="attr">xmlns:fx</span>=<span class="string">"http://javafx.com/fxml/1"</span> <span class="attr">fx:controller</span>=<span class="string">"javafxapplication1.FXMLDocumentController"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">children</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Button</span> <span class="attr">layoutX</span>=<span class="string">"126"</span> <span class="attr">layoutY</span>=<span class="string">"90"</span> <span class="attr">text</span>=<span class="string">"Click Me!"</span> <span class="attr">onAction</span>=<span class="string">"#handleButtonAction"</span> <span class="attr">fx:id</span>=<span class="string">"button"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Label</span> <span class="attr">layoutX</span>=<span class="string">"126"</span> <span class="attr">layoutY</span>=<span class="string">"120"</span> <span class="attr">minHeight</span>=<span class="string">"16"</span> <span class="attr">minWidth</span>=<span class="string">"69"</span> <span class="attr">fx:id</span>=<span class="string">"label"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">children</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">AnchorPane</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>これが、FXMLである。<br>画面全部XMLで表現できるし、ここでプログラミングすることもできる。</p>
-<p>次に、<code>FXMLDocumentController.java</code>を見てみよう。<br>ソースコードは以下のようになっている。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span><br><span class="line"> * To change this license header, choose License Headers in Project Properties.</span><br><span class="line"> * To change this template file, choose Tools | Templates</span><br><span class="line"> * and open the template in the editor.</span><br><span class="line"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> javafxapplication1;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.net.URL;</span><br><span class="line"><span class="keyword">import</span> java.util.ResourceBundle;</span><br><span class="line"><span class="keyword">import</span> javafx.event.ActionEvent;</span><br><span class="line"><span class="keyword">import</span> javafx.fxml.FXML;</span><br><span class="line"><span class="keyword">import</span> javafx.fxml.Initializable;</span><br><span class="line"><span class="keyword">import</span> javafx.scene.control.Label;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *</span><br><span class="line"> * <span class="doctag">@author</span> Nagatani</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FXMLDocumentController</span> <span class="keyword">implements</span> <span class="title">Initializable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@FXML</span></span><br><span class="line">    <span class="keyword">private</span> Label label;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@FXML</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">handleButtonAction</span><span class="params">(ActionEvent event)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"You clicked me!"</span>);</span><br><span class="line">        label.setText(<span class="string">"Hello World!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">initialize</span><span class="params">(URL url, ResourceBundle rb)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// TODO</span></span><br><span class="line">    &#125;    </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>FXMLと関連付けるコードの上に、<code>@FXML</code>というアノテーションが付けられている。<br>ボタンクリックのイベントは、<code>FXMLDocument.fxml</code>の11行目にあるButtonコントローラの<code>onAction</code>属性に含まれる<code>#handleButtonAction</code>から、<code>FXMLDocumentController.java</code>の26行目以降の<code>handleButtonAction</code>メソッドが呼ばれるようになっていることがソースから分かる。</p>
-<p><code>initialize</code>メソッドには、<code>// TODO</code>コメントが入っているので、画面要素の初期化を行う場合はここに書けということだろう。</p>
-<p>最後に、<code>JavaFXApplication1.java</code>を見よう。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span><br><span class="line"> * To change this license header, choose License Headers in Project Properties.</span><br><span class="line"> * To change this template file, choose Tools | Templates</span><br><span class="line"> * and open the template in the editor.</span><br><span class="line"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> javafxapplication1;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javafx.application.Application;</span><br><span class="line"><span class="keyword">import</span> javafx.fxml.FXMLLoader;</span><br><span class="line"><span class="keyword">import</span> javafx.scene.Parent;</span><br><span class="line"><span class="keyword">import</span> javafx.scene.Scene;</span><br><span class="line"><span class="keyword">import</span> javafx.stage.Stage;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *</span><br><span class="line"> * <span class="doctag">@author</span> Nagatani</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaFXApplication1</span> <span class="keyword">extends</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">(Stage stage)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        Parent root = FXMLLoader.load(getClass().getResource(<span class="string">"FXMLDocument.fxml"</span>));</span><br><span class="line"></span><br><span class="line">        Scene scene = <span class="keyword">new</span> Scene(root);</span><br><span class="line"></span><br><span class="line">        stage.setScene(scene);</span><br><span class="line">        stage.show();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">@param</span> args the command line arguments</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        launch(args);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>これは単純に画面を呼び出すだけのコードが書かれている。<br>FXMLの読み込みには、<code>FXMLLoader</code>が使われていることが分かる。</p>
-<p>ここまで一気に作成してくれるのはありがたいけど、ある程度詳しくなると、空のJavaFXアプリケーションからFXML追加してやった方が良さそうかもしれないので複雑な心境である。</p>
-<h1 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h1><p>FXMLは、コードとUIデザインを分離できるので、良い。<br>MicrosoftのWPFと似てるような(そうでもないような)感じなので、意外とすんなり入ってきた。</p>
-<p>今回は簡単にプログラマの通過儀礼である世界への挨拶を済ませたので、次回以降はもう少し踏み込んだ内容を書き進めたい。</p>
-<p>※次回の記事の内容は未定です。</p>
-
-      
-    </div>
-
-    
-    <footer class="article-footer">
-      
-        <a href="http://nagatani.github.io/2014/09/17/JavaFX8-intro/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FXML/">FXML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaFX8/">JavaFX8</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaFXSceneBuilder2/">JavaFXSceneBuilder2</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-androidstudio-adb" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/09/14/androidstudio-adb/" class="article-date">
-  <time datetime="2014-09-14T09:39:30.000Z" itemprop="datePublished">2014-09-14(日曜日)</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Andriod/">Andriod</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/09/14/androidstudio-adb/">Android Studioを入れたMacBook Airでbashからadbコマンドを使えるようにする</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>なんやかんやあれやこれやでadbコマンド使わないといけなくなったので、その手順をメモしておく。<br>母艦のWindowsマシンには、Android SDKを手動セットアップしてたのでそれ使えば良いだけの話なんだけど、たまたま手元にあるのはMacBook Airだったので、adbコマンド使えるようにしとこう、というわけです。</p>
-<p>前提として、Android Studioはインストール済み。</p>
-<h2 id="Android-SDKを別途入れなくても、Android-StudioにはSDKが含まれてる"><a href="#Android-SDKを別途入れなくても、Android-StudioにはSDKが含まれてる" class="headerlink" title="Android SDKを別途入れなくても、Android StudioにはSDKが含まれてる"></a>Android SDKを別途入れなくても、Android StudioにはSDKが含まれてる</h2><p>ので、それのPATHを通してやれば良いわけです。</p>
-<h2 id="Android-Studioに含まれるSDKの場所"><a href="#Android-Studioに含まれるSDKの場所" class="headerlink" title="Android Studioに含まれるSDKの場所"></a>Android Studioに含まれるSDKの場所</h2><p>環境によって異なるかもしれないので注意が必要。<br>僕のMacBook AirにインストールしたAndroid Studioの構成では以下のパス以下にSDKが含まれていた。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Applications/Android\ Studio.app/sdk/</span><br></pre></td></tr></table></figure>
-<p>目的のadb本体は、<code>sdk</code>ディレクトリ以下の、<code>platform-tools</code>にある。</p>
-<h2 id="adbコマンドを使用できるように、PATHを通す"><a href="#adbコマンドを使用できるように、PATHを通す" class="headerlink" title="adbコマンドを使用できるように、PATHを通す"></a>adbコマンドを使用できるように、PATHを通す</h2><p>ターミナルに使うのが何かで設定が異なる。<br>僕のMacBook Airは初期設定のままのbashを使ってるので、以下のようにする。</p>
-<h3 id="bashの場合"><a href="#bashの場合" class="headerlink" title="bashの場合"></a>bashの場合</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/.bash_profile</span><br></pre></td></tr></table></figure>
-<p>に以下の一行を追加する。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=$PATH:/Applications/Android\ Studio.app/sdk/platform-tools</span><br></pre></td></tr></table></figure>
-<p>エディタはお好きにどうぞ。</p>
-<h3 id="普段あんま使わないけど、zshの場合は……"><a href="#普段あんま使わないけど、zshの場合は……" class="headerlink" title="普段あんま使わないけど、zshの場合は……"></a>普段あんま使わないけど、zshの場合は……</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/.zshrc</span><br></pre></td></tr></table></figure>
-<p>に以下同文。</p>
-<h2 id="adbが動作するか確認する。"><a href="#adbが動作するか確認する。" class="headerlink" title="adbが動作するか確認する。"></a>adbが動作するか確認する。</h2><p>設定を読み込みし直さないといけないので、ターミナル再起動。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ adb <span class="built_in">help</span></span><br></pre></td></tr></table></figure>
-<p>とかでヘルプが出て来ればオッケーなんじゃないですかね。</p>
-<p>僕からは以上です。</p>
-
-      
-    </div>
-
-    
-    <footer class="article-footer">
-      
-        <a href="http://nagatani.github.io/2014/09/14/androidstudio-adb/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AndroidStudio/">AndroidStudio</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/adb/">adb</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
   <div class="article-inner" style="margin-bottom:10px;">
     <section class="google-ads">
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -474,7 +313,7 @@ ga('send', 'pageview');
   </div>
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
     </nav>
   
 </section>
@@ -600,10 +439,6 @@ ga('send', 'pageview');
     <nav id="mobile-nav">
   
     <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-    <a href="/about" class="mobile-nav-link">About</a>
   
 </nav>
     

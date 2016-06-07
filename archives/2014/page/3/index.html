@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Category: Andriod | ながたにの技術メモ</title>
+  <title>Archives: 2014 | ながたにの技術メモ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="ながたにの技術メモ">
-<meta property="og:url" content="http://nagatani.github.io/categories/Andriod/index.html">
+<meta property="og:url" content="http://nagatani.github.io/archives/2014/page/3/index.html">
 <meta property="og:site_name" content="ながたにの技術メモ">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
@@ -77,14 +77,14 @@ ga('send', 'pageview');
       <div class="outer">
         <section id="main">
   
-    <article id="post-androidstudio-adb" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/09/14/androidstudio-adb/" class="article-date">
-  <time datetime="2014-09-14T09:39:30.000Z" itemprop="datePublished">2014-09-14(日曜日)</time>
+    <a href="/2014/09/11/hello-world/" class="article-date">
+  <time datetime="2014-09-11T06:11:01.000Z" itemprop="datePublished">2014-09-11(木曜日)</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Andriod/">Andriod</a>
+    <a class="article-category-link" href="/categories/Diary/">Diary</a>
   </div>
 
   </div>
@@ -95,7 +95,7 @@ ga('send', 'pageview');
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/09/14/androidstudio-adb/">Android Studioを入れたMacBook Airでbashからadbコマンドを使えるようにする</a>
+      <a class="article-title" href="/2014/09/11/hello-world/">Hello World</a>
     </h1>
   
 
@@ -103,23 +103,12 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>なんやかんやあれやこれやでadbコマンド使わないといけなくなったので、その手順をメモしておく。<br>母艦のWindowsマシンには、Android SDKを手動セットアップしてたのでそれ使えば良いだけの話なんだけど、たまたま手元にあるのはMacBook Airだったので、adbコマンド使えるようにしとこう、というわけです。</p>
-<p>前提として、Android Studioはインストール済み。</p>
-<h2 id="Android-SDKを別途入れなくても、Android-StudioにはSDKが含まれてる"><a href="#Android-SDKを別途入れなくても、Android-StudioにはSDKが含まれてる" class="headerlink" title="Android SDKを別途入れなくても、Android StudioにはSDKが含まれてる"></a>Android SDKを別途入れなくても、Android StudioにはSDKが含まれてる</h2><p>ので、それのPATHを通してやれば良いわけです。</p>
-<h2 id="Android-Studioに含まれるSDKの場所"><a href="#Android-Studioに含まれるSDKの場所" class="headerlink" title="Android Studioに含まれるSDKの場所"></a>Android Studioに含まれるSDKの場所</h2><p>環境によって異なるかもしれないので注意が必要。<br>僕のMacBook AirにインストールしたAndroid Studioの構成では以下のパス以下にSDKが含まれていた。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Applications/Android\ Studio.app/sdk/</span><br></pre></td></tr></table></figure>
-<p>目的のadb本体は、<code>sdk</code>ディレクトリ以下の、<code>platform-tools</code>にある。</p>
-<h2 id="adbコマンドを使用できるように、PATHを通す"><a href="#adbコマンドを使用できるように、PATHを通す" class="headerlink" title="adbコマンドを使用できるように、PATHを通す"></a>adbコマンドを使用できるように、PATHを通す</h2><p>ターミナルに使うのが何かで設定が異なる。<br>僕のMacBook Airは初期設定のままのbashを使ってるので、以下のようにする。</p>
-<h3 id="bashの場合"><a href="#bashの場合" class="headerlink" title="bashの場合"></a>bashの場合</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/.bash_profile</span><br></pre></td></tr></table></figure>
-<p>に以下の一行を追加する。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=$PATH:/Applications/Android\ Studio.app/sdk/platform-tools</span><br></pre></td></tr></table></figure>
-<p>エディタはお好きにどうぞ。</p>
-<h3 id="普段あんま使わないけど、zshの場合は……"><a href="#普段あんま使わないけど、zshの場合は……" class="headerlink" title="普段あんま使わないけど、zshの場合は……"></a>普段あんま使わないけど、zshの場合は……</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/.zshrc</span><br></pre></td></tr></table></figure>
-<p>に以下同文。</p>
-<h2 id="adbが動作するか確認する。"><a href="#adbが動作するか確認する。" class="headerlink" title="adbが動作するか確認する。"></a>adbが動作するか確認する。</h2><p>設定を読み込みし直さないといけないので、ターミナル再起動。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ adb <span class="built_in">help</span></span><br></pre></td></tr></table></figure>
-<p>とかでヘルプが出て来ればオッケーなんじゃないですかね。</p>
-<p>僕からは以上です。</p>
+        <p>GitHub Pagesに<a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>入れた。</p>
+<p>何書くかは決めてない。<br>テキトーに何かしら書いていきたい。</p>
+<h2 id="HexoをGitHub-Pagesに構築するのに参考にしたサイト"><a href="#HexoをGitHub-Pagesに構築するのに参考にしたサイト" class="headerlink" title="HexoをGitHub Pagesに構築するのに参考にしたサイト"></a>HexoをGitHub Pagesに構築するのに参考にしたサイト</h2><ul>
+<li><a href="http://qiita.com/bird_nitryn/items/5988a1efe47e0d47132b" target="_blank" rel="external">Hexo と GitHub Pages でブログ環境を構築して公開する - Qiita</a></li>
+<li><a href="http://liginc.co.jp/web/programming/server/104594" target="_blank" rel="external">所要時間3分!? Github PagesとHEXOで爆速ブログ構築してみよう！ | 株式会社LIG</a></li>
+</ul>
 
       
     </div>
@@ -127,10 +116,10 @@ ga('send', 'pageview');
     
     <footer class="article-footer">
       
-        <a href="http://nagatani.github.io/2014/09/14/androidstudio-adb/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://nagatani.github.io/2014/09/11/hello-world/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AndroidStudio/">AndroidStudio</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/adb/">adb</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
 
     </footer>
   </div>
@@ -154,6 +143,10 @@ ga('send', 'pageview');
       </script>
     </section>
   </div>
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/archives/2014/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/2014/">1</a><a class="page-number" href="/archives/2014/page/2/">2</a><span class="page-number current">3</span>
+    </nav>
   
 </section>
         
