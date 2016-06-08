@@ -10,7 +10,7 @@
 NetBeansでSparkを使ってサクッとWebアプリケーションを作る①Hello,World!! | ながたにの技術メモ
 
 今回は、JavaのテンプレートエンジンであるFreeMarkerを使い、Sparkで作成したWebアプリケーションに、Webページの出力機能を追加する。
-SparkでのWebページ出力SparkのWebアプリケーションでは、受け付けたリクエスト">
+※ 追記：FreeMarkerの綴り間違えてたりしてることに公開後気づいたりした。でもキャ">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NetBeansでSparkを使ってサクッとWebアプリケーションを作る ②テンプレートエンジンでWebページの出力">
 <meta property="og:url" content="http://nagatani.github.io/2016/06/08/netbeans-spark-web-2/index.html">
@@ -20,7 +20,7 @@ SparkでのWebページ出力SparkのWebアプリケーションでは、受け�
 NetBeansでSparkを使ってサクッとWebアプリケーションを作る①Hello,World!! | ながたにの技術メモ
 
 今回は、JavaのテンプレートエンジンであるFreeMarkerを使い、Sparkで作成したWebアプリケーションに、Webページの出力機能を追加する。
-SparkでのWebページ出力SparkのWebアプリケーションでは、受け付けたリクエスト">
+※ 追記：FreeMarkerの綴り間違えてたりしてることに公開後気づいたりした。でもキャ">
 <meta property="og:image" content="http://nagatani.github.io/image/netbeans-spark-web-2/01.png">
 <meta property="og:image" content="http://nagatani.github.io/image/netbeans-spark-web-2/02.png">
 <meta property="og:image" content="http://nagatani.github.io/image/netbeans-spark-web-2/03.png">
@@ -39,7 +39,7 @@ SparkでのWebページ出力SparkのWebアプリケーションでは、受け�
 <meta property="og:image" content="http://nagatani.github.io/image/netbeans-spark-web-2/15.png">
 <meta property="og:image" content="http://nagatani.github.io/image/netbeans-spark-web-2/16.png">
 <meta property="og:image" content="http://nagatani.github.io/image/netbeans-spark-web-2/result.gif">
-<meta property="og:updated_time" content="2016-06-08T18:25:47.000Z">
+<meta property="og:updated_time" content="2016-06-08T18:47:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NetBeansでSparkを使ってサクッとWebアプリケーションを作る ②テンプレートエンジンでWebページの出力">
 <meta name="twitter:description" content="以下の記事の続きを書く。
@@ -47,7 +47,7 @@ SparkでのWebページ出力SparkのWebアプリケーションでは、受け�
 NetBeansでSparkを使ってサクッとWebアプリケーションを作る①Hello,World!! | ながたにの技術メモ
 
 今回は、JavaのテンプレートエンジンであるFreeMarkerを使い、Sparkで作成したWebアプリケーションに、Webページの出力機能を追加する。
-SparkでのWebページ出力SparkのWebアプリケーションでは、受け付けたリクエスト">
+※ 追記：FreeMarkerの綴り間違えてたりしてることに公開後気づいたりした。でもキャ">
 <meta name="twitter:image" content="http://nagatani.github.io/image/netbeans-spark-web-2/01.png">
 <meta name="twitter:creator" content="@Nagatani">
   
@@ -139,6 +139,7 @@ ga('send', 'pageview');
 <li><a href="http://nagatani.github.io/2016/06/01/netbeans-spark-web-1/">NetBeansでSparkを使ってサクッとWebアプリケーションを作る①Hello,World!! | ながたにの技術メモ</a></li>
 </ul>
 <p>今回は、Javaのテンプレートエンジンである<a href="http://freemarker.org/" target="_blank" rel="external">FreeMarker</a>を使い、Sparkで作成したWebアプリケーションに、Webページの出力機能を追加する。</p>
+<p><strong><em>※ 追記：FreeMarkerの綴り間違えてたりしてることに公開後気づいたりした。でもキャプチャとか直すの大変なのでこのままにしておく。</em></strong><br>（やっぱり深夜にこういう記事書いちゃダメだね）</p>
 <h2 id="SparkでのWebページ出力"><a href="#SparkでのWebページ出力" class="headerlink" title="SparkでのWebページ出力"></a>SparkでのWebページ出力</h2><p>SparkのWebアプリケーションでは、受け付けたリクエストに従ってデータをレスポンスすることができる。<br>頑張れば、テキストデータを組み上げてHTMLとCSSとJavaScriptを吐き出せる。</p>
 <p>例えばこんな感じ</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// http://localhost:4567/hello</span></span><br><span class="line">        get(<span class="string">"/hello"</span>, (req, res) -&gt;</span><br><span class="line">                <span class="string">"&lt;!DOCTYPE html&gt;\n"</span> +</span><br><span class="line">                <span class="string">"&lt;html lang=\"ja\"&gt;\n"</span> +</span><br><span class="line">                <span class="string">"&lt;head&gt;\n"</span> +</span><br><span class="line">                <span class="string">"  &lt;meta charset=\"UTF-8\"&gt;\n"</span> +</span><br><span class="line">                <span class="string">"  &lt;meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"&gt;\n"</span> +</span><br><span class="line">                <span class="string">"  &lt;title&gt;Spark&lt;/title&gt;\n"</span> +</span><br><span class="line">                <span class="string">"&lt;/head&gt;\n"</span> +</span><br><span class="line">                <span class="string">"&lt;body&gt;\n"</span> +</span><br><span class="line">                <span class="string">"  &lt;section class=\"main\"&gt;\n"</span> +</span><br><span class="line">                <span class="string">"    &lt;h1 class=\"message\"&gt;Hello, World!!&lt;/h1&gt;\n"</span> +</span><br><span class="line">                <span class="string">"  &lt;/section&gt;\n"</span> +</span><br><span class="line">                <span class="string">"&lt;/body&gt;\n"</span> +</span><br><span class="line">                <span class="string">"&lt;/html&gt;\n"</span> +</span><br><span class="line">                <span class="string">"\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
