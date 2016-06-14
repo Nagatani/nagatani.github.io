@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://nagatani.github.io/"/>
-  <updated>2016-06-09T00:54:18.000Z</updated>
+  <updated>2016-06-14T12:44:00.000Z</updated>
   <id>http://nagatani.github.io/</id>
   
   <author>
@@ -16,11 +16,69 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>NetBeansでSparkを使ってサクッとWebアプリケーションを作る ③サーバーログの出力</title>
+    <link href="http://nagatani.github.io/2016/06/13/netbeans-spark-web-3/"/>
+    <id>http://nagatani.github.io/2016/06/13/netbeans-spark-web-3/</id>
+    <published>2016-06-13T14:34:08.000Z</published>
+    <updated>2016-06-14T12:44:00.000Z</updated>
+    
+    <content type="html">&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;http://nagatani.github.io/2016/06/01/netbeans-spark-web-1/&quot;&gt;NetBeansでSparkを使ってサクッとWebアプリケーションを作る①Hello,World!! | ながたにの技術メモ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://nagatani.github.io/2016/06/08/netbeans-spark-web-2/&quot;&gt;NetBeansでSparkを使ってサクッとWebアプリケーションを作る ②テンプレートエンジンでWebページの出力 | ながたにの技術メモ&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;前回までで、一旦Webアプリケーションの作成の基本の基本ぐらいなところまでできている。&lt;/p&gt;
+&lt;p&gt;WebアプリケーションのAPIの作成について触れていきたいところだけど、その前に、NetBeansで実行時にログの出力を有効にしておこう。&lt;/p&gt;
+&lt;p&gt;ログの出力は、サーバーとクライアントで一対多の通信を行うWebアプリケーションでは必須の機能と言えるので、今回だけでなく次回以降のプロジェクトも同様にログ出力を有効にしておこう。&lt;/p&gt;
+&lt;h2 id=&quot;ログの出力を有効にするSLF4Jを依存関係に入れる&quot;&gt;&lt;a href=&quot;#ログの出力を有効にするSLF4Jを依存関係に入れる&quot; class=&quot;headerlink&quot; title=&quot;ログの出力を有効にするSLF4Jを依存関係に入れる&quot;&gt;&lt;/a&gt;ログの出力を有効にするSLF4Jを依存関係に入れる&lt;/h2&gt;&lt;p&gt;Sparkのドキュメントにも書かれているが、&lt;a href=&quot;http://www.slf4j.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;SLF4J&lt;/a&gt;のdependencyを&lt;code&gt;pom.xml&lt;/code&gt;に追加しておくだけで、実行時のログ出力が有効になる。&lt;/p&gt;
+&lt;p&gt;pom.xmlに以下のdependencyを追加する。&lt;/p&gt;
+&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;dependency&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;groupId&lt;/span&gt;&amp;gt;&lt;/span&gt;org.slf4j&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;groupId&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;artifactId&lt;/span&gt;&amp;gt;&lt;/span&gt;slf4j-simple&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;artifactId&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;version&lt;/span&gt;&amp;gt;&lt;/span&gt;1.7.21&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;version&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;dependency&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;これでログの出力が有効になる。便利。&lt;/p&gt;
+&lt;p&gt;前回作成したプロジェクトを実行してみると、NetBeansの出力ウィンドウには以下のようにWebサーバーのログが出力されるようになる。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;------------------------------------------------------------------------&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Building spark-project 1.0-SNAPSHOT&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;------------------------------------------------------------------------&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;--- exec-maven-plugin:1.2.1:exec (default-cli) @ spark-project ---&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] INFO spark.staticfiles.StaticFilesConfiguration - StaticResourceHandler configured with folder = /public&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[Thread-0] INFO org.eclipse.jetty.util.log - Logging initialized @674ms&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[Thread-0] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - == Spark has ignited ...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[Thread-0] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - &amp;gt;&amp;gt; Listening on 0.0.0.0:4567&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[Thread-0] INFO org.eclipse.jetty.server.Server - jetty-9.3.6.v20151106&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[Thread-0] INFO org.eclipse.jetty.server.ServerConnector - Started ServerConnector@241fede1&amp;#123;HTTP/1.1,[http/1.1]&amp;#125;&amp;#123;0.0.0.0:4567&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[Thread-0] INFO org.eclipse.jetty.server.Server - Started @1048ms&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;第1回のHelloWorldのプロジェクトの出力ウィンドウは、以下の様になっていた。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;------------------------------------------------------------------------&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Building Clicker_spark 1.0-SNAPSHOT&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;------------------------------------------------------------------------&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;--- exec-maven-plugin:1.2.1:exec (default-cli) @ spark-project ---&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;SLF4J: Failed to load class &amp;quot;org.slf4j.impl.StaticLoggerBinder&amp;quot;.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;SLF4J: Defaulting to no-operation (NOP) logger implementation&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;そもそもSparkでは、SLF4Jを依存関係に入れることが求められていたようだ……。&lt;/p&gt;
+&lt;h3 id=&quot;ログ出力の方法&quot;&gt;&lt;a href=&quot;#ログ出力の方法&quot; class=&quot;headerlink&quot; title=&quot;ログ出力の方法&quot;&gt;&lt;/a&gt;ログ出力の方法&lt;/h3&gt;&lt;p&gt;前回までに作成したプロジェクトでも良いし、新たに作成&lt;/p&gt;
+&lt;p&gt;SLF4Jを使用してログを出力するには、まず、以下のimportを追加する。&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; org.slf4j.Logger;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; org.slf4j.LoggerFactory;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;続いて、mainメソッド内を以下のようにすることで、ログが出力される。&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(String[] args)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Logger logger = LoggerFactory.getLogger(HelloWorld.class);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// IPアドレスの表示 http://localhost:4567/showip&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    get(&lt;span class=&quot;string&quot;&gt;&quot;/showip&quot;&lt;/span&gt;, (req, res) -&amp;gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;//ログ出力&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        logger.info(&lt;span class=&quot;string&quot;&gt;&quot;ログ出力：&quot;&lt;/span&gt; + req.ip());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;your ip :&quot;&lt;/span&gt; + req.ip();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// http://localhost:4567/stop&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    get(&lt;span class=&quot;string&quot;&gt;&quot;/stop&quot;&lt;/span&gt;, (req, res) -&amp;gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        stop();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;null&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;code&gt;http://localhost:4567/showip&lt;/code&gt;にアクセスすると、Webブラウザでは以下のように表示され、&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;your ip :0:0:0:0:0:0:0:1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;NetBeansの出力ウィンドウでは以下の1行が追加される。&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[qtp1938979459-16] INFO com.sample.spark.project.HelloWorld - ログ出力：0:0:0:0:0:0:0:1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;mainメソッドの8行目にある&lt;code&gt;logger.info()&lt;/code&gt;でログ出力を行っているため、このメソッドに渡す引数に応じてログが出力される。&lt;br&gt;(僕の環境ではIPv6が有効になっているため、localhostへのアクセスは、IPv6の::1でアクセスされる。そのためIPアドレスの表示が上記のようにIPv6表記となる。)&lt;br&gt;デバッグ時だけでなく、実際に運用する上でも役に立つので、必要に応じて適切なログを出力しておくと良いだろう。&lt;/p&gt;
+&lt;h1 id=&quot;③はここまで&quot;&gt;&lt;a href=&quot;#③はここまで&quot; class=&quot;headerlink&quot; title=&quot;③はここまで&quot;&gt;&lt;/a&gt;③はここまで&lt;/h1&gt;&lt;p&gt;今回は、API作成の前にちょっと小休止的な内容としてログ出力機能の有効化を行った。&lt;br&gt;次回は今度こそAPI作成に入っていく。&lt;/p&gt;
+&lt;h1 id=&quot;NetBeansでSparkを使ってサクッとWebアプリケーションを作る記事一覧&quot;&gt;&lt;a href=&quot;#NetBeansでSparkを使ってサクッとWebアプリケーションを作る記事一覧&quot; class=&quot;headerlink&quot; title=&quot;NetBeansでSparkを使ってサクッとWebアプリケーションを作る記事一覧&quot;&gt;&lt;/a&gt;NetBeansでSparkを使ってサクッとWebアプリケーションを作る記事一覧&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;http://nagatani.github.io/2016/06/01/netbeans-spark-web-1/&quot;&gt;NetBeansでSparkを使ってサクッとWebアプリケーションを作る①Hello,World!! | ながたにの技術メモ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://nagatani.github.io/2016/06/08/netbeans-spark-web-2/&quot;&gt;NetBeansでSparkを使ってサクッとWebアプリケーションを作る ②テンプレートエンジンでWebページの出力 | ながたにの技術メモ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;この記事 &lt;a href=&quot;http://nagatani.github.io/2016/06/13/netbeans-spark-web-3/&quot;&gt;NetBeansでSparkを使ってサクッとWebアプリケーションを作る ③サーバーログの出力 | ながたにの技術メモ&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;http://nagatani.github.io/2016/06/01/netbeans-spark-web-1/&quot;&gt;NetBeansでSparkを使ってサクッとWebアプリケーションを作る①Hello,World!! | ながたにの技術メモ
+    
+    </summary>
+    
+      <category term="Spark" scheme="http://nagatani.github.io/categories/Spark/"/>
+    
+    
+      <category term="Java8" scheme="http://nagatani.github.io/tags/Java8/"/>
+    
+      <category term="Spark" scheme="http://nagatani.github.io/tags/Spark/"/>
+    
+      <category term="Tutorial" scheme="http://nagatani.github.io/tags/Tutorial/"/>
+    
+  </entry>
+  
+  <entry>
     <title>NetBeansでSparkを使ってサクッとWebアプリケーションを作る ②テンプレートエンジンでWebページの出力</title>
     <link href="http://nagatani.github.io/2016/06/08/netbeans-spark-web-2/"/>
     <id>http://nagatani.github.io/2016/06/08/netbeans-spark-web-2/</id>
     <published>2016-06-08T04:36:36.000Z</published>
-    <updated>2016-06-09T00:54:18.000Z</updated>
+    <updated>2016-06-14T12:43:52.000Z</updated>
     
     <content type="html">&lt;p&gt;以下の記事の続きを書く。&lt;/p&gt;
 &lt;ul&gt;
@@ -127,7 +185,8 @@
 &lt;h1 id=&quot;②はここまで&quot;&gt;&lt;a href=&quot;#②はここまで&quot; class=&quot;headerlink&quot; title=&quot;②はここまで&quot;&gt;&lt;/a&gt;②はここまで&lt;/h1&gt;&lt;p&gt;次回は、WebアプリケーションのAPI周りについて書く予定。&lt;br&gt;今回までに作成したプロジェクトはもう使わないと思う。&lt;/p&gt;
 &lt;h1 id=&quot;NetBeansでSparkを使ってサクッとWebアプリケーションを作る記事一覧&quot;&gt;&lt;a href=&quot;#NetBeansでSparkを使ってサクッとWebアプリケーションを作る記事一覧&quot; class=&quot;headerlink&quot; title=&quot;NetBeansでSparkを使ってサクッとWebアプリケーションを作る記事一覧&quot;&gt;&lt;/a&gt;NetBeansでSparkを使ってサクッとWebアプリケーションを作る記事一覧&lt;/h1&gt;&lt;ol&gt;
 &lt;li&gt;&lt;a href=&quot;http://nagatani.github.io/2016/06/01/netbeans-spark-web-1/&quot;&gt;NetBeansでSparkを使ってサクッとWebアプリケーションを作る①Hello,World!! | ながたにの技術メモ&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;この記事&lt;/li&gt;
+&lt;li&gt;この記事 &lt;a href=&quot;http://nagatani.github.io/2016/06/08/netbeans-spark-web-2/&quot;&gt;NetBeansでSparkを使ってサクッとWebアプリケーションを作る ②テンプレートエンジンでWebページの出力 | ながたにの技術メモ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://nagatani.github.io/2016/06/13/netbeans-spark-web-3/&quot;&gt;NetBeansでSparkを使ってサクッとWebアプリケーションを作る ③サーバーログの出力 | ながたにの技術メモ&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </content>
     
@@ -155,7 +214,7 @@
     <link href="http://nagatani.github.io/2016/06/01/netbeans-spark-web-1/"/>
     <id>http://nagatani.github.io/2016/06/01/netbeans-spark-web-1/</id>
     <published>2016-06-01T08:03:14.000Z</published>
-    <updated>2016-06-08T18:00:49.000Z</updated>
+    <updated>2016-06-14T12:43:23.000Z</updated>
     
     <content type="html">&lt;p&gt;※この記事は、以下のブログに投稿したものと同じです。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;http://nagatani.hatenablog.jp/entry/2016/06/01/NetBeans%E3%81%A7Spark%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%82%B5%E3%82%AF%E3%83%83%E3%81%A8Web%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E4%BD%9C%E3%82%8B&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;NetBeansでSparkを使ってサクッとWebアプリケーションを作る①Hello,World!! - 水に溶けるドキュメント&lt;/a&gt;&lt;/p&gt;
@@ -217,8 +276,9 @@
 &lt;p&gt;NetBeansでは実行を止めるだけではJettyのプロセスが停止してくれないため、必ず&lt;code&gt;/stop&lt;/code&gt;へアクセスする必要がある。&lt;br&gt;これをやらないと、プロジェクトを再実行したときにポートが使用中で実行ができない。&lt;br&gt;ただし、&lt;code&gt;/stop&lt;/code&gt;は実際にWebアプリケーションとして公開する場合に残しておいてはいけないものであることを忘れないように。&lt;br&gt;外部からプロセス停止させられたら溜まったもんじゃない。&lt;/p&gt;
 &lt;h2 id=&quot;①はここまで&quot;&gt;&lt;a href=&quot;#①はここまで&quot; class=&quot;headerlink&quot; title=&quot;①はここまで&quot;&gt;&lt;/a&gt;①はここまで&lt;/h2&gt;&lt;p&gt;次回は近日中に、テンプレートエンジンを使ってHTMLを出力する方法を紹介する予定。&lt;/p&gt;
 &lt;h1 id=&quot;NetBeansでSparkを使ってサクッとWebアプリケーションを作る記事一覧&quot;&gt;&lt;a href=&quot;#NetBeansでSparkを使ってサクッとWebアプリケーションを作る記事一覧&quot; class=&quot;headerlink&quot; title=&quot;NetBeansでSparkを使ってサクッとWebアプリケーションを作る記事一覧&quot;&gt;&lt;/a&gt;NetBeansでSparkを使ってサクッとWebアプリケーションを作る記事一覧&lt;/h1&gt;&lt;ol&gt;
-&lt;li&gt;この記事&lt;/li&gt;
+&lt;li&gt;この記事 &lt;a href=&quot;http://nagatani.github.io/2016/06/01/netbeans-spark-web-1/&quot;&gt;NetBeansでSparkを使ってサクッとWebアプリケーションを作る①Hello,World!! | ながたにの技術メモ&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://nagatani.github.io/2016/06/08/netbeans-spark-web-2/&quot;&gt;NetBeansでSparkを使ってサクッとWebアプリケーションを作る ②テンプレートエンジンでWebページの出力 | ながたにの技術メモ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://nagatani.github.io/2016/06/13/netbeans-spark-web-3/&quot;&gt;NetBeansでSparkを使ってサクッとWebアプリケーションを作る ③サーバーログの出力 | ながたにの技術メモ&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </content>
     

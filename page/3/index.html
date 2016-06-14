@@ -77,6 +77,64 @@ ga('send', 'pageview');
       <div class="outer">
         <section id="main">
   
+    <article id="post-androidstudio-adb" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/09/14/androidstudio-adb/">Android Studioを入れたMacBook Airでbashからadbコマンドを使えるようにする</a>
+    </h1>
+  
+
+      </header>
+      <div class="article-meta">
+        <a href="/2014/09/14/androidstudio-adb/" class="article-date">
+  <time datetime="2014-09-14T09:39:30.000Z" itemprop="datePublished">2014-09-14(日曜日)</time>
+</a>
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AndroidStudio/">AndroidStudio</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/adb/">adb</a></li></ul>
+
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>なんやかんやあれやこれやでadbコマンド使わないといけなくなったので、その手順をメモしておく。<br>母艦のWindowsマシンには、Android SDKを手動セットアップしてたのでそれ使えば良いだけの話なんだけど、たまたま手元にあるのはMacBook Airだったので、adbコマンド使えるようにしとこう、というわけです。</p>
+<p>前提として、Android Studioはインストール済み。</p>
+<h2 id="Android-SDKを別途入れなくても、Android-StudioにはSDKが含まれてる"><a href="#Android-SDKを別途入れなくても、Android-StudioにはSDKが含まれてる" class="headerlink" title="Android SDKを別途入れなくても、Android StudioにはSDKが含まれてる"></a>Android SDKを別途入れなくても、Android StudioにはSDKが含まれてる</h2><p>ので、それのPATHを通してやれば良いわけです。</p>
+<h2 id="Android-Studioに含まれるSDKの場所"><a href="#Android-Studioに含まれるSDKの場所" class="headerlink" title="Android Studioに含まれるSDKの場所"></a>Android Studioに含まれるSDKの場所</h2><p>環境によって異なるかもしれないので注意が必要。<br>僕のMacBook AirにインストールしたAndroid Studioの構成では以下のパス以下にSDKが含まれていた。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Applications/Android\ Studio.app/sdk/</span><br></pre></td></tr></table></figure>
+<p>目的のadb本体は、<code>sdk</code>ディレクトリ以下の、<code>platform-tools</code>にある。</p>
+<h2 id="adbコマンドを使用できるように、PATHを通す"><a href="#adbコマンドを使用できるように、PATHを通す" class="headerlink" title="adbコマンドを使用できるように、PATHを通す"></a>adbコマンドを使用できるように、PATHを通す</h2><p>ターミナルに使うのが何かで設定が異なる。<br>僕のMacBook Airは初期設定のままのbashを使ってるので、以下のようにする。</p>
+<h3 id="bashの場合"><a href="#bashの場合" class="headerlink" title="bashの場合"></a>bashの場合</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/.bash_profile</span><br></pre></td></tr></table></figure>
+<p>に以下の一行を追加する。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=$PATH:/Applications/Android\ Studio.app/sdk/platform-tools</span><br></pre></td></tr></table></figure>
+<p>エディタはお好きにどうぞ。</p>
+<h3 id="普段あんま使わないけど、zshの場合は……"><a href="#普段あんま使わないけど、zshの場合は……" class="headerlink" title="普段あんま使わないけど、zshの場合は……"></a>普段あんま使わないけど、zshの場合は……</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/.zshrc</span><br></pre></td></tr></table></figure>
+<p>に以下同文。</p>
+<h2 id="adbが動作するか確認する。"><a href="#adbが動作するか確認する。" class="headerlink" title="adbが動作するか確認する。"></a>adbが動作するか確認する。</h2><p>設定を読み込みし直さないといけないので、ターミナル再起動。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ adb <span class="built_in">help</span></span><br></pre></td></tr></table></figure>
+<p>とかでヘルプが出て来ればオッケーなんじゃないですかね。</p>
+<p>僕からは以上です。</p>
+
+      
+    </div>
+
+    
+    <footer class="article-footer">
+      
+        <a href="http://nagatani.github.io/2014/09/14/androidstudio-adb/#disqus_thread" class="article-comment-link">Comments</a>
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-hexo-image-add" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -301,53 +359,6 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/09/11/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-      <div class="article-meta">
-        <a href="/2014/09/11/hello-world/" class="article-date">
-  <time datetime="2014-09-11T06:11:01.000Z" itemprop="datePublished">2014-09-11(木曜日)</time>
-</a>
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
-
-      </div>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>GitHub Pagesに<a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>入れた。</p>
-<p>何書くかは決めてない。<br>テキトーに何かしら書いていきたい。</p>
-<h2 id="HexoをGitHub-Pagesに構築するのに参考にしたサイト"><a href="#HexoをGitHub-Pagesに構築するのに参考にしたサイト" class="headerlink" title="HexoをGitHub Pagesに構築するのに参考にしたサイト"></a>HexoをGitHub Pagesに構築するのに参考にしたサイト</h2><ul>
-<li><a href="http://qiita.com/bird_nitryn/items/5988a1efe47e0d47132b" target="_blank" rel="external">Hexo と GitHub Pages でブログ環境を構築して公開する - Qiita</a></li>
-<li><a href="http://liginc.co.jp/web/programming/server/104594" target="_blank" rel="external">所要時間3分!? Github PagesとHEXOで爆速ブログ構築してみよう！ | 株式会社LIG</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    <footer class="article-footer">
-      
-        <a href="http://nagatani.github.io/2014/09/11/hello-world/#disqus_thread" class="article-comment-link">Comments</a>
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
   <div class="article-inner" style="margin-bottom:10px;">
     <section class="google-ads">
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -364,7 +375,7 @@ ga('send', 'pageview');
   </div>
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 </section>
@@ -403,6 +414,10 @@ ga('send', 'pageview');
       <ul>
         
           <li>
+            <a href="/2016/06/13/netbeans-spark-web-3/">NetBeansでSparkを使ってサクッとWebアプリケーションを作る ③サーバーログの出力</a>
+          </li>
+        
+          <li>
             <a href="/2016/06/08/netbeans-spark-web-2/">NetBeansでSparkを使ってサクッとWebアプリケーションを作る ②テンプレートエンジンでWebページの出力</a>
           </li>
         
@@ -416,10 +431,6 @@ ga('send', 'pageview');
         
           <li>
             <a href="/2014/10/07/mac-finder-view-allfile/">MacのFinderで不可視となっているディレクトリやファイルを表示する方法</a>
-          </li>
-        
-          <li>
-            <a href="/2014/09/17/JavaFX8-intro/">JavaFX8 FXMLでのGUIアプリケーション開発 - 事始め</a>
           </li>
         
       </ul>
@@ -444,7 +455,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">6月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">10月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">9月 2014</a><span class="archive-list-count">5</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">6月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">10月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">9月 2014</a><span class="archive-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -453,7 +464,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AndroidStudio/">AndroidStudio</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CMS/">CMS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FXML/">FXML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java8/">Java8</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaFX8/">JavaFX8</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaFXSceneBuilder2/">JavaFXSceneBuilder2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spark/">Spark</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tutorial/">Tutorial</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/adb/">adb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/terminal/">terminal</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AndroidStudio/">AndroidStudio</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CMS/">CMS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FXML/">FXML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java8/">Java8</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaFX8/">JavaFX8</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaFXSceneBuilder2/">JavaFXSceneBuilder2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spark/">Spark</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tutorial/">Tutorial</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/adb/">adb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/terminal/">terminal</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 

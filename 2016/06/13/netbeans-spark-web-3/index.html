@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>NetBeansでSparkを使ってサクッとWebアプリケーションを作る ③サーバーログの出力 | ながたにの技術メモ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="NetBeansでSparkを使ってサクッとWebアプリケーションを作る①Hello,World!! | ながたにの技術メモ
+NetBeansでSparkを使ってサクッとWebアプリケーションを作る ②テンプレートエンジンでWebページの出力 | ながたにの技術メモ
+
+前回までで、一旦Webアプリケーションの作成の基本の基本ぐらいなところまでできている。
+WebアプリケーションのAPIの作成につ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NetBeansでSparkを使ってサクッとWebアプリケーションを作る ③サーバーログの出力">
+<meta property="og:url" content="http://nagatani.github.io/2016/06/13/netbeans-spark-web-3/index.html">
+<meta property="og:site_name" content="ながたにの技術メモ">
+<meta property="og:description" content="NetBeansでSparkを使ってサクッとWebアプリケーションを作る①Hello,World!! | ながたにの技術メモ
+NetBeansでSparkを使ってサクッとWebアプリケーションを作る ②テンプレートエンジンでWebページの出力 | ながたにの技術メモ
+
+前回までで、一旦Webアプリケーションの作成の基本の基本ぐらいなところまでできている。
+WebアプリケーションのAPIの作成につ">
+<meta property="og:updated_time" content="2016-06-14T12:44:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NetBeansでSparkを使ってサクッとWebアプリケーションを作る ③サーバーログの出力">
+<meta name="twitter:description" content="NetBeansでSparkを使ってサクッとWebアプリケーションを作る①Hello,World!! | ながたにの技術メモ
+NetBeansでSparkを使ってサクッとWebアプリケーションを作る ②テンプレートエンジンでWebページの出力 | ながたにの技術メモ
+
+前回までで、一旦Webアプリケーションの作成の基本の基本ぐらいなところまでできている。
+WebアプリケーションのAPIの作成につ">
+<meta name="twitter:creator" content="@Nagatani">
+  
+    <link rel="alternative" href="/atom.xml" title="ながたにの技術メモ" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-43292130-3', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">ながたにの技術メモ</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">書くことがあれば書く</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://nagatani.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-netbeans-spark-web-3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      NetBeansでSparkを使ってサクッとWebアプリケーションを作る ③サーバーログの出力
+    </h1>
+  
+
+      </header>
+      <div class="article-meta">
+        <a href="/2016/06/13/netbeans-spark-web-3/" class="article-date">
+  <time datetime="2016-06-13T14:34:08.000Z" itemprop="datePublished">2016-06-13(月曜日)</time>
+</a>
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java8/">Java8</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spark/">Spark</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tutorial/">Tutorial</a></li></ul>
+
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><a href="http://nagatani.github.io/2016/06/01/netbeans-spark-web-1/">NetBeansでSparkを使ってサクッとWebアプリケーションを作る①Hello,World!! | ながたにの技術メモ</a></li>
+<li><a href="http://nagatani.github.io/2016/06/08/netbeans-spark-web-2/">NetBeansでSparkを使ってサクッとWebアプリケーションを作る ②テンプレートエンジンでWebページの出力 | ながたにの技術メモ</a></li>
+</ol>
+<p>前回までで、一旦Webアプリケーションの作成の基本の基本ぐらいなところまでできている。</p>
+<p>WebアプリケーションのAPIの作成について触れていきたいところだけど、その前に、NetBeansで実行時にログの出力を有効にしておこう。</p>
+<p>ログの出力は、サーバーとクライアントで一対多の通信を行うWebアプリケーションでは必須の機能と言えるので、今回だけでなく次回以降のプロジェクトも同様にログ出力を有効にしておこう。</p>
+<h2 id="ログの出力を有効にするSLF4Jを依存関係に入れる"><a href="#ログの出力を有効にするSLF4Jを依存関係に入れる" class="headerlink" title="ログの出力を有効にするSLF4Jを依存関係に入れる"></a>ログの出力を有効にするSLF4Jを依存関係に入れる</h2><p>Sparkのドキュメントにも書かれているが、<a href="http://www.slf4j.org/" target="_blank" rel="external">SLF4J</a>のdependencyを<code>pom.xml</code>に追加しておくだけで、実行時のログ出力が有効になる。</p>
+<p>pom.xmlに以下のdependencyを追加する。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.slf4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>slf4j-simple<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.7.21<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>これでログの出力が有効になる。便利。</p>
+<p>前回作成したプロジェクトを実行してみると、NetBeansの出力ウィンドウには以下のようにWebサーバーのログが出力されるようになる。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">------------------------------------------------------------------------</span><br><span class="line">Building spark-project 1.0-SNAPSHOT</span><br><span class="line">------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">--- exec-maven-plugin:1.2.1:exec (default-cli) @ spark-project ---</span><br><span class="line">[main] INFO spark.staticfiles.StaticFilesConfiguration - StaticResourceHandler configured with folder = /public</span><br><span class="line">[Thread-0] INFO org.eclipse.jetty.util.log - Logging initialized @674ms</span><br><span class="line">[Thread-0] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - == Spark has ignited ...</span><br><span class="line">[Thread-0] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - &gt;&gt; Listening on 0.0.0.0:4567</span><br><span class="line">[Thread-0] INFO org.eclipse.jetty.server.Server - jetty-9.3.6.v20151106</span><br><span class="line">[Thread-0] INFO org.eclipse.jetty.server.ServerConnector - Started ServerConnector@241fede1&#123;HTTP/1.1,[http/1.1]&#125;&#123;0.0.0.0:4567&#125;</span><br><span class="line">[Thread-0] INFO org.eclipse.jetty.server.Server - Started @1048ms</span><br></pre></td></tr></table></figure>
+<p>第1回のHelloWorldのプロジェクトの出力ウィンドウは、以下の様になっていた。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">------------------------------------------------------------------------</span><br><span class="line">Building Clicker_spark 1.0-SNAPSHOT</span><br><span class="line">------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">--- exec-maven-plugin:1.2.1:exec (default-cli) @ spark-project ---</span><br><span class="line">SLF4J: Failed to load class &quot;org.slf4j.impl.StaticLoggerBinder&quot;.</span><br><span class="line">SLF4J: Defaulting to no-operation (NOP) logger implementation</span><br><span class="line">SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.</span><br></pre></td></tr></table></figure>
+<p>そもそもSparkでは、SLF4Jを依存関係に入れることが求められていたようだ……。</p>
+<h3 id="ログ出力の方法"><a href="#ログ出力の方法" class="headerlink" title="ログ出力の方法"></a>ログ出力の方法</h3><p>前回までに作成したプロジェクトでも良いし、新たに作成</p>
+<p>SLF4Jを使用してログを出力するには、まず、以下のimportを追加する。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.slf4j.Logger;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</span><br></pre></td></tr></table></figure>
+<p>続いて、mainメソッド内を以下のようにすることで、ログが出力される。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Logger logger = LoggerFactory.getLogger(HelloWorld.class);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// IPアドレスの表示 http://localhost:4567/showip</span></span><br><span class="line">    get(<span class="string">"/showip"</span>, (req, res) -&gt; &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//ログ出力</span></span><br><span class="line">        logger.info(<span class="string">"ログ出力："</span> + req.ip());</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"your ip :"</span> + req.ip();</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// http://localhost:4567/stop</span></span><br><span class="line">    get(<span class="string">"/stop"</span>, (req, res) -&gt; &#123;</span><br><span class="line">        stop();</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>http://localhost:4567/showip</code>にアクセスすると、Webブラウザでは以下のように表示され、</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">your ip :0:0:0:0:0:0:0:1</span><br></pre></td></tr></table></figure>
+<p>NetBeansの出力ウィンドウでは以下の1行が追加される。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[qtp1938979459-16] INFO com.sample.spark.project.HelloWorld - ログ出力：0:0:0:0:0:0:0:1</span><br></pre></td></tr></table></figure></p>
+<p>mainメソッドの8行目にある<code>logger.info()</code>でログ出力を行っているため、このメソッドに渡す引数に応じてログが出力される。<br>(僕の環境ではIPv6が有効になっているため、localhostへのアクセスは、IPv6の::1でアクセスされる。そのためIPアドレスの表示が上記のようにIPv6表記となる。)<br>デバッグ時だけでなく、実際に運用する上でも役に立つので、必要に応じて適切なログを出力しておくと良いだろう。</p>
+<h1 id="③はここまで"><a href="#③はここまで" class="headerlink" title="③はここまで"></a>③はここまで</h1><p>今回は、API作成の前にちょっと小休止的な内容としてログ出力機能の有効化を行った。<br>次回は今度こそAPI作成に入っていく。</p>
+<h1 id="NetBeansでSparkを使ってサクッとWebアプリケーションを作る記事一覧"><a href="#NetBeansでSparkを使ってサクッとWebアプリケーションを作る記事一覧" class="headerlink" title="NetBeansでSparkを使ってサクッとWebアプリケーションを作る記事一覧"></a>NetBeansでSparkを使ってサクッとWebアプリケーションを作る記事一覧</h1><ol>
+<li><a href="http://nagatani.github.io/2016/06/01/netbeans-spark-web-1/">NetBeansでSparkを使ってサクッとWebアプリケーションを作る①Hello,World!! | ながたにの技術メモ</a></li>
+<li><a href="http://nagatani.github.io/2016/06/08/netbeans-spark-web-2/">NetBeansでSparkを使ってサクッとWebアプリケーションを作る ②テンプレートエンジンでWebページの出力 | ながたにの技術メモ</a></li>
+<li>この記事 <a href="http://nagatani.github.io/2016/06/13/netbeans-spark-web-3/">NetBeansでSparkを使ってサクッとWebアプリケーションを作る ③サーバーログの出力 | ながたにの技術メモ</a></li>
+</ol>
+
+      
+    </div>
+
+    
+    <div class="sns-footer">
+      <ul class="sns-area ">
+        <li>
+          <a
+            class="sns-twitter sns-link"
+            href="https://twitter.com/intent/tweet?url=http://nagatani.github.io/2016/06/13/netbeans-spark-web-3/&text=NetBeansでSparkを使ってサクッとWebアプリケーションを作る ③サーバーログの出力&via=Nagatani" target="_blank">
+            <i class="fa fa-twitter-square" aria-hidden="true"></i><span class="sns-txt">Twitter</span></a>
+        </li>
+        <li>
+          <a
+            class="sns-facebook sns-link"
+            href="https://www.facebook.com/sharer/sharer.php?u=http://nagatani.github.io/2016/06/13/netbeans-spark-web-3/"
+            onclick="window.open(this.href, 'FBwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+            target="_blank">
+            <i class="fa fa-facebook-square" aria-hidden="true"></i><span class="sns-txt">Facebook</span></a>
+        </li>
+        <li>
+          <a
+            href="http://b.hatena.ne.jp/entry/http://nagatani.github.io/2016/06/13/netbeans-spark-web-3/"
+            class="hatena-bookmark-button sns-bookmark sns-link"
+            data-hatena-bookmark-title="NetBeansでSparkを使ってサクッとWebアプリケーションを作る ③サーバーログの出力"
+            data-hatena-bookmark-layout="simple"
+            title="このエントリーをはてなブックマークに追加">
+            <i class="fa fa-bookmark" aria-hidden="true"></i><span class="sns-txt">Hatena</span></a>
+        </li>
+      </ul>
+    </div>
+    <section class="google-ads">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- nagatani.github.io -->
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-8746484816226004"
+           data-ad-slot="6347879104"
+           data-ad-format="auto"></ins>
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </section>
+    
+    <footer class="article-footer">
+      
+        <a href="http://nagatani.github.io/2016/06/13/netbeans-spark-web-3/#disqus_thread" class="article-comment-link">Comments</a>
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/06/08/netbeans-spark-web-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">NetBeansでSparkを使ってサクッとWebアプリケーションを作る ②テンプレートエンジンでWebページの出力</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+    <aside id="sidebar" class="outer">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title">Profile</h3>
+  <div class="widget profile">
+    <div class="photo-container">
+      <div><img src="/image/profile.jpg" alt="Profile Photo" width="150px" height="150px"></div>
+      <p>ながたに</p>
+      <p><a href="http://nagatani.me/">nagatani.me</a></p>
+    </div>
+    <div class="profile-container">
+      <ul>
+        <li>プログラマ</li>
+        <li>フロントエンドエンジニャー</li>
+        <li>自営業</li>
+        <li>情報系講師(大学/高校)</li>
+        <li>カメラ好き</li>
+      </ul>
+      <p>投稿内容は全て個人の見解であり所属する組織・団体とは一切関係ないことを明記しておきます</p>
+    </div>
+  </div>
+</div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/06/13/netbeans-spark-web-3/">NetBeansでSparkを使ってサクッとWebアプリケーションを作る ③サーバーログの出力</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/08/netbeans-spark-web-2/">NetBeansでSparkを使ってサクッとWebアプリケーションを作る ②テンプレートエンジンでWebページの出力</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/01/netbeans-spark-web-1/">NetBeansでSparkを使ってサクッとWebアプリケーションを作る①Hello,World!!</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/08/JavaFX8-fxml-lookandfeel/">JavaFX8でのLook and Feelを設定する</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/07/mac-finder-view-allfile/">MacのFinderで不可視となっているディレクトリやファイルを表示する方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+      <div class="widget-wrap">
+    <h3 class="widget-title">Ads</h3>
+    <div class="widget">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- nagatani.github.io-side250 -->
+      <ins class="adsbygoogle"
+           style="display:inline-block;width:250px;height:250px"
+           data-ad-client="ca-pub-8746484816226004"
+           data-ad-slot="5789475901"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  </div>
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">6月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">10月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">9月 2014</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AndroidStudio/">AndroidStudio</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CMS/">CMS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FXML/">FXML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java8/">Java8</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaFX8/">JavaFX8</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaFXSceneBuilder2/">JavaFXSceneBuilder2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spark/">Spark</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tutorial/">Tutorial</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/adb/">adb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/terminal/">terminal</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+</aside>
+
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Nagatani<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'nagatanigithubio';
+  
+  var disqus_url = 'http://nagatani.github.io/2016/06/13/netbeans-spark-web-3/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
