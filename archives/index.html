@@ -238,6 +238,7 @@ ga('send', 'pageview');
 <p>続いて、mainメソッドにて、Spark経由で公開ディレクトリの設定を行う。</p>
 <p>mainメソッドに以下のソースコードを追記する。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// /src/main/resources/public を公開ディレクトリとする</span></span><br><span class="line">staticFileLocation(<span class="string">"/public"</span>);</span><br></pre></td></tr></table></figure>
+<p><strong>※2016-06-13 追記</strong><br><code>staticFileLocation(&quot;/public&quot;);</code>を入れる箇所は、getメソッドを呼ぶ前にする必要があるので貼り付け位置に注意。</p>
 <h2 id="CSSファイルを設定しテンプレートから出力されたHTMLから参照させる"><a href="#CSSファイルを設定しテンプレートから出力されたHTMLから参照させる" class="headerlink" title="CSSファイルを設定しテンプレートから出力されたHTMLから参照させる"></a>CSSファイルを設定しテンプレートから出力されたHTMLから参照させる</h2><h3 id="CSSファイルの作成"><a href="#CSSファイルの作成" class="headerlink" title="CSSファイルの作成"></a>CSSファイルの作成</h3><p>公開ディレクトリとして設定した中（<code>public/css</code>）に、<code>style.css</code>を追加する。</p>
 <p><img src="/image/netbeans-spark-web-2/09.png" alt=""></p>
 <p><img src="/image/netbeans-spark-web-2/10.png" alt=""></p>

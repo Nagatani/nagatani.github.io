@@ -78,7 +78,7 @@
     <link href="http://nagatani.github.io/2016/06/08/netbeans-spark-web-2/"/>
     <id>http://nagatani.github.io/2016/06/08/netbeans-spark-web-2/</id>
     <published>2016-06-08T04:36:36.000Z</published>
-    <updated>2016-06-14T12:43:52.000Z</updated>
+    <updated>2016-06-14T12:57:57.000Z</updated>
     
     <content type="html">&lt;p&gt;以下の記事の続きを書く。&lt;/p&gt;
 &lt;ul&gt;
@@ -145,6 +145,7 @@
 &lt;p&gt;続いて、mainメソッドにて、Spark経由で公開ディレクトリの設定を行う。&lt;/p&gt;
 &lt;p&gt;mainメソッドに以下のソースコードを追記する。&lt;/p&gt;
 &lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// /src/main/resources/public を公開ディレクトリとする&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;staticFileLocation(&lt;span class=&quot;string&quot;&gt;&quot;/public&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;strong&gt;※2016-06-13 追記&lt;/strong&gt;&lt;br&gt;&lt;code&gt;staticFileLocation(&amp;quot;/public&amp;quot;);&lt;/code&gt;を入れる箇所は、getメソッドを呼ぶ前にする必要があるので貼り付け位置に注意。&lt;/p&gt;
 &lt;h2 id=&quot;CSSファイルを設定しテンプレートから出力されたHTMLから参照させる&quot;&gt;&lt;a href=&quot;#CSSファイルを設定しテンプレートから出力されたHTMLから参照させる&quot; class=&quot;headerlink&quot; title=&quot;CSSファイルを設定しテンプレートから出力されたHTMLから参照させる&quot;&gt;&lt;/a&gt;CSSファイルを設定しテンプレートから出力されたHTMLから参照させる&lt;/h2&gt;&lt;h3 id=&quot;CSSファイルの作成&quot;&gt;&lt;a href=&quot;#CSSファイルの作成&quot; class=&quot;headerlink&quot; title=&quot;CSSファイルの作成&quot;&gt;&lt;/a&gt;CSSファイルの作成&lt;/h3&gt;&lt;p&gt;公開ディレクトリとして設定した中（&lt;code&gt;public/css&lt;/code&gt;）に、&lt;code&gt;style.css&lt;/code&gt;を追加する。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/image/netbeans-spark-web-2/09.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/image/netbeans-spark-web-2/10.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
