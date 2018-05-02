@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2018 | Follow on &lt;a href=&#34;https://twitter.com/Nagatani&#34; target=&#34;_blank&#34;&gt;Twitter&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 02 May 2018 14:30:39 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 02 May 2018 18:00:18 +0900</lastBuildDate>
     
 	<atom:link href="https://nagatani.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>MacOSでマイク入力をそのままビルトインオーディオに出力するには</title>
+      <link>https://nagatani.github.io/posts/mac-audio-thru/</link>
+      <pubDate>Wed, 02 May 2018 18:00:18 +0900</pubDate>
+      
+      <guid>https://nagatani.github.io/posts/mac-audio-thru/</guid>
+      <description>標準機能ではできません！ 滅べ。 調べた限りでは 何年か前のMacOSではできていたようなのですが、使用しているMacOS Sierraではできなく</description>
+    </item>
     
     <item>
       <title>HexoからHugoへ切り替え</title>

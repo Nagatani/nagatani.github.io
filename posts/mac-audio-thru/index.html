@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="ja-jp">
 <head>
-	<meta name="generator" content="Hugo 0.40.2" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta content="" name="keywords">
 <meta content="Nagatani" name="author">
-<meta property="og:title" content="Memorandum">
-<meta property="og:url" content="https://nagatani.github.io/">
+<meta property="og:title" content="MacOSでマイク入力をそのままビルトインオーディオに出力するには - Memorandum">
+<meta property="og:url" content="https://nagatani.github.io/posts/mac-audio-thru/">
 <meta property="og:description" content="メモにメモ以上の価値を求めるのはいけない">
 <meta property="og:type" content="website" />
-<title>Memorandum - メモにメモ以上の価値を求めるのはいけない</title>
+<title>MacOSでマイク入力をそのままビルトインオーディオに出力するには | Memorandum</title>
 
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
@@ -28,6 +27,7 @@
 
 </head>
 
+<body>
 <section class="section">
   <div class="container">
     <nav class="nav">
@@ -64,106 +64,64 @@
 
 <section class="section">
   <div class="container">
+    <h1 class="title">MacOSでマイク入力をそのままビルトインオーディオに出力するには</h1>
+    <h2 class="subtitle is-5">May 2, 2018 by Nagatani</h2>
     
-    <article>
-      <h1 class="title"><a href="https://nagatani.github.io/posts/hexo-image-add/">GitHub Pagesで運用するHexoで画像を記事内に挿入する（アップロードする）方法の最適解ってあるの？</a></h1>
-      <h2 class="subtitle is-5">2014-09-13 Saturday</h2>
+    <div class="content">
       
-        <div class="tags">
-    
-        <a class="button is-link" href="/tags/hexo">hexo</a>
-    
-</div>
 
-      
-      <div class="content">
-        タイトルの通りです。 Hexoで画像を挿入する方法 調べたけど、どれもしっくり来ない。 プラグインはコレジャナイ感ある。 自己流 で、自分がやってみて
-        
-        ...<a class="button is-link" href="https://nagatani.github.io/posts/hexo-image-add/" style="height:28px">
-          Read more
-          <span class="icon is-small">
-            <i class="fa fa-angle-double-right"></i>
-          </span>
-        </a>
-        
-      </div>
-    </article>
-    
-    <article>
-      <h1 class="title"><a href="https://nagatani.github.io/posts/markdown-cms/">Markdownで書けるCMS</a></h1>
-      <h2 class="subtitle is-5">2014-09-12 Friday</h2>
-      
-        <div class="tags">
-    
-        <a class="button is-link" href="/tags/markdown">Markdown</a>
-    
-        <a class="button is-link" href="/tags/cms">CMS</a>
-    
-</div>
+<h1 id="標準機能ではできません">標準機能ではできません！</h1>
 
-      
-      <div class="content">
-        前置き CMSについての話です。 いつもは大抵Wordpress使ってるんだけど、なんだかんだ言って更新がめんどいんですよ。 ただ私が面倒くさがり
-        
-        ...<a class="button is-link" href="https://nagatani.github.io/posts/markdown-cms/" style="height:28px">
-          Read more
-          <span class="icon is-small">
-            <i class="fa fa-angle-double-right"></i>
-          </span>
-        </a>
-        
-      </div>
-    </article>
-    
-    <article>
-      <h1 class="title"><a href="https://nagatani.github.io/posts/hello-world/">Hello World</a></h1>
-      <h2 class="subtitle is-5">2014-09-11 Thursday</h2>
-      
-        <div class="tags">
-    
-        <a class="button is-link" href="/tags/hexo">hexo</a>
-    
-</div>
+<p><del>滅べ。</del></p>
 
-      
-      <div class="content">
-        GitHub PagesにHexo入れた。 何書くかは決めてない。 テキトーに何かしら書いていきたい。 HexoをGitHub Pagesに構築するのに参考にし
-        
-        ...<a class="button is-link" href="https://nagatani.github.io/posts/hello-world/" style="height:28px">
-          Read more
-          <span class="icon is-small">
-            <i class="fa fa-angle-double-right"></i>
-          </span>
-        </a>
-        
-      </div>
-    </article>
+<h2 id="調べた限りでは">調べた限りでは</h2>
+
+<p>何年か前のMacOSではできていたようなのですが、使用しているMacOS Sierraではできなくなってしまったようですね。</p>
+
+<h2 id="そもそも">そもそも</h2>
+
+<p>なんでこの機能が欲しいかって言うと、講師業で使用したいからなんです。</p>
+
+<p>講義室にあるマイクは、手持ちしかなく、ピンマイクのような便利なものはありません。(そもそもこれが発端じゃないか……ピンマイク買ってくれよ……。)</p>
+
+<p>手持ちのマイクだと、PC操作しながらの解説がめちゃくちゃ不便なんですよ。
+そこで、ヘッドセットからのマイク入力をビルトインのLINE出力に出して、そのまま講義室のオーディオ入力に入れるなんてことを思いついたわけです。</p>
+
+<p>標準機能ではできなかったんですけどね……。</p>
+
+<h1 id="お金で解決できます">お金で解決できます。</h1>
+
+<p>お金に余裕があれば、↓のアプリで解決できます。<br />
+<a href="https://rogueamoeba.com/soundsource/">Rogue Amoeba | SoundSource: A Superior Sound Control</a></p>
+
+<p>私がライセンス購入したときは $10 でした。</p>
+
+<p>インストール後、メニューバーにアイコンが追加されるので、そのアイコンから、「Open Play-Thru Window」でオーディオスルーの画面を開いて、入出力デバイスの設定と「Start Play-Thru」ボタンでOK。</p>
+
+<p>あら簡単。</p>
+
+<p>本当ならこんな簡単なことはMacOS標準機能で対応してもらいたいところです。</p>
+
+    </div>
     
   </div>
 </section>
+
 <section class="section">
   <div class="container">
-    <nav class="level is-mobile">
-      <div class="level-left">
-        <div class="level-item">
-          
-          <a class="button" href="/">
-            <span class="icon is-small is-marginless">
-              <i class="fa fa-angle-left"></i>
-            </span>
-            Newer
-          </a>
-          
-        </div>
-      </div>
-      <div class="level-right is-marginless">
-        <div class="level-item">
-          
-        </div>
-      </div>
-    </nav>
+    <aside><div id="disqus_thread"></div></aside>
+    <script type="text/javascript">
+      var disqus_shortname = 'nagatanigithubio';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
   </div>
 </section>
+
 
 <section class="section">
   <div class="container has-text-centered">
@@ -198,4 +156,4 @@ ga('send', 'pageview');
 
 
 
-
+</body>
