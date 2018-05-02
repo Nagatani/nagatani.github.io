@@ -77,10 +77,13 @@
 
     
     <div class="content">
-      <p>#ターミナル開いて<code>ls -a</code>使え！
-嘘です。ごめん。</p>
+      
 
-<p>#<code>ls -a</code>使えば見れるけど、Finderでも見たい。</p>
+<h1 id="ターミナル開いて-ls-a-使え">ターミナル開いて<code>ls -a</code>使え！</h1>
+
+<p>嘘です。ごめん。</p>
+
+<h1 id="ls-a-使えば見れるけど-finderでも見たい"><code>ls -a</code>使えば見れるけど、Finderでも見たい。</h1>
 
 <p>そんなあなたに、以下のコマンドを捧げる。
 ターミナル開いて、2行入れるだけ。</p>
@@ -91,15 +94,17 @@ $ killall Finder
 
 <p>※<code>killall Finder</code>でFinderが再起動されるので一応注意すること。</p>
 
-<p>#戻し方も教えとく
-1行目のコマンドの最後を<code>true</code>から<code>false</code>に変えるだけ。</p>
+<h1 id="戻し方も教えとく">戻し方も教えとく</h1>
+
+<p>1行目のコマンドの最後を<code>true</code>から<code>false</code>に変えるだけ。</p>
 
 <pre><code class="language-bash">$ defaults write com.apple.finder AppleShowAllFiles false
 $ killall Finder
 </code></pre>
 
-<p>#Finderでシステム関連の大事なファイルやディレクトリも表示される
-なので、特に理由がないなら、不可視なものは不可視の方が何かと安全ですね。
+<h1 id="finderでシステム関連の大事なファイルやディレクトリも表示される">Finderでシステム関連の大事なファイルやディレクトリも表示される</h1>
+
+<p>なので、特に理由がないなら、不可視なものは不可視の方が何かと安全ですね。
 用事が済んだら、元に戻しておくのがオススメ。</p>
 
 <p>p.s.

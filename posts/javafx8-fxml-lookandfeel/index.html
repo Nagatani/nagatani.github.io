@@ -79,8 +79,11 @@
 
     
     <div class="content">
-      <p>#JavaFX8のLook and Feel
-標準では、Modenaよ呼ばれるルック・アンド・フィールが使用されている。</p>
+      
+
+<h1 id="javafx8のlook-and-feel">JavaFX8のLook and Feel</h1>
+
+<p>標準では、Modenaよ呼ばれるルック・アンド・フィールが使用されている。</p>
 
 <p>これを変更することで、アプリケーション全体の外観を変える事ができる。
 詳細は省く。</p>
@@ -88,7 +91,7 @@
 <p>FXMLには、全体の外観を変更する手法として、HTMLと同様にCSSを使用することができるが、これに関してはまた後日記事にしようと思う。
 <!-- more --></p>
 
-<p>#メインクラスでコーディングが必要</p>
+<h1 id="メインクラスでコーディングが必要">メインクラスでコーディングが必要</h1>
 
 <p>以下、Hello Worldのアプリで作成した、JavaFXApplication1.javaのコードをまるごと載せる。</p>
 
@@ -136,8 +139,9 @@ public class JavaFXApplication1 extends Application {
 <p><code>STYLESHEET_MODENA</code>は、なにも設定しなくても適用されているスタイルのため、あえて明示的に書かなくても良い。
 以前まで使用されていた標準のスタイルにしたい場合は、<code>STYLESHEET_CASPIAN</code>を設定する。</p>
 
-<p>#実際どうなるか
-テキトーにコントロールを乗せたものをMacで実行した場合は以下のようになる。
+<h1 id="実際どうなるか">実際どうなるか</h1>
+
+<p>テキトーにコントロールを乗せたものをMacで実行した場合は以下のようになる。
 ※FXMLは最後に載せます。</p>
 
 <p>まずは標準のスタイルのModenaから。
@@ -146,16 +150,18 @@ public class JavaFXApplication1 extends Application {
 <p>次に、Caspian。
 <img src="/image/sc-javafx8-laf-caspian.png" alt="STYLESHEET_CASPIAN" /></p>
 
-<p>#どっちがいいか？
-好みによると思う。</p>
+<h1 id="どっちがいいか">どっちがいいか？</h1>
+
+<p>好みによると思う。</p>
 
 <p>スクリーンショット見るとなんとなく、Modenaの方が余白を大きく取ってあり、各コントロールに余裕があるように感じますかね。
 逆にCaspianは、圧迫感があるようなないような……。</p>
 
 <p>個人的には、Modenaの方がスッキリしてて余裕あって好きです。</p>
 
-<p>#スクリーンショット用に作成したFXML
-だいぶ雑に作成したので、細かいところへのツッコミはなしでお願いします。</p>
+<h1 id="スクリーンショット用に作成したfxml">スクリーンショット用に作成したFXML</h1>
+
+<p>だいぶ雑に作成したので、細かいところへのツッコミはなしでお願いします。</p>
 
 <pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 

@@ -77,16 +77,20 @@
 
     
     <div class="content">
-      <p>なんやかんやあれやこれやでadbコマンド使わないといけなくなったので、その手順をメモしておく。
+      
+
+<p>なんやかんやあれやこれやでadbコマンド使わないといけなくなったので、その手順をメモしておく。
 母艦のWindowsマシンには、Android SDKを手動セットアップしてたのでそれ使えば良いだけの話なんだけど、たまたま手元にあるのはMacBook Airだったので、adbコマンド使えるようにしとこう、というわけです。</p>
 
 <p>前提として、Android Studioはインストール済み。</p>
 
-<p>##Android SDKを別途入れなくても、Android StudioにはSDKが含まれてる
-ので、それのPATHを通してやれば良いわけです。</p>
+<h2 id="android-sdkを別途入れなくても-android-studioにはsdkが含まれてる">Android SDKを別途入れなくても、Android StudioにはSDKが含まれてる</h2>
 
-<p>##Android Studioに含まれるSDKの場所
-環境によって異なるかもしれないので注意が必要。
+<p>ので、それのPATHを通してやれば良いわけです。</p>
+
+<h2 id="android-studioに含まれるsdkの場所">Android Studioに含まれるSDKの場所</h2>
+
+<p>環境によって異なるかもしれないので注意が必要。
 僕のMacBook AirにインストールしたAndroid Studioの構成では以下のパス以下にSDKが含まれていた。</p>
 
 <pre><code>/Applications/Android\ Studio.app/sdk/
@@ -94,12 +98,12 @@
 
 <p>目的のadb本体は、<code>sdk</code>ディレクトリ以下の、<code>platform-tools</code>にある。</p>
 
-<p>##adbコマンドを使用できるように、PATHを通す</p>
+<h2 id="adbコマンドを使用できるように-pathを通す">adbコマンドを使用できるように、PATHを通す</h2>
 
 <p>ターミナルに使うのが何かで設定が異なる。
 僕のMacBook Airは初期設定のままのbashを使ってるので、以下のようにする。</p>
 
-<p>###bashの場合</p>
+<h3 id="bashの場合">bashの場合</h3>
 
 <pre><code>~/.bash_profile
 </code></pre>
@@ -111,14 +115,14 @@
 
 <p>エディタはお好きにどうぞ。</p>
 
-<p>###普段あんま使わないけど、zshの場合は……</p>
+<h3 id="普段あんま使わないけど-zshの場合は">普段あんま使わないけど、zshの場合は……</h3>
 
 <pre><code>~/.zshrc
 </code></pre>
 
 <p>に以下同文。</p>
 
-<p>##adbが動作するか確認する。</p>
+<h2 id="adbが動作するか確認する">adbが動作するか確認する。</h2>
 
 <p>設定を読み込みし直さないといけないので、ターミナル再起動。</p>
 

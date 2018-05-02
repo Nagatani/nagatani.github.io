@@ -63,7 +63,7 @@
       <pubDate>Wed, 08 Oct 2014 17:00:56 +0000</pubDate>
       
       <guid>https://nagatani.github.io/posts/javafx8-fxml-lookandfeel/</guid>
-      <description>#JavaFX8のLook and Feel 標準では、Modenaよ呼ばれるルック・アンド・フィールが使用されている。 これを変更することで、アプリケーショ</description>
+      <description>JavaFX8のLook and Feel 標準では、Modenaよ呼ばれるルック・アンド・フィールが使用されている。 これを変更することで、アプリケーション</description>
     </item>
     
     <item>
@@ -72,7 +72,7 @@
       <pubDate>Tue, 07 Oct 2014 14:40:51 +0000</pubDate>
       
       <guid>https://nagatani.github.io/posts/mac-finder-view-allfile/</guid>
-      <description>#ターミナル開いてls -a使え！ 嘘です。ごめん。 #ls -a使えば見れるけど、Finderでも見たい。 そんなあなたに、以下のコマンドを捧げる。 ター</description>
+      <description>ターミナル開いてls -a使え！ 嘘です。ごめん。 ls -a使えば見れるけど、Finderでも見たい。 そんなあなたに、以下のコマンドを捧げる。 ターミ</description>
     </item>
     
     <item>
@@ -99,7 +99,7 @@
       <pubDate>Sat, 13 Sep 2014 03:55:09 +0000</pubDate>
       
       <guid>https://nagatani.github.io/posts/hexo-image-add/</guid>
-      <description>タイトルの通りです。 ##Hexoで画像を挿入する方法 調べたけど、どれもしっくり来ない。 プラグインはコレジャナイ感ある。 ##自己流 で、自分がや</description>
+      <description>タイトルの通りです。 Hexoで画像を挿入する方法 調べたけど、どれもしっくり来ない。 プラグインはコレジャナイ感ある。 自己流 で、自分がやってみて</description>
     </item>
     
     <item>
@@ -108,7 +108,7 @@
       <pubDate>Fri, 12 Sep 2014 04:00:46 +0000</pubDate>
       
       <guid>https://nagatani.github.io/posts/markdown-cms/</guid>
-      <description>##前置き CMSについての話です。 いつもは大抵Wordpress使ってるんだけど、なんだかんだ言って更新がめんどいんですよ。 ただ私が面倒くさ</description>
+      <description>前置き CMSについての話です。 いつもは大抵Wordpress使ってるんだけど、なんだかんだ言って更新がめんどいんですよ。 ただ私が面倒くさがり</description>
     </item>
     
     <item>
@@ -117,7 +117,7 @@
       <pubDate>Thu, 11 Sep 2014 15:11:01 +0000</pubDate>
       
       <guid>https://nagatani.github.io/posts/hello-world/</guid>
-      <description>GitHub PagesにHexo入れた。 何書くかは決めてない。 テキトーに何かしら書いていきたい。 ##HexoをGitHub Pagesに構築するのに参考</description>
+      <description>GitHub PagesにHexo入れた。 何書くかは決めてない。 テキトーに何かしら書いていきたい。 HexoをGitHub Pagesに構築するのに参考にし</description>
     </item>
     
   </channel>

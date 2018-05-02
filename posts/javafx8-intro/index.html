@@ -81,16 +81,21 @@
 
     
     <div class="content">
-      <p>今回から、JavaFX8(JavaFX on Java8)についての記事を幾つか書こうと思う。
+      
+
+<p>今回から、JavaFX8(JavaFX on Java8)についての記事を幾つか書こうと思う。
 前持って言って置かなければならないんだけど、私はJavaFXでの開発実績がない。
 この記事もある程度勉強進めた段階で書いてるけど、自分がわかるように書くだけなので参考にならなくても知らんし、間違った内容もあるかもしれんし、途中で飽きたら放置するのでそのつもりでお願いします。</p>
 
-<p>##Java8から標準機能となったJavaFX
-Swingと取って代わって、JavaFXがJavaのGUI開発の標準的な位置づけになりつつある（なった）と思って差し支えないかと思う。
+<h2 id="java8から標準機能となったjavafx">Java8から標準機能となったJavaFX</h2>
+
+<p>Swingと取って代わって、JavaFXがJavaのGUI開発の標準的な位置づけになりつつある（なった）と思って差し支えないかと思う。
 何言ってんだSwingが標準だろうが！ってお怒りの方、落ち着いてください。そういう意見もあります。(あるのかどうかも知らんけど)
-<!-- more -->
-##とりあえず Java 8 を NetBeans 8 で開発できるようにしよう
-Eclipse？
+<!-- more --></p>
+
+<h2 id="とりあえず-java-8-を-netbeans-8-で開発できるようにしよう">とりあえず Java 8 を NetBeans 8 で開発できるようにしよう</h2>
+
+<p>Eclipse？
 そんなものは知らん。</p>
 
 <p>IntelliJ IDEA？
@@ -112,7 +117,7 @@ PATHも多分インストーラーが通してくれるはず。</p>
 最近はJavaでの開発はもっぱらMac OSでやってる。
 WindowsでNetBeans使う場合は、まず最初にエディタのフォントを見やすいのに変えることをオススメしたい。</p>
 
-<p>##FXMLのアプリケーションには必需品と言ってもいい JavaFX Scene Builder 2.0</p>
+<h2 id="fxmlのアプリケーションには必需品と言ってもいい-javafx-scene-builder-2-0">FXMLのアプリケーションには必需品と言ってもいい JavaFX Scene Builder 2.0</h2>
 
 <p>これ入れておくと捗る場合がほとんどだと思うので、入れておく。
 じゃないとGUIの調整に、FXMLと呼ばれるJavaFX用のXMLを直接直す必要性が出てくる。
@@ -124,7 +129,7 @@ WindowsでNetBeans使う場合は、まず最初にエディタのフォント�
 Swingに慣れている人は前者を使えば良い。それなら Scene Builderはいらない。
 だけど、どうせなら FXML を覚えた方が後々役に立つだろうと思う。</p>
 
-<p>##とりあえず JavaFX8 で世界に挨拶をしとこう。</p>
+<h2 id="とりあえず-javafx8-で世界に挨拶をしとこう">とりあえず JavaFX8 で世界に挨拶をしとこう。</h2>
 
 <p>みんな最初は世界に挨拶することから始まります。
 手順は以下のとおり。</p>
@@ -140,25 +145,39 @@ Swingに慣れている人は前者を使えば良い。それなら Scene Build
 <li>プロジェクトを実行</li>
 </ol>
 
-<p>##もう少し詳しく</p>
+<h2 id="もう少し詳しく">もう少し詳しく</h2>
 
-<p>###1. NetBeans8を起動
-###2. メニューバーの[ファイル]→<a href="Macなら[shift] + [⌘] + [n]">新規プロジェクト</a>
-<img src="/image/sc-javafx8-intro-01.png" alt="これ" />
-###3. カテゴリから「JavaFX」を選択
-<img src="/image/sc-javafx8-intro-02.png" alt="「次へ」を押すのはまだ早い！" />
-###4. プロジェクトから「JavaFX FXMLアプリケーション」を選択
-###5. 「次へ」
-<img src="/image/sc-javafx8-intro-03.png" alt="ちゃんとJavaFX FXMLアプリケーションを選ぼう。" />
-###6. プロジェクトの保存先等を設定する
-<img src="/image/sc-javafx8-intro-04.png" alt="保存先とかは分かりやすいところにまとめておいたほうが良いと思う。" />
-###7. 「終了」
-<img src="/image/sc-javafx8-intro-05.png" alt="プロジェクトが生成できた。" />
-###8. プロジェクトを実行
-<img src="/image/sc-javafx8-intro-06.png" alt="こんなボタンがあるはず。探して押そう。" /></p>
+<h3 id="1-netbeans8を起動">1. NetBeans8を起動</h3>
 
-<p>##実行すると
-以下の様な小さい画面が出てくる。
+<h3 id="2-メニューバーの-ファイル-新規プロジェクト-macなら-shift-n">2. メニューバーの[ファイル]→<a href="Macなら[shift] + [⌘] + [n]">新規プロジェクト</a></h3>
+
+<p><img src="/image/sc-javafx8-intro-01.png" alt="これ" /></p>
+
+<h3 id="3-カテゴリから-javafx-を選択">3. カテゴリから「JavaFX」を選択</h3>
+
+<p><img src="/image/sc-javafx8-intro-02.png" alt="「次へ」を押すのはまだ早い！" /></p>
+
+<h3 id="4-プロジェクトから-javafx-fxmlアプリケーション-を選択">4. プロジェクトから「JavaFX FXMLアプリケーション」を選択</h3>
+
+<h3 id="5-次へ">5. 「次へ」</h3>
+
+<p><img src="/image/sc-javafx8-intro-03.png" alt="ちゃんとJavaFX FXMLアプリケーションを選ぼう。" /></p>
+
+<h3 id="6-プロジェクトの保存先等を設定する">6. プロジェクトの保存先等を設定する</h3>
+
+<p><img src="/image/sc-javafx8-intro-04.png" alt="保存先とかは分かりやすいところにまとめておいたほうが良いと思う。" /></p>
+
+<h3 id="7-終了">7. 「終了」</h3>
+
+<p><img src="/image/sc-javafx8-intro-05.png" alt="プロジェクトが生成できた。" /></p>
+
+<h3 id="8-プロジェクトを実行">8. プロジェクトを実行</h3>
+
+<p><img src="/image/sc-javafx8-intro-06.png" alt="こんなボタンがあるはず。探して押そう。" /></p>
+
+<h2 id="実行すると">実行すると</h2>
+
+<p>以下の様な小さい画面が出てくる。
 <img src="/image/sc-javafx8-intro-07.png" alt="" /></p>
 
 <p>さも押してほしそうなボタン、「Click Me!」をクリック
@@ -166,8 +185,9 @@ Swingに慣れている人は前者を使えば良い。それなら Scene Build
 
 <p>これで通過儀礼である世界への挨拶が完了した。</p>
 
-<p>##生成されたソースコードを見てみよう。
-<img src="/image/sc-javafx8-intro-05.png" alt="プロジェクトのソースから各ファイルを見れる" />
+<h2 id="生成されたソースコードを見てみよう">生成されたソースコードを見てみよう。</h2>
+
+<p><img src="/image/sc-javafx8-intro-05.png" alt="プロジェクトのソースから各ファイルを見れる" />
 まずは、<code>FXMLDocument.fxml</code>をダブルクリックすると、JavaFX Scene Builder 2.0が立ち上がる。(もちろんインストールが完了していれば)
 <img src="/image/sc-javafx8-intro-10.png" alt="" /></p>
 
@@ -288,8 +308,9 @@ FXMLの読み込みには、<code>FXMLLoader</code>が使われていること�
 
 <p>ここまで一気に作成してくれるのはありがたいけど、ある程度詳しくなると、空のJavaFXアプリケーションからFXML追加してやった方が良さそうかもしれないので複雑な心境である。</p>
 
-<p>#まとめ
-FXMLは、コードとUIデザインを分離できるので、良い。
+<h1 id="まとめ">まとめ</h1>
+
+<p>FXMLは、コードとUIデザインを分離できるので、良い。
 MicrosoftのWPFと似てるような(そうでもないような)感じなので、意外とすんなり入ってきた。</p>
 
 <p>今回は簡単にプログラマの通過儀礼である世界への挨拶を済ませたので、次回以降はもう少し踏み込んだ内容を書き進めたい。</p>

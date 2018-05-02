@@ -77,8 +77,11 @@
 
     
     <div class="content">
-      <p>##前置き
-CMSについての話です。
+      
+
+<h2 id="前置き">前置き</h2>
+
+<p>CMSについての話です。
 いつもは大抵Wordpress使ってるんだけど、なんだかんだ言って更新がめんどいんですよ。
 ただ私が面倒くさがりってこともあるんですが……。</p>
 
@@ -92,9 +95,11 @@ CMSについての話です。
 だけどこのブログは、ほとんど自分のメモ書きみたいな感じで使っていきたい。</p>
 
 <p>そのいろいろあった時にMarkdownで記事書けるCMSというかブログシステム探した結果報告と言うか見つけたものを雑に紹介しておこうと思ってこれ書きました。
-<!-- more -->
-#Markdownで記事が書けるCMS
-前置きが長くなりましたが、良さそうかなーって思ったものをとりあえず一覧で。</p>
+<!-- more --></p>
+
+<h1 id="markdownで記事が書けるcms">Markdownで記事が書けるCMS</h1>
+
+<p>前置きが長くなりましたが、良さそうかなーって思ったものをとりあえず一覧で。</p>
 
 <ul>
 <li><a href="http://picocms.org/">Pico</a></li>
@@ -106,11 +111,14 @@ CMSについての話です。
 
 <p>以降個別に紹介していきます。</p>
 
-<p>##Pico
-<a href="http://picocms.org/">Pico - A stupidly simple, blazing fast, flat file CMS.</a>
-<img src="/image/sc-pico.png" alt="" />
-###詳細
-|項目名|詳細|
+<h2 id="pico">Pico</h2>
+
+<p><a href="http://picocms.org/">Pico - A stupidly simple, blazing fast, flat file CMS.</a>
+<img src="/image/sc-pico.png" alt="" /></p>
+
+<h3 id="詳細">詳細</h3>
+
+<p>|項目名|詳細|
 |:-|:-|
 |動作環境|PHP 5.3以上 Apache:mod_rewrite|
 |ライセンス|MIT|</p>
@@ -128,11 +136,14 @@ Markdownファイルをアップロードすると、初回アクセス時にHTM
 <p>ただ、PHPである程度わかって、Picoプラグインの開発ができるのなら、こういった派生のものを使用するより、Picoそのもの使った方が良いってぐらいPicoは簡単かと。
 レンタルサーバーで運用する場合は、PHPのバージョンが5.3以上になってることを確認しよう！（自戒を込めて）</p>
 
-<p>##NoShi
-<a href="http://noshi.cundd.net/">NoShi - The no shi! CMS</a>
-<img src="/image/sc-noshi.png" alt="" />
-###詳細
-|項目名|詳細|
+<h2 id="noshi">NoShi</h2>
+
+<p><a href="http://noshi.cundd.net/">NoShi - The no shi! CMS</a>
+<img src="/image/sc-noshi.png" alt="" /></p>
+
+<h3 id="詳細-1">詳細</h3>
+
+<p>|項目名|詳細|
 |:-|:-|
 |動作環境|PHP 5.4以上|
 |ライセンス|MIT|</p>
@@ -141,11 +152,14 @@ Markdownファイルをアップロードすると、初回アクセス時にHTM
 Apacheじゃなくても運用できるので良さ気な印象を受けたが、まだ新しいので、ドキュメントも少なく若干敷居が高く感じた。
 サイトのデザインが良さそうな雰囲気だったので紹介しておきます。</p>
 
-<p>##Dropplets
-<a href="http://dropplets.com/">Dropplets - Welcome to an Easier Way to Blog</a>
-<img src="/image/sc-dropplets.png" alt="" />
-###詳細
-|項目名|詳細|
+<h2 id="dropplets">Dropplets</h2>
+
+<p><a href="http://dropplets.com/">Dropplets - Welcome to an Easier Way to Blog</a>
+<img src="/image/sc-dropplets.png" alt="" /></p>
+
+<h3 id="詳細-2">詳細</h3>
+
+<p>|項目名|詳細|
 |:-|:-|
 |動作環境|PHP (必須バージョン不明)|
 |ライセンス|MIT|</p>
@@ -153,11 +167,14 @@ Apacheじゃなくても運用できるので良さ気な印象を受けたが�
 <p>使いやすそうなんだけど、ドキュメントが少ないなーって思って使うのを諦めました。
 使うの諦めたので、PHPの必須バージョンとか詳細がわからない……。</p>
 
-<p>##Singularity
-<a href="https://github.com/csu/singularity-cms">Singularity - GitHub:csu/singularity-cms</a>
-リンク先がGitHubなのでスクリーンショットはなし。
-###詳細
-|項目名|詳細|
+<h2 id="singularity">Singularity</h2>
+
+<p><a href="https://github.com/csu/singularity-cms">Singularity - GitHub:csu/singularity-cms</a>
+リンク先がGitHubなのでスクリーンショットはなし。</p>
+
+<h3 id="詳細-3">詳細</h3>
+
+<p>|項目名|詳細|
 |:-|:-|
 |動作環境|PHP (必須バージョン不明)|
 |ライセンス|MIT|</p>
@@ -167,11 +184,14 @@ PHPのソース40行しかなく、あとはhtaccessのみで構成されてて�
 都度Markdownから変換してるので、キャッシュとかそういった観点から中規模から大規模なサイトには使用しづらいかなーって思い、使用を断念しました。
 このCMSを知ったおかげでStrapdown.jsも知ることができたので良い。</p>
 
-<p>##Hexo
-<a href="http://hexo.io/">Hexo</a>
-<img src="/image/sc-hexo.png" alt="" />
-###詳細
-|項目名|詳細|
+<h2 id="hexo">Hexo</h2>
+
+<p><a href="http://hexo.io/">Hexo</a>
+<img src="/image/sc-hexo.png" alt="" /></p>
+
+<h3 id="詳細-4">詳細</h3>
+
+<p>|項目名|詳細|
 |:-|:-|
 |動作環境|Node.js|
 |ライセンス|MIT|</p>
@@ -183,8 +203,9 @@ Gitの使い方とかを学ぶついでに良いってところもこれを使�
 
 <p>※読み方がわからん。ヘクソでいいの？？</p>
 
-<p>#まとめ
-だいぶ雑に紹介した感ある。</p>
+<h1 id="まとめ">まとめ</h1>
+
+<p>だいぶ雑に紹介した感ある。</p>
 
 <p>Markdown便利だからMarkdownでブログ書くのマジオススメ。
 あと、紹介したCMSはどれもデータベースを使用しないファイルベースのものばかりなので、MySQLとかそういう呪縛に囚われない。</p>
