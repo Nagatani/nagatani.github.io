@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="" name="keywords">
+<meta content="Nagatani" name="author">
+<meta property="og:title" content="JavaFX8 FXMLでのGUIアプリケーション開発 - 事始め - Memorandum">
+<meta property="og:url" content="https://nagatani.github.io/posts/javafx8-intro/">
+<meta property="og:description" content="メモにメモ以上の価値を求めるのはいけない">
+<meta property="og:type" content="website" />
+<title>JavaFX8 FXMLでのGUIアプリケーション開発 - 事始め | Memorandum</title>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<link rel="stylesheet" href="https://nagatani.github.io//css/style.css">
+<link rel="shortcut icon" href="https://nagatani.github.io//wave.ico">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai.min.css">
+
+</head>
+
+<body>
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://nagatani.github.io/"><h1 class="title is-4">Memorandum</h1></a>
+        &nbsp;-&nbsp;<small>メモにメモ以上の価値を求めるのはいけない</small>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/Nagatani" target="_blank">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="https://twitter.com/Nagatani" target="_blank">
+            <span class="icon">
+              <i class="fa fa-twitter"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml" target="_blank">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h1 class="title">JavaFX8 FXMLでのGUIアプリケーション開発 - 事始め</h1>
+    <h2 class="subtitle is-5">September 17, 2014 by Nagatani</h2>
+    
+      <div class="tags">
+    
+        <a class="button is-link" href="/tags/java">Java</a>
+    
+        <a class="button is-link" href="/tags/javafx8">JavaFX8</a>
+    
+        <a class="button is-link" href="/tags/javafxscenebuilder2">JavaFXSceneBuilder2</a>
+    
+        <a class="button is-link" href="/tags/fxml">FXML</a>
+    
+</div>
+
+    
+    <div class="content">
+      <p>今回から、JavaFX8(JavaFX on Java8)についての記事を幾つか書こうと思う。
+前持って言って置かなければならないんだけど、私はJavaFXでの開発実績がない。
+この記事もある程度勉強進めた段階で書いてるけど、自分がわかるように書くだけなので参考にならなくても知らんし、間違った内容もあるかもしれんし、途中で飽きたら放置するのでそのつもりでお願いします。</p>
+
+<p>##Java8から標準機能となったJavaFX
+Swingと取って代わって、JavaFXがJavaのGUI開発の標準的な位置づけになりつつある（なった）と思って差し支えないかと思う。
+何言ってんだSwingが標準だろうが！ってお怒りの方、落ち着いてください。そういう意見もあります。(あるのかどうかも知らんけど)
+<!-- more -->
+##とりあえず Java 8 を NetBeans 8 で開発できるようにしよう
+Eclipse？
+そんなものは知らん。</p>
+
+<p>IntelliJ IDEA？
+ライセンス欲しい。</p>
+
+<p>Java8とNetBeans8がセットになったJava SE 8が以下のサイト(Oracle)よりダウンロードできる。
+JavaでGUIアプリケーションを今から始める。という方は、迷わずNetBeans付きのものをダウンロードすると良いだろう。</p>
+
+<p><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk-netbeans-jsp-142931.html">Java SE Downloads - Netbeans + JDK Bundle</a></p>
+
+<p>NetBeansはGUIアプリケーション開発に非常に向いているIDEだと思う。
+Oracleが配布してるし、なんとなく安心感を得られます。
+……よく落ちるけど。</p>
+
+<p>ダウンロードからインストールまでは、それほど躓くところはないと思う。
+PATHも多分インストーラーが通してくれるはず。</p>
+
+<p>余談だけど、WindowsでNetBeans立ち上げると、フォント見た瞬間に拒絶反応出る。
+最近はJavaでの開発はもっぱらMac OSでやってる。
+WindowsでNetBeans使う場合は、まず最初にエディタのフォントを見やすいのに変えることをオススメしたい。</p>
+
+<p>##FXMLのアプリケーションには必需品と言ってもいい JavaFX Scene Builder 2.0</p>
+
+<p>これ入れておくと捗る場合がほとんどだと思うので、入れておく。
+じゃないとGUIの調整に、FXMLと呼ばれるJavaFX用のXMLを直接直す必要性が出てくる。
+慣れてる人なら入れなくてもいいかもしれないが、便利なツールなので入れておくに越したことはないと思う。</p>
+
+<p><a href="http://www.oracle.com/technetwork/java/javase/downloads/sb2download-2177776.html">JavaFX Scene Builder 2.0 Download</a></p>
+
+<p>また、JavaFX8には、Swing互換っぽい動きをするJavaFX in Swingなるものと、JavaFX FXMLなるものがある。
+Swingに慣れている人は前者を使えば良い。それなら Scene Builderはいらない。
+だけど、どうせなら FXML を覚えた方が後々役に立つだろうと思う。</p>
+
+<p>##とりあえず JavaFX8 で世界に挨拶をしとこう。</p>
+
+<p>みんな最初は世界に挨拶することから始まります。
+手順は以下のとおり。</p>
+
+<ol>
+<li>NetBeans8を起動</li>
+<li>メニューバーの[ファイル]→<a href="Macなら[shift] + [⌘] + [n]">新規プロジェクト</a></li>
+<li>カテゴリから「JavaFX」を選択</li>
+<li>プロジェクトから「JavaFX FXMLアプリケーション」を選択</li>
+<li>「次へ」</li>
+<li>プロジェクトの保存先等を設定する</li>
+<li>「終了」</li>
+<li>プロジェクトを実行</li>
+</ol>
+
+<p>##もう少し詳しく</p>
+
+<p>###1. NetBeans8を起動
+###2. メニューバーの[ファイル]→<a href="Macなら[shift] + [⌘] + [n]">新規プロジェクト</a>
+<img src="/image/sc-javafx8-intro-01.png" alt="これ" />
+###3. カテゴリから「JavaFX」を選択
+<img src="/image/sc-javafx8-intro-02.png" alt="「次へ」を押すのはまだ早い！" />
+###4. プロジェクトから「JavaFX FXMLアプリケーション」を選択
+###5. 「次へ」
+<img src="/image/sc-javafx8-intro-03.png" alt="ちゃんとJavaFX FXMLアプリケーションを選ぼう。" />
+###6. プロジェクトの保存先等を設定する
+<img src="/image/sc-javafx8-intro-04.png" alt="保存先とかは分かりやすいところにまとめておいたほうが良いと思う。" />
+###7. 「終了」
+<img src="/image/sc-javafx8-intro-05.png" alt="プロジェクトが生成できた。" />
+###8. プロジェクトを実行
+<img src="/image/sc-javafx8-intro-06.png" alt="こんなボタンがあるはず。探して押そう。" /></p>
+
+<p>##実行すると
+以下の様な小さい画面が出てくる。
+<img src="/image/sc-javafx8-intro-07.png" alt="" /></p>
+
+<p>さも押してほしそうなボタン、「Click Me!」をクリック
+<img src="/image/sc-javafx8-intro-09.png" alt="" /></p>
+
+<p>これで通過儀礼である世界への挨拶が完了した。</p>
+
+<p>##生成されたソースコードを見てみよう。
+<img src="/image/sc-javafx8-intro-05.png" alt="プロジェクトのソースから各ファイルを見れる" />
+まずは、<code>FXMLDocument.fxml</code>をダブルクリックすると、JavaFX Scene Builder 2.0が立ち上がる。(もちろんインストールが完了していれば)
+<img src="/image/sc-javafx8-intro-10.png" alt="" /></p>
+
+<p>この画面でGUIを直感的に操作できるし、コントロールの追加もドラッグアンドドロップでできる。
+全部英語なのは我慢すべし。</p>
+
+<p>NetBeansに戻ると、以下の様にXMLが書かれた<code>FXMLDocument.fxml</code>が開かれていると思う。</p>
+
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+
+&lt;?import java.lang.*?&gt;
+&lt;?import java.util.*?&gt;
+&lt;?import javafx.scene.*?&gt;
+&lt;?import javafx.scene.control.*?&gt;
+&lt;?import javafx.scene.layout.*?&gt;
+
+&lt;AnchorPane id=&quot;AnchorPane&quot; prefHeight=&quot;200&quot; prefWidth=&quot;320&quot; xmlns:fx=&quot;http://javafx.com/fxml/1&quot; fx:controller=&quot;javafxapplication1.FXMLDocumentController&quot;&gt;
+    &lt;children&gt;
+        &lt;Button layoutX=&quot;126&quot; layoutY=&quot;90&quot; text=&quot;Click Me!&quot; onAction=&quot;#handleButtonAction&quot; fx:id=&quot;button&quot; /&gt;
+        &lt;Label layoutX=&quot;126&quot; layoutY=&quot;120&quot; minHeight=&quot;16&quot; minWidth=&quot;69&quot; fx:id=&quot;label&quot; /&gt;
+    &lt;/children&gt;
+&lt;/AnchorPane&gt;
+</code></pre>
+
+<p>これが、FXMLである。
+画面全部XMLで表現できるし、ここでプログラミングすることもできる。</p>
+
+<p>次に、<code>FXMLDocumentController.java</code>を見てみよう。
+ソースコードは以下のようになっている。</p>
+
+<pre><code class="language-java">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package javafxapplication1;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+
+/**
+ *
+ * @author Nagatani
+ */
+public class FXMLDocumentController implements Initializable {
+
+    @FXML
+    private Label label;
+
+    @FXML
+    private void handleButtonAction(ActionEvent event) {
+        System.out.println(&quot;You clicked me!&quot;);
+        label.setText(&quot;Hello World!&quot;);
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        // TODO
+    }    
+
+}
+</code></pre>
+
+<p>FXMLと関連付けるコードの上に、<code>@FXML</code>というアノテーションが付けられている。
+ボタンクリックのイベントは、<code>FXMLDocument.fxml</code>の11行目にあるButtonコントローラの<code>onAction</code>属性に含まれる<code>#handleButtonAction</code>から、<code>FXMLDocumentController.java</code>の26行目以降の<code>handleButtonAction</code>メソッドが呼ばれるようになっていることがソースから分かる。</p>
+
+<p><code>initialize</code>メソッドには、<code>// TODO</code>コメントが入っているので、画面要素の初期化を行う場合はここに書けということだろう。</p>
+
+<p>最後に、<code>JavaFXApplication1.java</code>を見よう。</p>
+
+<pre><code class="language-java">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package javafxapplication1;
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+/**
+ *
+ * @author Nagatani
+ */
+public class JavaFXApplication1 extends Application {
+
+    @Override
+    public void start(Stage stage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource(&quot;FXMLDocument.fxml&quot;));
+
+        Scene scene = new Scene(root);
+
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+}
+</code></pre>
+
+<p>これは単純に画面を呼び出すだけのコードが書かれている。
+FXMLの読み込みには、<code>FXMLLoader</code>が使われていることが分かる。</p>
+
+<p>ここまで一気に作成してくれるのはありがたいけど、ある程度詳しくなると、空のJavaFXアプリケーションからFXML追加してやった方が良さそうかもしれないので複雑な心境である。</p>
+
+<p>#まとめ
+FXMLは、コードとUIデザインを分離できるので、良い。
+MicrosoftのWPFと似てるような(そうでもないような)感じなので、意外とすんなり入ってきた。</p>
+
+<p>今回は簡単にプログラマの通過儀礼である世界への挨拶を済ませたので、次回以降はもう少し踏み込んだ内容を書き進めたい。</p>
+
+<p>※次回の記事の内容は未定です。</p>
+
+    </div>
+    
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <aside><div id="disqus_thread"></div></aside>
+    <script type="text/javascript">
+      var disqus_shortname = 'nagatanigithubio';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; 2018 | Follow on <a href="https://twitter.com/Nagatani" target="_blank">Twitter</a></p>
+  </div>
+</section>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js" integrity="sha256-+bhVTaRmJ/c07eV80nU8gD2cBBF0rYkf1txqXlrbvb0=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/html.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/java.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/javascript.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/go.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-43292130-3', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
+</body>

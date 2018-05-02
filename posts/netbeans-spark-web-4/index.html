@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="" name="keywords">
+<meta content="Nagatani" name="author">
+<meta property="og:title" content="NetBeansでSparkを使ってサクッとWebアプリケーションを作る ④JSONを返すWeb-APIの作成 - Memorandum">
+<meta property="og:url" content="https://nagatani.github.io/posts/netbeans-spark-web-4/">
+<meta property="og:description" content="メモにメモ以上の価値を求めるのはいけない">
+<meta property="og:type" content="website" />
+<title>NetBeansでSparkを使ってサクッとWebアプリケーションを作る ④JSONを返すWeb-APIの作成 | Memorandum</title>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<link rel="stylesheet" href="https://nagatani.github.io//css/style.css">
+<link rel="shortcut icon" href="https://nagatani.github.io//wave.ico">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai.min.css">
+
+</head>
+
+<body>
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://nagatani.github.io/"><h1 class="title is-4">Memorandum</h1></a>
+        &nbsp;-&nbsp;<small>メモにメモ以上の価値を求めるのはいけない</small>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/Nagatani" target="_blank">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="https://twitter.com/Nagatani" target="_blank">
+            <span class="icon">
+              <i class="fa fa-twitter"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml" target="_blank">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h1 class="title">NetBeansでSparkを使ってサクッとWebアプリケーションを作る ④JSONを返すWeb-APIの作成</h1>
+    <h2 class="subtitle is-5">June 23, 2016 by Nagatani</h2>
+    
+      <div class="tags">
+    
+        <a class="button is-link" href="/tags/java8">Java8</a>
+    
+        <a class="button is-link" href="/tags/spark">Spark</a>
+    
+        <a class="button is-link" href="/tags/tutorial">Tutorial</a>
+    
+</div>
+
+    
+    <div class="content">
+      
+
+<h2 id="今回やることのソースコード">今回やることのソースコード</h2>
+
+<p>GitHubに置いておきます。</p>
+
+<p><a href="https://github.com/Nagatani/netbeans-spark-webapp-sample2">Nagatani/netbeans-spark-webapp-sample2</a></p>
+
+<h2 id="jsonを返すweb-apiの作成">JSONを返すWeb APIの作成</h2>
+
+<p>最終的には、MySQLからデータを取得してJSON形式で返すAPIと、JavaScriptでJSONデータを取得して画面に表示するプログラムが完成する。</p>
+
+<p>やることはそれほど難しいことでなく、単純にJSON変換ライブラリであるGoogleのgsonを使用してJavaのインスタンスをJSON形式に変換し、それをHTTPのレスポンスで返すだけである。</p>
+
+<ul>
+<li><a href="https://github.com/google/gson">google/gson: A Java serialization/deserialization library that can convert Java Objects into JSON and back.</a></li>
+</ul>
+
+<p>gsonは、Mavenリポジトリに登録されているので、<code>pom.xml</code>の<code>dependencies</code>に以下のdependencyを追加する。</p>
+
+<pre><code class="language-xml">        &lt;!-- 以下はJSON形式への変換ライブラリとして使用します。 --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.google.code.gson&lt;/groupId&gt;
+            &lt;artifactId&gt;gson&lt;/artifactId&gt;
+            &lt;version&gt;2.6.2&lt;/version&gt;
+        &lt;/dependency&gt;
+</code></pre>
+
+<h3 id="jsonに変換して返すクラスの作成">JSONに変換して返すクラスの作成</h3>
+
+<p>今回は、仮にユーザーの一覧を返す仕組みを作成していく。</p>
+
+<p>ユーザーデータには、ユーザーID(id)、ユーザー名(name)、メールアドレス(email)を持たせる。</p>
+
+<p>ユーザーデータのクラスは以下（便宜上、パッケージをmodelsにしている。）</p>
+
+<pre><code class="language-java">package me.nagatani.dev.spark.webapp.sample2.models;
+
+public class User {
+
+    private int id;
+    private String name;
+    private String email;
+
+    public User() {
+    }
+
+    public User(int id, String name, String email) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+}
+</code></pre>
+
+<h2 id="sparkでjsonを返す">SparkでJSONを返す</h2>
+
+<p>作成したUserクラスのインスタンスをListに格納して、JSONに変換して返してみる。</p>
+
+<p>今回からSparkのメインクラスは、<code>App.java</code>にしている。</p>
+
+<pre><code class="language-java">package me.nagatani.dev.spark.webapp.sample2;
+
+import com.google.gson.Gson;
+import java.util.ArrayList;
+import java.util.List;
+import me.nagatani.dev.spark.webapp.sample2.models.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import static spark.Spark.*;
+
+/**
+ *
+ * @author Nagatani
+ */
+public class App {
+
+    public static void main(String[] args) {
+
+        // Gsonを使うための準備
+        Gson gson = new Gson();
+
+        // ログ出力機能の初期化
+        Logger logger = LoggerFactory.getLogger(App.class);
+
+        // /src/main/resources/public を公開ディレクトリとする
+        staticFileLocation(&quot;/public&quot;);
+
+        // http://localhost:4567/users
+        get(&quot;/users&quot;, (req, res) -&gt; {
+
+            // Userのリストを作成して返す
+            List&lt;User&gt; users = new ArrayList&lt;&gt;();
+            users.add(new User(1, &quot;name1&quot;, &quot;name1@sample.com&quot;));
+            users.add(new User(1, &quot;name2&quot;, &quot;name2@sample.com&quot;));
+            users.add(new User(1, &quot;name3&quot;, &quot;name3@sample.com&quot;));
+            return users;
+
+        }, gson::toJson);
+        // ↑Gson.toJsonメソッドをポインタで渡す
+
+        // NetBeans上で実行する際にサーバーの停止に必要
+        // http://localhost:4567/stop
+        get(&quot;/stop&quot;, (req, res) -&gt; {
+            stop();
+            return null;
+        });
+    }
+}
+</code></pre>
+
+<p>以下の部分が、JSONを返すのに必要な部分である。</p>
+
+<pre><code class="language-java">// Gsonを使うための準備
+Gson gson = new Gson();
+
+// ...
+
+// http://localhost:4567/users
+get(&quot;/users&quot;, (req, res) -&gt; {
+
+    // Userのリストを作成して返す
+    List&lt;User&gt; users = new ArrayList&lt;&gt;();
+    users.add(new User(1, &quot;name1&quot;, &quot;name1@sample.com&quot;));
+    users.add(new User(1, &quot;name2&quot;, &quot;name2@sample.com&quot;));
+    users.add(new User(1, &quot;name3&quot;, &quot;name3@sample.com&quot;));
+    return users;
+
+}, gson::toJson);
+// ↑Gson.toJsonメソッドをポインタで渡す
+</code></pre>
+
+<p><strong><em>ごめんこれまだ書いてる途中だったわ……</em></strong><br />
+更新予定なしなので、このまま公開しときます。</p>
+
+    </div>
+    
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <aside><div id="disqus_thread"></div></aside>
+    <script type="text/javascript">
+      var disqus_shortname = 'nagatanigithubio';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; 2018 | Follow on <a href="https://twitter.com/Nagatani" target="_blank">Twitter</a></p>
+  </div>
+</section>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js" integrity="sha256-+bhVTaRmJ/c07eV80nU8gD2cBBF0rYkf1txqXlrbvb0=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/html.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/java.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/javascript.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/go.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-43292130-3', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
+</body>

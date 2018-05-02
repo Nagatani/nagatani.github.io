@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="" name="keywords">
+<meta content="Nagatani" name="author">
+<meta property="og:title" content="MacのFinederで不可視となっているディレクトリやファイルを表示する方法 - Memorandum">
+<meta property="og:url" content="https://nagatani.github.io/posts/mac-finder-view-allfile/">
+<meta property="og:description" content="メモにメモ以上の価値を求めるのはいけない">
+<meta property="og:type" content="website" />
+<title>MacのFinederで不可視となっているディレクトリやファイルを表示する方法 | Memorandum</title>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<link rel="stylesheet" href="https://nagatani.github.io//css/style.css">
+<link rel="shortcut icon" href="https://nagatani.github.io//wave.ico">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai.min.css">
+
+</head>
+
+<body>
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://nagatani.github.io/"><h1 class="title is-4">Memorandum</h1></a>
+        &nbsp;-&nbsp;<small>メモにメモ以上の価値を求めるのはいけない</small>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/Nagatani" target="_blank">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="https://twitter.com/Nagatani" target="_blank">
+            <span class="icon">
+              <i class="fa fa-twitter"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml" target="_blank">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h1 class="title">MacのFinederで不可視となっているディレクトリやファイルを表示する方法</h1>
+    <h2 class="subtitle is-5">October 7, 2014 by Nagatani</h2>
+    
+      <div class="tags">
+    
+        <a class="button is-link" href="/tags/mac">Mac</a>
+    
+        <a class="button is-link" href="/tags/terminal">terminal</a>
+    
+</div>
+
+    
+    <div class="content">
+      <p>#ターミナル開いて<code>ls -a</code>使え！
+嘘です。ごめん。</p>
+
+<p>#<code>ls -a</code>使えば見れるけど、Finderでも見たい。</p>
+
+<p>そんなあなたに、以下のコマンドを捧げる。
+ターミナル開いて、2行入れるだけ。</p>
+
+<pre><code class="language-bash">$ defaults write com.apple.finder AppleShowAllFiles true
+$ killall Finder
+</code></pre>
+
+<p>※<code>killall Finder</code>でFinderが再起動されるので一応注意すること。</p>
+
+<p>#戻し方も教えとく
+1行目のコマンドの最後を<code>true</code>から<code>false</code>に変えるだけ。</p>
+
+<pre><code class="language-bash">$ defaults write com.apple.finder AppleShowAllFiles false
+$ killall Finder
+</code></pre>
+
+<p>#Finderでシステム関連の大事なファイルやディレクトリも表示される
+なので、特に理由がないなら、不可視なものは不可視の方が何かと安全ですね。
+用事が済んだら、元に戻しておくのがオススメ。</p>
+
+<p>p.s.
+JavaFXの記事を書くといったな、あれはまだ下書きだ！</p>
+
+    </div>
+    
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <aside><div id="disqus_thread"></div></aside>
+    <script type="text/javascript">
+      var disqus_shortname = 'nagatanigithubio';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; 2018 | Follow on <a href="https://twitter.com/Nagatani" target="_blank">Twitter</a></p>
+  </div>
+</section>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js" integrity="sha256-+bhVTaRmJ/c07eV80nU8gD2cBBF0rYkf1txqXlrbvb0=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/html.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/java.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/javascript.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/go.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-43292130-3', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
+</body>

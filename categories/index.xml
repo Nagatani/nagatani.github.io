@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Memorandum</title>
+    <link>https://nagatani.github.io/categories/</link>
+    <description>Recent content in Categories on Memorandum</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2018 | Follow on &lt;a href=&#34;https://twitter.com/Nagatani&#34; target=&#34;_blank&#34;&gt;Twitter&lt;/a&gt;</copyright>
+    <lastBuildDate>Sun, 14 Sep 2014 18:39:30 +0000</lastBuildDate>
+    
+	<atom:link href="https://nagatani.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Andriod</title>
+      <link>https://nagatani.github.io/categories/andriod/</link>
+      <pubDate>Sun, 14 Sep 2014 18:39:30 +0000</pubDate>
+      
+      <guid>https://nagatani.github.io/categories/andriod/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cms</title>
+      <link>https://nagatani.github.io/categories/cms/</link>
+      <pubDate>Sat, 13 Sep 2014 03:55:09 +0000</pubDate>
+      
+      <guid>https://nagatani.github.io/categories/cms/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Diary</title>
+      <link>https://nagatani.github.io/categories/diary/</link>
+      <pubDate>Thu, 11 Sep 2014 15:11:01 +0000</pubDate>
+      
+      <guid>https://nagatani.github.io/categories/diary/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Javafx8</title>
+      <link>https://nagatani.github.io/categories/javafx8/</link>
+      <pubDate>Wed, 08 Oct 2014 17:00:56 +0000</pubDate>
+      
+      <guid>https://nagatani.github.io/categories/javafx8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mac</title>
+      <link>https://nagatani.github.io/categories/mac/</link>
+      <pubDate>Tue, 07 Oct 2014 14:40:51 +0000</pubDate>
+      
+      <guid>https://nagatani.github.io/categories/mac/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spark</title>
+      <link>https://nagatani.github.io/categories/spark/</link>
+      <pubDate>Thu, 23 Jun 2016 01:42:53 +0000</pubDate>
+      
+      <guid>https://nagatani.github.io/categories/spark/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

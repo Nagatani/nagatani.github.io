@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="" name="keywords">
+<meta content="Nagatani" name="author">
+<meta property="og:title" content="Android Studioを入れたMacBook Airでbashからadbコマンドを使えるようにする - Memorandum">
+<meta property="og:url" content="https://nagatani.github.io/posts/androidstudio-adb/">
+<meta property="og:description" content="メモにメモ以上の価値を求めるのはいけない">
+<meta property="og:type" content="website" />
+<title>Android Studioを入れたMacBook Airでbashからadbコマンドを使えるようにする | Memorandum</title>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<link rel="stylesheet" href="https://nagatani.github.io//css/style.css">
+<link rel="shortcut icon" href="https://nagatani.github.io//wave.ico">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai.min.css">
+
+</head>
+
+<body>
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://nagatani.github.io/"><h1 class="title is-4">Memorandum</h1></a>
+        &nbsp;-&nbsp;<small>メモにメモ以上の価値を求めるのはいけない</small>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/Nagatani" target="_blank">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="https://twitter.com/Nagatani" target="_blank">
+            <span class="icon">
+              <i class="fa fa-twitter"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml" target="_blank">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h1 class="title">Android Studioを入れたMacBook Airでbashからadbコマンドを使えるようにする</h1>
+    <h2 class="subtitle is-5">September 14, 2014 by Nagatani</h2>
+    
+      <div class="tags">
+    
+        <a class="button is-link" href="/tags/androidstudio">AndroidStudio</a>
+    
+        <a class="button is-link" href="/tags/adb">adb</a>
+    
+</div>
+
+    
+    <div class="content">
+      <p>なんやかんやあれやこれやでadbコマンド使わないといけなくなったので、その手順をメモしておく。
+母艦のWindowsマシンには、Android SDKを手動セットアップしてたのでそれ使えば良いだけの話なんだけど、たまたま手元にあるのはMacBook Airだったので、adbコマンド使えるようにしとこう、というわけです。</p>
+
+<p>前提として、Android Studioはインストール済み。</p>
+
+<p>##Android SDKを別途入れなくても、Android StudioにはSDKが含まれてる
+ので、それのPATHを通してやれば良いわけです。</p>
+
+<p>##Android Studioに含まれるSDKの場所
+環境によって異なるかもしれないので注意が必要。
+僕のMacBook AirにインストールしたAndroid Studioの構成では以下のパス以下にSDKが含まれていた。</p>
+
+<pre><code>/Applications/Android\ Studio.app/sdk/
+</code></pre>
+
+<p>目的のadb本体は、<code>sdk</code>ディレクトリ以下の、<code>platform-tools</code>にある。</p>
+
+<p>##adbコマンドを使用できるように、PATHを通す</p>
+
+<p>ターミナルに使うのが何かで設定が異なる。
+僕のMacBook Airは初期設定のままのbashを使ってるので、以下のようにする。</p>
+
+<p>###bashの場合</p>
+
+<pre><code>~/.bash_profile
+</code></pre>
+
+<p>に以下の一行を追加する。</p>
+
+<pre><code>export PATH=$PATH:/Applications/Android\ Studio.app/sdk/platform-tools
+</code></pre>
+
+<p>エディタはお好きにどうぞ。</p>
+
+<p>###普段あんま使わないけど、zshの場合は……</p>
+
+<pre><code>~/.zshrc
+</code></pre>
+
+<p>に以下同文。</p>
+
+<p>##adbが動作するか確認する。</p>
+
+<p>設定を読み込みし直さないといけないので、ターミナル再起動。</p>
+
+<pre><code class="language-bash">$ adb help
+</code></pre>
+
+<p>とかでヘルプが出て来ればオッケーなんじゃないですかね。</p>
+
+<p>僕からは以上です。</p>
+
+    </div>
+    
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <aside><div id="disqus_thread"></div></aside>
+    <script type="text/javascript">
+      var disqus_shortname = 'nagatanigithubio';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; 2018 | Follow on <a href="https://twitter.com/Nagatani" target="_blank">Twitter</a></p>
+  </div>
+</section>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js" integrity="sha256-+bhVTaRmJ/c07eV80nU8gD2cBBF0rYkf1txqXlrbvb0=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/html.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/java.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/javascript.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/go.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-43292130-3', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
+</body>

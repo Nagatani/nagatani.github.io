@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Java on Memorandum</title>
+    <link>https://nagatani.github.io/tags/java/</link>
+    <description>Recent content in Java on Memorandum</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2018 | Follow on &lt;a href=&#34;https://twitter.com/Nagatani&#34; target=&#34;_blank&#34;&gt;Twitter&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 08 Oct 2014 17:00:56 +0000</lastBuildDate>
+    
+	<atom:link href="https://nagatani.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>JavaFX8でのLook and Feelを設定する</title>
+      <link>https://nagatani.github.io/posts/javafx8-fxml-lookandfeel/</link>
+      <pubDate>Wed, 08 Oct 2014 17:00:56 +0000</pubDate>
+      
+      <guid>https://nagatani.github.io/posts/javafx8-fxml-lookandfeel/</guid>
+      <description>#JavaFX8のLook and Feel 標準では、Modenaよ呼ばれるルック・アンド・フィールが使用されている。 これを変更することで、アプリケーショ</description>
+    </item>
+    
+    <item>
+      <title>JavaFX8 FXMLでのGUIアプリケーション開発 - 事始め</title>
+      <link>https://nagatani.github.io/posts/javafx8-intro/</link>
+      <pubDate>Wed, 17 Sep 2014 15:11:01 +0000</pubDate>
+      
+      <guid>https://nagatani.github.io/posts/javafx8-intro/</guid>
+      <description>今回から、JavaFX8(JavaFX on Java8)についての記事を幾つか書こうと思う。 前持って言って置かなければならないんだけど、私はJa</description>
+    </item>
+    
+  </channel>
+</rss>

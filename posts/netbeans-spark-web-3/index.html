@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="" name="keywords">
+<meta content="Nagatani" name="author">
+<meta property="og:title" content="NetBeansでSparkを使ってサクッとWebアプリケーションを作る ③サーバーログの出力 - Memorandum">
+<meta property="og:url" content="https://nagatani.github.io/posts/netbeans-spark-web-3/">
+<meta property="og:description" content="メモにメモ以上の価値を求めるのはいけない">
+<meta property="og:type" content="website" />
+<title>NetBeansでSparkを使ってサクッとWebアプリケーションを作る ③サーバーログの出力 | Memorandum</title>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<link rel="stylesheet" href="https://nagatani.github.io//css/style.css">
+<link rel="shortcut icon" href="https://nagatani.github.io//wave.ico">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai.min.css">
+
+</head>
+
+<body>
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://nagatani.github.io/"><h1 class="title is-4">Memorandum</h1></a>
+        &nbsp;-&nbsp;<small>メモにメモ以上の価値を求めるのはいけない</small>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/Nagatani" target="_blank">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="https://twitter.com/Nagatani" target="_blank">
+            <span class="icon">
+              <i class="fa fa-twitter"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml" target="_blank">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h1 class="title">NetBeansでSparkを使ってサクッとWebアプリケーションを作る ③サーバーログの出力</h1>
+    <h2 class="subtitle is-5">June 13, 2016 by Nagatani</h2>
+    
+      <div class="tags">
+    
+        <a class="button is-link" href="/tags/java8">Java8</a>
+    
+        <a class="button is-link" href="/tags/spark">Spark</a>
+    
+        <a class="button is-link" href="/tags/tutorial">Tutorial</a>
+    
+</div>
+
+    
+    <div class="content">
+      
+
+<p>前回までで、一旦Webアプリケーションの作成の基本の基本ぐらいなところまでできている。</p>
+
+<p>WebアプリケーションのAPIの作成について触れていきたいところだけど、その前に、NetBeansで実行時にログの出力を有効にしておこう。</p>
+
+<p>ログの出力は、サーバーとクライアントで一対多の通信を行うWebアプリケーションでは必須の機能と言えるので、今回だけでなく次回以降のプロジェクトも同様にログ出力を有効にしておこう。</p>
+
+<h2 id="ログの出力を有効にするslf4jを依存関係に入れる">ログの出力を有効にするSLF4Jを依存関係に入れる</h2>
+
+<p>Sparkのドキュメントにも書かれているが、<a href="http://www.slf4j.org/">SLF4J</a>のdependencyを<code>pom.xml</code>に追加しておくだけで、実行時のログ出力が有効になる。</p>
+
+<p>pom.xmlに以下のdependencyを追加する。</p>
+
+<pre><code class="language-xml">        &lt;dependency&gt;
+            &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
+            &lt;artifactId&gt;slf4j-simple&lt;/artifactId&gt;
+            &lt;version&gt;1.7.21&lt;/version&gt;
+        &lt;/dependency&gt;
+</code></pre>
+
+<p>これでログの出力が有効になる。便利。</p>
+
+<p>前回作成したプロジェクトを実行してみると、NetBeansの出力ウィンドウには以下のようにWebサーバーのログが出力されるようになる。</p>
+
+<pre><code>------------------------------------------------------------------------
+Building spark-project 1.0-SNAPSHOT
+------------------------------------------------------------------------
+
+--- exec-maven-plugin:1.2.1:exec (default-cli) @ spark-project ---
+[main] INFO spark.staticfiles.StaticFilesConfiguration - StaticResourceHandler configured with folder = /public
+[Thread-0] INFO org.eclipse.jetty.util.log - Logging initialized @674ms
+[Thread-0] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - == Spark has ignited ...
+[Thread-0] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - &gt;&gt; Listening on 0.0.0.0:4567
+[Thread-0] INFO org.eclipse.jetty.server.Server - jetty-9.3.6.v20151106
+[Thread-0] INFO org.eclipse.jetty.server.ServerConnector - Started ServerConnector@241fede1{HTTP/1.1,[http/1.1]}{0.0.0.0:4567}
+[Thread-0] INFO org.eclipse.jetty.server.Server - Started @1048ms
+</code></pre>
+
+<p>第1回のHelloWorldのプロジェクトの出力ウィンドウは、以下の様になっていた。</p>
+
+<pre><code>------------------------------------------------------------------------
+Building spark-project 1.0-SNAPSHOT
+------------------------------------------------------------------------
+
+--- exec-maven-plugin:1.2.1:exec (default-cli) @ spark-project ---
+SLF4J: Failed to load class &quot;org.slf4j.impl.StaticLoggerBinder&quot;.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+</code></pre>
+
+<p>そもそもSparkでは、SLF4Jを依存関係に入れることが求められていたようだ……。</p>
+
+<h3 id="ログ出力の方法">ログ出力の方法</h3>
+
+<p>前回までに作成したプロジェクトに追記する形で良いだろう。</p>
+
+<p>SLF4Jを使用してログを出力するには、まず、以下のimportを追加する。</p>
+
+<pre><code class="language-java">import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+</code></pre>
+
+<p>続いて、mainメソッド内を以下のようにすることで、ログが出力される。<br />
+追加した処理は、<code>Logger</code>のインスタンス化と、<code>get(&quot;/showip&quot;, ...)</code>の処理なので、その部分だけ貼り付けるのでも良いだろう。</p>
+
+<pre><code class="language-java">public static void main(String[] args) {
+    Logger logger = LoggerFactory.getLogger(HelloWorld.class);
+
+    // IPアドレスの表示 http://localhost:4567/showip
+    get(&quot;/showip&quot;, (req, res) -&gt; {
+
+        //ログ出力
+        logger.info(&quot;ログ出力：&quot; + req.ip());
+
+        return &quot;your ip :&quot; + req.ip();
+    });
+
+    // http://localhost:4567/stop
+    get(&quot;/stop&quot;, (req, res) -&gt; {
+        stop();
+        return null;
+    });
+}
+</code></pre>
+
+<p><code>http://localhost:4567/showip</code>にアクセスすると、Webブラウザでは以下のように表示され、</p>
+
+<pre><code>your ip :0:0:0:0:0:0:0:1
+</code></pre>
+
+<p>NetBeansの出力ウィンドウでは以下の1行が追加される。</p>
+
+<pre><code>[qtp1938979459-16] INFO com.sample.spark.project.HelloWorld - ログ出力：0:0:0:0:0:0:0:1
+</code></pre>
+
+<p>mainメソッドの8行目にある<code>logger.info()</code>でログ出力を行っているため、このメソッドに渡す引数に応じてログが出力される。<br />
+(僕の環境ではIPv6が有効になっているため、localhostへのアクセスは、IPv6の::1でアクセスされる。そのためIPアドレスの表示が上記のようにIPv6表記となる。)
+デバッグ時だけでなく、実際に運用する上でも役に立つので、必要に応じて適切なログを出力しておくと良いだろう。</p>
+
+<h1 id="③はここまで">③はここまで</h1>
+
+<p>今回は、API作成の前にちょっと小休止的な内容としてログ出力機能の有効化を行った。<br />
+次回は今度こそAPI作成に入っていく。</p>
+
+    </div>
+    
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <aside><div id="disqus_thread"></div></aside>
+    <script type="text/javascript">
+      var disqus_shortname = 'nagatanigithubio';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; 2018 | Follow on <a href="https://twitter.com/Nagatani" target="_blank">Twitter</a></p>
+  </div>
+</section>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js" integrity="sha256-+bhVTaRmJ/c07eV80nU8gD2cBBF0rYkf1txqXlrbvb0=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/html.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/java.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/javascript.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/go.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-43292130-3', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
+</body>

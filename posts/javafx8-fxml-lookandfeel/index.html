@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="" name="keywords">
+<meta content="Nagatani" name="author">
+<meta property="og:title" content="JavaFX8でのLook and Feelを設定する - Memorandum">
+<meta property="og:url" content="https://nagatani.github.io/posts/javafx8-fxml-lookandfeel/">
+<meta property="og:description" content="メモにメモ以上の価値を求めるのはいけない">
+<meta property="og:type" content="website" />
+<title>JavaFX8でのLook and Feelを設定する | Memorandum</title>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<link rel="stylesheet" href="https://nagatani.github.io//css/style.css">
+<link rel="shortcut icon" href="https://nagatani.github.io//wave.ico">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai.min.css">
+
+</head>
+
+<body>
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://nagatani.github.io/"><h1 class="title is-4">Memorandum</h1></a>
+        &nbsp;-&nbsp;<small>メモにメモ以上の価値を求めるのはいけない</small>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/Nagatani" target="_blank">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="https://twitter.com/Nagatani" target="_blank">
+            <span class="icon">
+              <i class="fa fa-twitter"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml" target="_blank">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h1 class="title">JavaFX8でのLook and Feelを設定する</h1>
+    <h2 class="subtitle is-5">October 8, 2014 by Nagatani</h2>
+    
+      <div class="tags">
+    
+        <a class="button is-link" href="/tags/java">Java</a>
+    
+        <a class="button is-link" href="/tags/javafx8">JavaFX8</a>
+    
+        <a class="button is-link" href="/tags/fxml">FXML</a>
+    
+</div>
+
+    
+    <div class="content">
+      <p>#JavaFX8のLook and Feel
+標準では、Modenaよ呼ばれるルック・アンド・フィールが使用されている。</p>
+
+<p>これを変更することで、アプリケーション全体の外観を変える事ができる。
+詳細は省く。</p>
+
+<p>FXMLには、全体の外観を変更する手法として、HTMLと同様にCSSを使用することができるが、これに関してはまた後日記事にしようと思う。
+<!-- more --></p>
+
+<p>#メインクラスでコーディングが必要</p>
+
+<p>以下、Hello Worldのアプリで作成した、JavaFXApplication1.javaのコードをまるごと載せる。</p>
+
+<pre><code class="language-java">package javafxapplication1;
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+/**
+ *
+ * @author Nagatani
+ */
+public class JavaFXApplication1 extends Application {
+
+    @Override
+    public void start(Stage stage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource(&quot;FXMLDocument.fxml&quot;));
+
+        Scene scene = new Scene(root);
+
+        //setUserAgentStylesheet(STYLESHEET_MODENA);
+        setUserAgentStylesheet(STYLESHEET_CASPIAN);
+
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+}
+</code></pre>
+
+<p>ここで、21,22行目に追加した<code>setUserAgentStylesheet()</code>メソッドを<code>public void start(Stage stage) throws Exception</code>メソッド内でコールする。
+<code>setUserAgentStylesheet()</code>メソッドの引数には、<code>STYLESHEET_CASPIAN</code>と<code>STYLESHEET_MODENA</code>が用意されている。
+標準ではどうやらこの2種類のようですね。</p>
+
+<p><code>STYLESHEET_MODENA</code>は、なにも設定しなくても適用されているスタイルのため、あえて明示的に書かなくても良い。
+以前まで使用されていた標準のスタイルにしたい場合は、<code>STYLESHEET_CASPIAN</code>を設定する。</p>
+
+<p>#実際どうなるか
+テキトーにコントロールを乗せたものをMacで実行した場合は以下のようになる。
+※FXMLは最後に載せます。</p>
+
+<p>まずは標準のスタイルのModenaから。
+<img src="/image/sc-javafx8-laf-modena.png" alt="STYLESHEET_MODENA" /></p>
+
+<p>次に、Caspian。
+<img src="/image/sc-javafx8-laf-caspian.png" alt="STYLESHEET_CASPIAN" /></p>
+
+<p>#どっちがいいか？
+好みによると思う。</p>
+
+<p>スクリーンショット見るとなんとなく、Modenaの方が余白を大きく取ってあり、各コントロールに余裕があるように感じますかね。
+逆にCaspianは、圧迫感があるようなないような……。</p>
+
+<p>個人的には、Modenaの方がスッキリしてて余裕あって好きです。</p>
+
+<p>#スクリーンショット用に作成したFXML
+だいぶ雑に作成したので、細かいところへのツッコミはなしでお願いします。</p>
+
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+
+&lt;?import javafx.scene.image.*?&gt;
+&lt;?import javafx.scene.web.*?&gt;
+&lt;?import javafx.scene.text.*?&gt;
+&lt;?import java.lang.*?&gt;
+&lt;?import java.util.*?&gt;
+&lt;?import javafx.scene.*?&gt;
+&lt;?import javafx.scene.control.*?&gt;
+&lt;?import javafx.scene.layout.*?&gt;
+
+&lt;Accordion maxHeight=&quot;-Infinity&quot; maxWidth=&quot;-Infinity&quot; minHeight=&quot;-Infinity&quot; minWidth=&quot;-Infinity&quot; prefHeight=&quot;400.0&quot; prefWidth=&quot;600.0&quot; xmlns=&quot;http://javafx.com/javafx/8&quot; xmlns:fx=&quot;http://javafx.com/fxml/1&quot;&gt;
+  &lt;panes&gt;
+    &lt;TitledPane animated=&quot;true&quot; text=&quot;Controls - Button&quot;&gt;
+      &lt;content&gt;
+        &lt;VBox AnchorPane.bottomAnchor=&quot;0.0&quot; AnchorPane.leftAnchor=&quot;0.0&quot; AnchorPane.rightAnchor=&quot;0.0&quot; AnchorPane.topAnchor=&quot;0.0&quot;&gt;
+           &lt;children&gt;
+              &lt;HBox&gt;
+                 &lt;children&gt;
+                    &lt;Button mnemonicParsing=&quot;false&quot; text=&quot;Button&quot; /&gt;
+                    &lt;Button defaultButton=&quot;true&quot; mnemonicParsing=&quot;false&quot; text=&quot;Default Button&quot; /&gt;
+                    &lt;Button cancelButton=&quot;true&quot; mnemonicParsing=&quot;false&quot; text=&quot;Cansel Button&quot; /&gt;
+                    &lt;Button disable=&quot;true&quot; mnemonicParsing=&quot;false&quot; text=&quot;Button Disabled&quot; /&gt;
+                 &lt;/children&gt;
+              &lt;/HBox&gt;
+              &lt;HBox&gt;
+                 &lt;children&gt;
+                    &lt;MenuButton mnemonicParsing=&quot;false&quot; text=&quot;MenuButton&quot;&gt;
+                      &lt;items&gt;
+                        &lt;MenuItem mnemonicParsing=&quot;false&quot; text=&quot;Action 1&quot; /&gt;
+                        &lt;MenuItem mnemonicParsing=&quot;false&quot; text=&quot;Action 2&quot; /&gt;
+                      &lt;/items&gt;
+                    &lt;/MenuButton&gt;
+                    &lt;MenuButton mnemonicParsing=&quot;false&quot; text=&quot;MenuButton Disabled&quot;&gt;
+                      &lt;items&gt;
+                        &lt;MenuItem mnemonicParsing=&quot;false&quot; text=&quot;Action 1&quot; /&gt;
+                        &lt;MenuItem mnemonicParsing=&quot;false&quot; text=&quot;Action 2&quot; /&gt;
+                      &lt;/items&gt;
+                    &lt;/MenuButton&gt;
+                 &lt;/children&gt;
+              &lt;/HBox&gt;
+              &lt;HBox&gt;
+                 &lt;children&gt;
+                        &lt;Group /&gt;
+                    &lt;RadioButton mnemonicParsing=&quot;false&quot; selected=&quot;true&quot; text=&quot;RadioButton - Selected&quot; /&gt;
+                    &lt;RadioButton mnemonicParsing=&quot;false&quot; text=&quot;RadioButton - not Selected&quot; /&gt;
+                    &lt;RadioButton disable=&quot;true&quot; mnemonicParsing=&quot;false&quot; text=&quot;RadioButton Disabled&quot; /&gt;
+                 &lt;/children&gt;
+              &lt;/HBox&gt;
+              &lt;HBox&gt;
+                 &lt;children&gt;
+                    &lt;CheckBox mnemonicParsing=&quot;false&quot; text=&quot;CheckBox&quot; /&gt;
+                    &lt;CheckBox mnemonicParsing=&quot;false&quot; text=&quot;CheckBox&quot; /&gt;
+                    &lt;CheckBox mnemonicParsing=&quot;false&quot; text=&quot;CheckBox&quot; /&gt;
+                 &lt;/children&gt;
+              &lt;/HBox&gt;
+              &lt;HBox&gt;
+                 &lt;children&gt;
+                    &lt;ChoiceBox prefWidth=&quot;150.0&quot; /&gt;
+                 &lt;/children&gt;
+              &lt;/HBox&gt;
+              &lt;HBox&gt;
+                 &lt;children&gt;
+                    &lt;ComboBox prefWidth=&quot;150.0&quot; /&gt;
+                    &lt;ComboBox prefWidth=&quot;150.0&quot; /&gt;
+                 &lt;/children&gt;
+              &lt;/HBox&gt;
+                  &lt;HBox&gt;
+                     &lt;children&gt;
+                        &lt;ToggleButton mnemonicParsing=&quot;false&quot; text=&quot;ToggleButton&quot; /&gt;
+                     &lt;/children&gt;
+                  &lt;/HBox&gt;
+                  &lt;Slider /&gt;
+                  &lt;Slider orientation=&quot;VERTICAL&quot; /&gt;
+                  &lt;ScrollBar /&gt;
+                  &lt;ScrollBar orientation=&quot;VERTICAL&quot; /&gt;
+           &lt;/children&gt;
+        &lt;/VBox&gt;
+      &lt;/content&gt;
+    &lt;/TitledPane&gt;
+    &lt;TitledPane text=&quot;Controls - Text&quot;&gt;
+      &lt;content&gt;
+        &lt;VBox AnchorPane.bottomAnchor=&quot;0.0&quot; AnchorPane.leftAnchor=&quot;0.0&quot; AnchorPane.rightAnchor=&quot;0.0&quot; AnchorPane.topAnchor=&quot;0.0&quot;&gt;
+           &lt;children&gt;
+              &lt;HBox&gt;
+                 &lt;children&gt;
+                    &lt;Label text=&quot;Label&quot; /&gt;
+                 &lt;/children&gt;
+              &lt;/HBox&gt;
+              &lt;HBox&gt;
+                 &lt;children&gt;
+                    &lt;TextField text=&quot;TextField&quot; /&gt;
+                    &lt;TextField promptText=&quot;Prompt Text&quot; /&gt;
+                    &lt;TextField editable=&quot;false&quot; text=&quot;Not Editabled&quot; /&gt;
+                    &lt;TextField disable=&quot;true&quot; text=&quot;Disabled&quot; /&gt;
+                 &lt;/children&gt;
+              &lt;/HBox&gt;
+              &lt;HBox prefHeight=&quot;100.0&quot; prefWidth=&quot;200.0&quot;&gt;
+                 &lt;children&gt;
+                    &lt;TextArea prefHeight=&quot;200.0&quot; prefWidth=&quot;200.0&quot; text=&quot;Text Area&quot; /&gt;
+                        &lt;DatePicker promptText=&quot;Date Picker&quot; /&gt;
+                 &lt;/children&gt;
+              &lt;/HBox&gt;
+                  &lt;HBox&gt;
+                     &lt;children&gt;
+                        &lt;TextFlow prefHeight=&quot;200.0&quot; prefWidth=&quot;200.0&quot;&gt;
+                           &lt;children&gt;
+                              &lt;Label text=&quot;TextFlow&quot; /&gt;
+                           &lt;/children&gt;
+                        &lt;/TextFlow&gt;
+                     &lt;/children&gt;
+                  &lt;/HBox&gt;
+           &lt;/children&gt;
+        &lt;/VBox&gt;
+      &lt;/content&gt;
+    &lt;/TitledPane&gt;
+    &lt;TitledPane text=&quot;Controls - Other&quot;&gt;
+      &lt;content&gt;
+      &lt;/content&gt;
+         &lt;content&gt;
+            &lt;VBox&gt;
+               &lt;children&gt;
+                  &lt;HBox&gt;
+                     &lt;children&gt;
+                        &lt;TabPane tabClosingPolicy=&quot;UNAVAILABLE&quot;&gt;
+                          &lt;tabs&gt;
+                            &lt;Tab text=&quot;Untitled Tab 1&quot;&gt;
+                              &lt;content&gt;
+                                &lt;AnchorPane minHeight=&quot;0.0&quot; minWidth=&quot;0.0&quot; /&gt;
+                              &lt;/content&gt;
+                            &lt;/Tab&gt;
+                            &lt;Tab text=&quot;Untitled Tab 2&quot;&gt;
+                              &lt;content&gt;
+                                &lt;AnchorPane minHeight=&quot;0.0&quot; minWidth=&quot;0.0&quot; /&gt;
+                              &lt;/content&gt;
+                            &lt;/Tab&gt;
+                              &lt;Tab text=&quot;Untitled Tab&quot;&gt;
+                                &lt;content&gt;
+                                  &lt;AnchorPane minHeight=&quot;0.0&quot; minWidth=&quot;0.0&quot; /&gt;
+                                &lt;/content&gt;
+                              &lt;/Tab&gt;
+                              &lt;Tab text=&quot;Untitled Tab&quot;&gt;
+                                &lt;content&gt;
+                                  &lt;AnchorPane minHeight=&quot;0.0&quot; minWidth=&quot;0.0&quot; /&gt;
+                                &lt;/content&gt;
+                              &lt;/Tab&gt;
+                              &lt;Tab text=&quot;Untitled Tab&quot;&gt;
+                                &lt;content&gt;
+                                  &lt;AnchorPane minHeight=&quot;0.0&quot; minWidth=&quot;0.0&quot; /&gt;
+                                &lt;/content&gt;
+                              &lt;/Tab&gt;
+                          &lt;/tabs&gt;
+                        &lt;/TabPane&gt;
+                     &lt;/children&gt;
+                  &lt;/HBox&gt;
+                  &lt;HBox&gt;
+                     &lt;children&gt;
+                        &lt;TitledPane animated=&quot;false&quot; text=&quot;TiledPane&quot;&gt;
+                          &lt;content&gt;
+                            &lt;AnchorPane minHeight=&quot;0.0&quot; minWidth=&quot;0.0&quot; /&gt;
+                          &lt;/content&gt;
+                        &lt;/TitledPane&gt;
+                     &lt;/children&gt;
+                  &lt;/HBox&gt;
+                  &lt;HBox&gt;
+                     &lt;children&gt;
+                        &lt;ToolBar&gt;
+                          &lt;items&gt;
+                              &lt;Label text=&quot;ToolBar&quot; /&gt;
+                            &lt;Button mnemonicParsing=&quot;false&quot; text=&quot;Button&quot; /&gt;
+                          &lt;/items&gt;
+                        &lt;/ToolBar&gt;
+                     &lt;/children&gt;
+                  &lt;/HBox&gt;
+                  &lt;HBox&gt;
+                     &lt;children&gt;
+                        &lt;Label text=&quot;ListView&quot; /&gt;
+                        &lt;ListView /&gt;
+                     &lt;/children&gt;
+                  &lt;/HBox&gt;
+               &lt;/children&gt;
+            &lt;/VBox&gt;
+         &lt;/content&gt;
+    &lt;/TitledPane&gt;
+  &lt;/panes&gt;
+&lt;/Accordion&gt;
+</code></pre>
+
+    </div>
+    
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <aside><div id="disqus_thread"></div></aside>
+    <script type="text/javascript">
+      var disqus_shortname = 'nagatanigithubio';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; 2018 | Follow on <a href="https://twitter.com/Nagatani" target="_blank">Twitter</a></p>
+  </div>
+</section>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js" integrity="sha256-+bhVTaRmJ/c07eV80nU8gD2cBBF0rYkf1txqXlrbvb0=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/html.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/java.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/javascript.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/go.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-43292130-3', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
+</body>

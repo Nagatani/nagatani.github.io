@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cms on Memorandum</title>
+    <link>https://nagatani.github.io/categories/cms/</link>
+    <description>Recent content in Cms on Memorandum</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2018 | Follow on &lt;a href=&#34;https://twitter.com/Nagatani&#34; target=&#34;_blank&#34;&gt;Twitter&lt;/a&gt;</copyright>
+    <lastBuildDate>Sat, 13 Sep 2014 03:55:09 +0000</lastBuildDate>
+    
+	<atom:link href="https://nagatani.github.io/categories/cms/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>GitHub Pagesで運用するHexoで画像を記事内に挿入する（アップロードする）方法の最適解ってあるの？</title>
+      <link>https://nagatani.github.io/posts/hexo-image-add/</link>
+      <pubDate>Sat, 13 Sep 2014 03:55:09 +0000</pubDate>
+      
+      <guid>https://nagatani.github.io/posts/hexo-image-add/</guid>
+      <description>タイトルの通りです。 ##Hexoで画像を挿入する方法 調べたけど、どれもしっくり来ない。 プラグインはコレジャナイ感ある。 ##自己流 で、自分がや</description>
+    </item>
+    
+    <item>
+      <title>Markdownで書けるCMS</title>
+      <link>https://nagatani.github.io/posts/markdown-cms/</link>
+      <pubDate>Fri, 12 Sep 2014 04:00:46 +0000</pubDate>
+      
+      <guid>https://nagatani.github.io/posts/markdown-cms/</guid>
+      <description>##前置き CMSについての話です。 いつもは大抵Wordpress使ってるんだけど、なんだかんだ言って更新がめんどいんですよ。 ただ私が面倒くさ</description>
+    </item>
+    
+  </channel>
+</rss>

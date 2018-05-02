@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Memorandum</title>
+    <link>https://nagatani.github.io/</link>
+    <description>Recent content on Memorandum</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2018 | Follow on &lt;a href=&#34;https://twitter.com/Nagatani&#34; target=&#34;_blank&#34;&gt;Twitter&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 02 May 2018 14:30:39 +0900</lastBuildDate>
+    
+	<atom:link href="https://nagatani.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>HexoからHugoへ切り替え</title>
+      <link>https://nagatani.github.io/posts/my-first-post/</link>
+      <pubDate>Wed, 02 May 2018 14:30:39 +0900</pubDate>
+      
+      <guid>https://nagatani.github.io/posts/my-first-post/</guid>
+      <description>ました。 公式サイトの手順に従ってなんやかんやしました。 コンテンツの移動もMarkdownで書いてあるものを一旦移動し、画像などはstatic</description>
+    </item>
+    
+    <item>
+      <title>NetBeansでSparkを使ってサクッとWebアプリケーションを作る ④JSONを返すWeb-APIの作成</title>
+      <link>https://nagatani.github.io/posts/netbeans-spark-web-4/</link>
+      <pubDate>Thu, 23 Jun 2016 01:42:53 +0000</pubDate>
+      
+      <guid>https://nagatani.github.io/posts/netbeans-spark-web-4/</guid>
+      <description>今回やることのソースコード GitHubに置いておきます。 Nagatani/netbeans-spark-webapp-sample2 JSONを返すWeb APIの作成 最終的には、MySQLからデータを取得してJSON</description>
+    </item>
+    
+    <item>
+      <title>NetBeansでSparkを使ってサクッとWebアプリケーションを作る ③サーバーログの出力</title>
+      <link>https://nagatani.github.io/posts/netbeans-spark-web-3/</link>
+      <pubDate>Mon, 13 Jun 2016 23:34:08 +0000</pubDate>
+      
+      <guid>https://nagatani.github.io/posts/netbeans-spark-web-3/</guid>
+      <description>前回までで、一旦Webアプリケーションの作成の基本の基本ぐらいなところまでできている。 WebアプリケーションのAPIの作成について触れていき</description>
+    </item>
+    
+    <item>
+      <title>NetBeansでSparkを使ってサクッとWebアプリケーションを作る ②テンプレートエンジンでWebページの出力</title>
+      <link>https://nagatani.github.io/posts/netbeans-spark-web-2/</link>
+      <pubDate>Wed, 08 Jun 2016 13:36:36 +0000</pubDate>
+      
+      <guid>https://nagatani.github.io/posts/netbeans-spark-web-2/</guid>
+      <description>今回は、JavaのテンプレートエンジンであるFreeMarkerを使い、Sparkで作成したWebアプリケーションに、Webページの出力機能</description>
+    </item>
+    
+    <item>
+      <title>NetBeansでSparkを使ってサクッとWebアプリケーションを作る①Hello,World!!</title>
+      <link>https://nagatani.github.io/posts/netbeans-spark-web-1/</link>
+      <pubDate>Wed, 01 Jun 2016 17:03:14 +0900</pubDate>
+      
+      <guid>https://nagatani.github.io/posts/netbeans-spark-web-1/</guid>
+      <description>※この記事は、以下のブログに投稿したものと同じです。 NetBeansでSparkを使ってサクッとWebアプリケーションを作る①Hello,W</description>
+    </item>
+    
+    <item>
+      <title>JavaFX8でのLook and Feelを設定する</title>
+      <link>https://nagatani.github.io/posts/javafx8-fxml-lookandfeel/</link>
+      <pubDate>Wed, 08 Oct 2014 17:00:56 +0000</pubDate>
+      
+      <guid>https://nagatani.github.io/posts/javafx8-fxml-lookandfeel/</guid>
+      <description>#JavaFX8のLook and Feel 標準では、Modenaよ呼ばれるルック・アンド・フィールが使用されている。 これを変更することで、アプリケーショ</description>
+    </item>
+    
+    <item>
+      <title>MacのFinederで不可視となっているディレクトリやファイルを表示する方法</title>
+      <link>https://nagatani.github.io/posts/mac-finder-view-allfile/</link>
+      <pubDate>Tue, 07 Oct 2014 14:40:51 +0000</pubDate>
+      
+      <guid>https://nagatani.github.io/posts/mac-finder-view-allfile/</guid>
+      <description>#ターミナル開いてls -a使え！ 嘘です。ごめん。 #ls -a使えば見れるけど、Finderでも見たい。 そんなあなたに、以下のコマンドを捧げる。 ター</description>
+    </item>
+    
+    <item>
+      <title>JavaFX8 FXMLでのGUIアプリケーション開発 - 事始め</title>
+      <link>https://nagatani.github.io/posts/javafx8-intro/</link>
+      <pubDate>Wed, 17 Sep 2014 15:11:01 +0000</pubDate>
+      
+      <guid>https://nagatani.github.io/posts/javafx8-intro/</guid>
+      <description>今回から、JavaFX8(JavaFX on Java8)についての記事を幾つか書こうと思う。 前持って言って置かなければならないんだけど、私はJa</description>
+    </item>
+    
+    <item>
+      <title>Android Studioを入れたMacBook Airでbashからadbコマンドを使えるようにする</title>
+      <link>https://nagatani.github.io/posts/androidstudio-adb/</link>
+      <pubDate>Sun, 14 Sep 2014 18:39:30 +0000</pubDate>
+      
+      <guid>https://nagatani.github.io/posts/androidstudio-adb/</guid>
+      <description>なんやかんやあれやこれやでadbコマンド使わないといけなくなったので、その手順をメモしておく。 母艦のWindowsマシンには、Android</description>
+    </item>
+    
+    <item>
+      <title>GitHub Pagesで運用するHexoで画像を記事内に挿入する（アップロードする）方法の最適解ってあるの？</title>
+      <link>https://nagatani.github.io/posts/hexo-image-add/</link>
+      <pubDate>Sat, 13 Sep 2014 03:55:09 +0000</pubDate>
+      
+      <guid>https://nagatani.github.io/posts/hexo-image-add/</guid>
+      <description>タイトルの通りです。 ##Hexoで画像を挿入する方法 調べたけど、どれもしっくり来ない。 プラグインはコレジャナイ感ある。 ##自己流 で、自分がや</description>
+    </item>
+    
+    <item>
+      <title>Markdownで書けるCMS</title>
+      <link>https://nagatani.github.io/posts/markdown-cms/</link>
+      <pubDate>Fri, 12 Sep 2014 04:00:46 +0000</pubDate>
+      
+      <guid>https://nagatani.github.io/posts/markdown-cms/</guid>
+      <description>##前置き CMSについての話です。 いつもは大抵Wordpress使ってるんだけど、なんだかんだ言って更新がめんどいんですよ。 ただ私が面倒くさ</description>
+    </item>
+    
+    <item>
+      <title>Hello World</title>
+      <link>https://nagatani.github.io/posts/hello-world/</link>
+      <pubDate>Thu, 11 Sep 2014 15:11:01 +0000</pubDate>
+      
+      <guid>https://nagatani.github.io/posts/hello-world/</guid>
+      <description>GitHub PagesにHexo入れた。 何書くかは決めてない。 テキトーに何かしら書いていきたい。 ##HexoをGitHub Pagesに構築するのに参考</description>
+    </item>
+    
+  </channel>
+</rss>

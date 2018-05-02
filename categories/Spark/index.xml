@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Spark on Memorandum</title>
+    <link>https://nagatani.github.io/categories/spark/</link>
+    <description>Recent content in Spark on Memorandum</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2018 | Follow on &lt;a href=&#34;https://twitter.com/Nagatani&#34; target=&#34;_blank&#34;&gt;Twitter&lt;/a&gt;</copyright>
+    <lastBuildDate>Thu, 23 Jun 2016 01:42:53 +0000</lastBuildDate>
+    
+	<atom:link href="https://nagatani.github.io/categories/spark/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>NetBeansでSparkを使ってサクッとWebアプリケーションを作る ④JSONを返すWeb-APIの作成</title>
+      <link>https://nagatani.github.io/posts/netbeans-spark-web-4/</link>
+      <pubDate>Thu, 23 Jun 2016 01:42:53 +0000</pubDate>
+      
+      <guid>https://nagatani.github.io/posts/netbeans-spark-web-4/</guid>
+      <description>今回やることのソースコード GitHubに置いておきます。 Nagatani/netbeans-spark-webapp-sample2 JSONを返すWeb APIの作成 最終的には、MySQLからデータを取得してJSON</description>
+    </item>
+    
+    <item>
+      <title>NetBeansでSparkを使ってサクッとWebアプリケーションを作る ③サーバーログの出力</title>
+      <link>https://nagatani.github.io/posts/netbeans-spark-web-3/</link>
+      <pubDate>Mon, 13 Jun 2016 23:34:08 +0000</pubDate>
+      
+      <guid>https://nagatani.github.io/posts/netbeans-spark-web-3/</guid>
+      <description>前回までで、一旦Webアプリケーションの作成の基本の基本ぐらいなところまでできている。 WebアプリケーションのAPIの作成について触れていき</description>
+    </item>
+    
+    <item>
+      <title>NetBeansでSparkを使ってサクッとWebアプリケーションを作る ②テンプレートエンジンでWebページの出力</title>
+      <link>https://nagatani.github.io/posts/netbeans-spark-web-2/</link>
+      <pubDate>Wed, 08 Jun 2016 13:36:36 +0000</pubDate>
+      
+      <guid>https://nagatani.github.io/posts/netbeans-spark-web-2/</guid>
+      <description>今回は、JavaのテンプレートエンジンであるFreeMarkerを使い、Sparkで作成したWebアプリケーションに、Webページの出力機能</description>
+    </item>
+    
+    <item>
+      <title>NetBeansでSparkを使ってサクッとWebアプリケーションを作る①Hello,World!!</title>
+      <link>https://nagatani.github.io/posts/netbeans-spark-web-1/</link>
+      <pubDate>Wed, 01 Jun 2016 17:03:14 +0900</pubDate>
+      
+      <guid>https://nagatani.github.io/posts/netbeans-spark-web-1/</guid>
+      <description>※この記事は、以下のブログに投稿したものと同じです。 NetBeansでSparkを使ってサクッとWebアプリケーションを作る①Hello,W</description>
+    </item>
+    
+  </channel>
+</rss>
