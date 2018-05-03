@@ -122,7 +122,7 @@
 
 <h3 id="ついでにhtml-anchor取得">ついでにHTML Anchor取得</h3>
 
-<pre><code>javascript: ( function() { var r = document.querySelector('link[rel=&quot;canonical&quot;]').href.replace(/amazon.co.jp\/.*\/dp/, 'amazon.co.jp/dp'); location.href = r; indow.prompt(&quot;Link Created! - html&quot;, '&lt;a href=&quot;' + r + '&quot; target=&quot;_blank&quot;&gt;' + document.title + &quot;&lt;/a&gt;&quot;); })();
+<pre><code>javascript: ( function() { var r = document.querySelector('link[rel=&quot;canonical&quot;]').href.replace(/amazon.co.jp\/.*\/dp/, 'amazon.co.jp/dp'); location.href = r; window.prompt(&quot;Link Created! - html&quot;, '&lt;a href=&quot;' + r + '&quot; target=&quot;_blank&quot;&gt;' + document.title + &quot;&lt;/a&gt;&quot;); })();
 </code></pre>
 
 <h3 id="余談だけど">余談だけど</h3>
