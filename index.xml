@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2018 | Follow on &lt;a href=&#34;https://twitter.com/Nagatani&#34; target=&#34;_blank&#34;&gt;Twitter&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 02 May 2018 18:00:18 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 04 May 2018 03:19:25 +0900</lastBuildDate>
     
 	<atom:link href="https://nagatani.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>いつも使ってるブックマークレット</title>
+      <link>https://nagatani.github.io/posts/bookmarklet/</link>
+      <pubDate>Fri, 04 May 2018 03:19:25 +0900</pubDate>
+      
+      <guid>https://nagatani.github.io/posts/bookmarklet/</guid>
+      <description>Chromeでしか動作確認してません。 ブックマークレットでできることはできる限りやるようにすると、余計なChrome拡張機能を追加しなくて済</description>
+    </item>
     
     <item>
       <title>MacOSでマイク入力をそのままビルトインオーディオに出力するには</title>

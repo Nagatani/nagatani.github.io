@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="" name="keywords">
+<meta content="Nagatani" name="author">
+<meta property="og:title" content="いつも使ってるブックマークレット - Memorandum">
+<meta property="og:url" content="https://nagatani.github.io/posts/bookmarklet/">
+<meta property="og:description" content="メモにメモ以上の価値を求めるのはいけない">
+<meta property="og:type" content="website" />
+<title>いつも使ってるブックマークレット | Memorandum</title>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<link rel="stylesheet" href="https://nagatani.github.io//css/style.css">
+<link rel="shortcut icon" href="https://nagatani.github.io//wave.ico">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai.min.css">
+
+</head>
+
+<body>
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://nagatani.github.io/"><h1 class="title is-4">Memorandum</h1></a>
+        &nbsp;-&nbsp;<small>メモにメモ以上の価値を求めるのはいけない</small>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/Nagatani" target="_blank">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="https://twitter.com/Nagatani" target="_blank">
+            <span class="icon">
+              <i class="fa fa-twitter"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml" target="_blank">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h1 class="title">いつも使ってるブックマークレット</h1>
+    <h2 class="subtitle is-5">2018-05-04 Friday by Nagatani</h2>
+    
+    <div class="content">
+      
+
+<p><strong><em>Chromeでしか動作確認してません。</em></strong></p>
+
+<p>ブックマークレットでできることはできる限りやるようにすると、余計なChrome拡張機能を追加しなくて済むのでおすすめ。<br />
+ブックマークレットの作り方をわざわざ説明するのめんどいので使いたいひとは調べよう。</p>
+
+<h2 id="今見ているwebサイトをtwitterで共有するブックマークレット">今見ているWebサイトをTwitterで共有するブックマークレット</h2>
+
+<p>TwitterへのWebページ共有はコレを使ってる。「見てる」ってのは、「見てる」のであって読んではいないんですよ。</p>
+
+<pre><code>javascript: ( function() { window.open(&quot;https://twitter.com/intent/tweet?text=&quot; + encodeURIComponent(&quot;見てる / &quot; + document.title) + &quot;&amp;url=&quot; + encodeURIComponent(document.location)); })();
+</code></pre>
+
+<h2 id="markdownで見てるサイトのurlを取得する">Markdownで見てるサイトのURLを取得する</h2>
+
+<p>資料作成はほぼMarkdownで書いてるので、これは必須。</p>
+
+<pre><code>javascript: ( function() { window.prompt(&quot;Link Created! - Markdown&quot;, '[' + document.title + '](' + document.location + ')'); })();
+</code></pre>
+
+<h2 id="htmlのaタグで見てるリンクを取得する-target-blank-付き">HTMLのAタグで見てるリンクを取得する(target=&rdquo;_blank&rdquo;付き)</h2>
+
+<p>資料書いてる時にどうしても<code>target=&quot;\_blank&quot;</code>を使いたい時に使う。</p>
+
+<pre><code>javascript: ( function() { window.prompt(&quot;Link Created! - html&quot;, '&lt;a href=&quot;' + document.location + '&quot; target=&quot;_blank&quot;&gt;' + document.title + &quot;&lt;/a&gt;&quot;); })();
+</code></pre>
+
+<h2 id="amazonの商品ページのurlをきれいにするやつ">Amazonの商品ページのURLをきれいにするやつ</h2>
+
+<p>Amazonの商品ページのURL、遷移元なんかの余計なクエリ文字列がくっついてくることがほとんどで、それを共有するのは気が引ける。<br />
+そんな時はこれ。</p>
+
+<pre><code>javascript: ( function() { var r = document.querySelector('link[rel=&quot;canonical&quot;]').href.replace(/amazon.co.jp\/.*\/dp/, 'amazon.co.jp/dp'); location.href = r;})();
+</code></pre>
+
+<p>Amazonの商品ページ、canonicalなリンクを取得するだけでは、商品名もURLに含まれる。本当に必要なデータは<code>/dp/</code>以降だけで良いので正規表現で商品名を取っ払うようにしている。</p>
+
+<p>関数内をあえて2行にしてるのは、ついでに機能載せたいからですね。</p>
+
+<h3 id="ついでにつぶやくやつ">ついでにつぶやくやつ</h3>
+
+<p>こういうのとか。</p>
+
+<pre><code>javascript: ( function() { var r = document.querySelector('link[rel=&quot;canonical&quot;]').href.replace(/amazon.co.jp\/.*\/dp/, 'amazon.co.jp/dp'); location.href = r; window.open(&quot;https://twitter.com/intent/tweet?text=&quot; + encodeURIComponent(&quot;見てる / &quot; + document.title) + &quot;&amp;url=&quot; + encodeURIComponent(r)); })();
+</code></pre>
+
+<h3 id="ついでにmarkdown取得">ついでにMarkdown取得</h3>
+
+<pre><code>javascript: ( function() { var r = document.querySelector('link[rel=&quot;canonical&quot;]').href.replace(/amazon.co.jp\/.*\/dp/, 'amazon.co.jp/dp'); location.href = r; window.prompt(&quot;Link Created! - Markdown&quot;, '[' + document.title + '](' + r + ')'); })();
+</code></pre>
+
+<h3 id="ついでにhtml-anchor取得">ついでにHTML Anchor取得</h3>
+
+<pre><code>javascript: ( function() { var r = document.querySelector('link[rel=&quot;canonical&quot;]').href.replace(/amazon.co.jp\/.*\/dp/, 'amazon.co.jp/dp'); location.href = r; indow.prompt(&quot;Link Created! - html&quot;, '&lt;a href=&quot;' + r + '&quot; target=&quot;_blank&quot;&gt;' + document.title + &quot;&lt;/a&gt;&quot;); })();
+</code></pre>
+
+<h3 id="余談だけど">余談だけど</h3>
+
+<p><code>document.querySelector('link[rel=&quot;canonical&quot;]')</code>でcanonicalなリンクを取得できるの覚えておくとかなり便利。</p>
+
+<p><code>querySelector</code>で書く以前は、以下のようなコード書いてたけど、<code>querySelector</code>で行けると知ってから、ブックマークレットの大幅なダイエットに成功しました。</p>
+
+<pre><code>(function() {
+  [].forEach.call(
+    document.getElementsByTagName(&quot;link&quot;),
+    function(el) {
+      if (el.rel &amp;&amp; el.rel.toLowerCase() == &quot;canonical&quot;) {
+        return el.href;
+      }
+    }
+  );
+  return location.href;
+})()
+</code></pre>
+
+<p>Chromeの場合だけなのか未検証だけど、<code>document.getElementsByTagName</code>で返ってくるのがなぜか<code>HTMLCollection</code>なので、<code>[].forEach.call</code>なんてのを使うトリッキーさ。(わかってればそこまでトリッキーではないかも)</p>
+
+<h3 id="amazon以外">Amazon以外</h3>
+
+<p>単純にcanonicalなURLに置き換えるようにするだけ。</p>
+
+<pre><code>javascript: ( function() { var r = document.querySelector('link[rel=&quot;canonical&quot;]').href; location.href = r;})();
+</code></pre>
+
+<p><code>document.querySelector('link[rel=&quot;canonical&quot;]')</code>が取得できない場合、ページ遷移は発生しない。</p>
+
+<p>こちらのブックマークレットは使用頻度が低いため、つぶやきたい場合やMarkdown取得したい場合などは個別のブックマークレットと併用している。</p>
+
+<h2 id="見てるページをpdf化する">見てるページをPDF化する</h2>
+
+<p>これもあまり使用頻度が高くないため、以下のサイトで公開されているブックマークレットをそのまま使用して、PDFに印刷する。という手順を行っている。</p>
+
+<p><a href="https://css-tricks.github.io/The-Printliminator/" target="_blank">The Printliminator Demo</a></p>
+
+<p>使い方などは割愛。</p>
+
+<h1 id="javascript書けるなら">JavaScript書けるなら</h1>
+
+<p>ブックマークレットで遊ぶと楽しい。</p>
+
+<p>以上</p>
+
+    </div>
+    
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <aside><div id="disqus_thread"></div></aside>
+    <script type="text/javascript">
+      var disqus_shortname = 'nagatanigithubio';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; 2018 | Follow on <a href="https://twitter.com/Nagatani" target="_blank">Twitter</a></p>
+  </div>
+</section>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js" integrity="sha256-+bhVTaRmJ/c07eV80nU8gD2cBBF0rYkf1txqXlrbvb0=" crossorigin="anonymous"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-43292130-3', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
+</body>
