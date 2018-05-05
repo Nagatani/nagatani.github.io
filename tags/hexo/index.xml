@@ -18,7 +18,7 @@
       <pubDate>Sat, 13 Sep 2014 03:55:09 +0000</pubDate>
       
       <guid>https://nagatani.github.io/posts/hexo-image-add/</guid>
-      <description>タイトルの通りです。 Hexoで画像を挿入する方法 調べたけど、どれもしっくり来ない。 プラグインはコレジャナイ感ある。 自己流 で、自分がやってみて</description>
+      <description>タイトルの通りです。 Hexoで画像を挿入する方法 調べたけど、どれもしっくり来ない。 プラグインはコレジャナイ感ある。 自己流 で、自分がやってみてる方法は、 「image」ページを作成する。 作成した「image」ページのディレクトリに画像を突っ込む。 記事からは、「/image/突っ込んだ画像」で画像を参照させる。 公開するタイミングで、ページの画像もgit pushできる。 画像差し込めた。 という流れになってる</description>
     </item>
     
     <item>
@@ -27,7 +27,7 @@
       <pubDate>Thu, 11 Sep 2014 15:11:01 +0000</pubDate>
       
       <guid>https://nagatani.github.io/posts/hello-world/</guid>
-      <description>GitHub PagesにHexo入れた。 何書くかは決めてない。 テキトーに何かしら書いていきたい。 HexoをGitHub Pagesに構築するのに参考にし</description>
+      <description>GitHub PagesにHexo入れた。 何書くかは決めてない。 テキトーに何かしら書いていきたい。 HexoをGitHub Pagesに構築するのに参考にしたサイト Hexo と GitHub Pages でブログ環境を構築して公開する - Qiita 所要時間3分!? Github PagesとHEXOで爆速ブログ構築してみよう！ | 株式会社LIG</description>
     </item>
     
   </channel>

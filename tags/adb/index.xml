@@ -18,7 +18,7 @@
       <pubDate>Sun, 14 Sep 2014 18:39:30 +0000</pubDate>
       
       <guid>https://nagatani.github.io/posts/androidstudio-adb/</guid>
-      <description>なんやかんやあれやこれやでadbコマンド使わないといけなくなったので、その手順をメモしておく。 母艦のWindowsマシンには、Android</description>
+      <description>なんやかんやあれやこれやでadbコマンド使わないといけなくなったので、その手順をメモしておく。 母艦のWindowsマシンには、Android SDKを手動セットアップしてたのでそれ使えば良いだけの話なんだけど、たまたま手元にあるのはMacBook Airだったので、adbコマンド使えるようにしとこう、というわけです。 前提として、Android Studioはインストール済み。 Android SDKを別途入れなくても、</description>
     </item>
     
   </channel>

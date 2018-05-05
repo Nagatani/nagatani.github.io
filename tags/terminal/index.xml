@@ -18,7 +18,7 @@
       <pubDate>Tue, 07 Oct 2014 14:40:51 +0000</pubDate>
       
       <guid>https://nagatani.github.io/posts/mac-finder-view-allfile/</guid>
-      <description>ターミナル開いてls -a使え！ 嘘です。ごめん。 ls -a使えば見れるけど、Finderでも見たい。 そんなあなたに、以下のコマンドを捧げる。 ターミ</description>
+      <description>ターミナル開いてls -a使え！ 嘘です。ごめん。 ls -a使えば見れるけど、Finderでも見たい。 そんなあなたに、以下のコマンドを捧げる。 ターミナル開いて、2行入れるだけ。 $ defaults write com.apple.finder AppleShowAllFiles true $ killall Finder ※killall FinderでFinderが再起動されるので一応注意すること。 戻し方も教えとく 1行目のコマンドの最後をtrueからfalseに変えるだけ。 $ defaults write com.apple.finder AppleShowAllFiles false $ killall Finder Finderでシステム関連の大事なファイル</description>
     </item>
     
   </channel>
