@@ -97,14 +97,14 @@
   </url>
   
   <url>
-    <loc>https://nagatani.github.io/categories/cms/</loc>
-    <lastmod>2014-09-13T03:55:09+00:00</lastmod>
+    <loc>https://nagatani.github.io/tags/cms/</loc>
+    <lastmod>2014-09-12T04:00:46+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://nagatani.github.io/tags/cms/</loc>
-    <lastmod>2014-09-12T04:00:46+00:00</lastmod>
+    <loc>https://nagatani.github.io/categories/cms/</loc>
+    <lastmod>2014-09-13T03:55:09+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -139,13 +139,13 @@
   </url>
   
   <url>
-    <loc>https://nagatani.github.io/categories/javafx8/</loc>
+    <loc>https://nagatani.github.io/tags/javafx8/</loc>
     <lastmod>2014-10-08T17:00:56+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://nagatani.github.io/tags/javafx8/</loc>
+    <loc>https://nagatani.github.io/categories/javafx8/</loc>
     <lastmod>2014-10-08T17:00:56+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -157,13 +157,13 @@
   </url>
   
   <url>
-    <loc>https://nagatani.github.io/categories/mac/</loc>
+    <loc>https://nagatani.github.io/tags/mac/</loc>
     <lastmod>2014-10-07T14:40:51+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://nagatani.github.io/tags/mac/</loc>
+    <loc>https://nagatani.github.io/categories/mac/</loc>
     <lastmod>2014-10-07T14:40:51+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -187,13 +187,13 @@
   </url>
   
   <url>
-    <loc>https://nagatani.github.io/categories/spark/</loc>
+    <loc>https://nagatani.github.io/tags/spark/</loc>
     <lastmod>2016-06-23T01:42:53+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://nagatani.github.io/tags/spark/</loc>
+    <loc>https://nagatani.github.io/categories/spark/</loc>
     <lastmod>2016-06-23T01:42:53+00:00</lastmod>
     <priority>0</priority>
   </url>

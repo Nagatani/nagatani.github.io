@@ -10,78 +10,69 @@
 <meta property="og:description" content="メモにメモ以上の価値を求めるのはいけない">
 <meta property="og:type" content="website" />
 <title>JavaFX8 FXMLでのGUIアプリケーション開発 - 事始め | Memorandum</title>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
+<link rel="shortcut icon" href="https://nagatani.github.io//favicon.ico">
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Handlee">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
 <link rel="stylesheet" href="https://nagatani.github.io//css/style.css">
-<link rel="shortcut icon" href="https://nagatani.github.io//wave.ico">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
-
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai.min.css">
-
+<link rel="stylesheet" href="https://nagatani.github.io//css/custom.css">
 </head>
 
 <body>
-<section class="section">
+<header>
   <div class="container">
-    <nav class="nav">
-      <div class="nav-left">
-        <a class="nav-item" href="https://nagatani.github.io/"><h1 class="title is-4">Memorandum</h1></a>
-        &nbsp;-&nbsp;<small>メモにメモ以上の価値を求めるのはいけない</small>
-      </div>
-      <div class="nav-right">
-        <nav class="nav-item level is-mobile">
-          
-          <a class="level-item" href="https://github.com/Nagatani" target="_blank">
-            <span class="icon">
-              <i class="fa fa-github"></i>
-            </span>
-          </a>
-          
-          <a class="level-item" href="https://twitter.com/Nagatani" target="_blank">
-            <span class="icon">
-              <i class="fa fa-twitter"></i>
-            </span>
-          </a>
-          
-          <a class="level-item" href="/index.xml" target="_blank">
-            <span class="icon">
-              <i class="fa fa-rss"></i>
-            </span>
-          </a>
-          
-        </nav>
-      </div>
-    </nav>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <h1 class="title">JavaFX8 FXMLでのGUIアプリケーション開発 - 事始め</h1>
-    <h2 class="subtitle is-5">2014-09-17 Wednesday by Nagatani</h2>
-    
-      <div class="tags">
-    
-        <a class="button is-link" href="/tags/java">Java</a>
-    
-        <a class="button is-link" href="/tags/javafx8">JavaFX8</a>
-    
-        <a class="button is-link" href="/tags/javafxscenebuilder2">JavaFXSceneBuilder2</a>
-    
-        <a class="button is-link" href="/tags/fxml">FXML</a>
-    
-</div>
-
-    
-    <div class="content">
+    <div class="blog-title">
+      <h1><a class="nav-item" href="https://nagatani.github.io/">Memorandum</a></h1>
+      <div><small>メモにメモ以上の価値を求めるのはいけない</small></div>
+    </div>
+    <ul class="social">
       
+      <li class="social-item"><a href="https://github.com/Nagatani"><span class="icon"><i class="fab fa-github"></i></span></a></li>
+      
+      <li class="social-item"><a href="https://twitter.com/Nagatani"><span class="icon"><i class="fab fa-twitter"></i></span></a></li>
+      
+      <li class="social-item"><a href="/index.xml"><span class="icon"><i class="fas fa-rss"></i></span></a></li>
+      
+    </ul>
+  </div>
+</header>
+
+<main class="single">
+  <div class="container">
+    <article>
+      <p class="meta-date">2014-09-17 </p>
+      <h1 class="title">JavaFX8 FXMLでのGUIアプリケーション開発 - 事始め</h1>
+      <div class="post-meta">
+        <p class="meta-categories">
+          
+            <ul class="categories">
+
+  <li class="categories-item"><a href="/categories/javafx8">JavaFX8</a></li>
+
+</ul>
+
+          
+          
+            <span>&nbsp;-&nbsp;</span>
+          
+          
+            <ul class="tags">
+
+  <li class="tags-item"><a href="/tags/java">Java</a></li>
+
+  <li class="tags-item"><a href="/tags/javafx8">JavaFX8</a></li>
+
+  <li class="tags-item"><a href="/tags/javafxscenebuilder2">JavaFXSceneBuilder2</a></li>
+
+  <li class="tags-item"><a href="/tags/fxml">FXML</a></li>
+
+</ul>
+
+          
+        </p>
+      </div>
+      <div class="content">
+        
 
 <p>今回から、JavaFX8(JavaFX on Java8)についての記事を幾つか書こうと思う。
 前持って言って置かなければならないんだけど、私はJavaFXでの開発実績がない。
@@ -136,7 +127,7 @@ Swingに慣れている人は前者を使えば良い。それなら Scene Build
 
 <ol>
 <li>NetBeans8を起動</li>
-<li>メニューバーの[ファイル]→<a href="Macなら[shift] + [⌘] + [n]">新規プロジェクト</a></li>
+<li>メニューバーの[ファイル]→[新規プロジェクト]  (Macなら[shift] + [⌘] + [n])</li>
 <li>カテゴリから「JavaFX」を選択</li>
 <li>プロジェクトから「JavaFX FXMLアプリケーション」を選択</li>
 <li>「次へ」</li>
@@ -149,7 +140,7 @@ Swingに慣れている人は前者を使えば良い。それなら Scene Build
 
 <h3 id="1-netbeans8を起動">1. NetBeans8を起動</h3>
 
-<h3 id="2-メニューバーの-ファイル-新規プロジェクト-macなら-shift-n">2. メニューバーの[ファイル]→<a href="Macなら[shift] + [⌘] + [n]">新規プロジェクト</a></h3>
+<h3 id="2-メニューバーの-ファイル-新規プロジェクト-macなら-shift-n">2. メニューバーの[ファイル]→[新規プロジェクト]  (Macなら[shift] + [⌘] + [n])</h3>
 
 <p><img src="/image/sc-javafx8-intro-01.png" alt="これ" /></p>
 
@@ -317,12 +308,12 @@ MicrosoftのWPFと似てるような(そうでもないような)感じなので
 
 <p>※次回の記事の内容は未定です。</p>
 
-    </div>
-    
+      </div>
+    </article>
   </div>
-</section>
+</main>
 
-<section class="section">
+<section class="disqus">
   <div class="container">
     <aside><div id="disqus_thread"></div></aside>
     <script type="text/javascript">
@@ -338,15 +329,39 @@ MicrosoftのWPFと似てるような(そうでもないような)感じなので
 </section>
 
 
-<section class="section">
-  <div class="container has-text-centered">
-    <p>&copy; 2018 | Follow on <a href="https://twitter.com/Nagatani" target="_blank">Twitter</a></p>
+<footer>
+  <div class="container">
+    <div class="footer-container">
+      <div class="footer-item">
+        <div class="profile-container">
+  <img src="https://nagatani.github.io//image/profile.jpg" alt="profile-photo">
+  <div class="profile-text-container">
+    <h3 class="profile-name">Nagatani</h3>
+    <p class="profile-text">世知辛い世の中を静かに暮らしたい<br><a href="https://nagatani.me/" target="_blank">https://nagatani.me/</a></p>
+    <nav>
+      <ul class="social">
+      
+      <li class="social-item"><a href="https://github.com/Nagatani"><span class="icon"><i class="fab fa-github"></i></span></a></li>
+      
+      <li class="social-item"><a href="https://twitter.com/Nagatani"><span class="icon"><i class="fab fa-twitter"></i></span></a></li>
+      
+      <li class="social-item"><a href="/index.xml"><span class="icon"><i class="fas fa-rss"></i></span></a></li>
+      
+      </ul>
+    </nav>
   </div>
-</section>
+</div>
+
+      </div>
+    </div>
+    <p class="copyright">&copy; 2018 <a href="https://nagatani.me/" target="_blank">Nagatani</a></p>
+  </div>
+</footer>
 
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js" integrity="sha256-+bhVTaRmJ/c07eV80nU8gD2cBBF0rYkf1txqXlrbvb0=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css" />
 
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
 
