@@ -354,6 +354,7 @@ ul.social li a:hover {
 
 code {
   font-size: 0.9em;
+  font-family: Consolas, "Ubuntu Mono", Monaco, monospace, "Courier New", Courier, Osaka−等幅, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, "メイリオ", Meiryo, Arial, sans-serif;
   padding: 2px 4px;
   margin: 0 2px;
   border: 1px solid #ddd;
@@ -429,4 +430,11 @@ hr {
   height: 2px;
   background: repeating-linear-gradient( 45deg, #fefefe, #fefefe 5px, #003f90 5px, #003f90 10px);
   border: none;
+}
+
+.footnotes {
+  margin-top: 3rem;
+}
+.footnotes ol {
+  margin-top: 1rem;
 }
