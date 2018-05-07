@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Css on Memorandum</title>
+    <link>https://nagatani.github.io/tags/css/</link>
+    <description>Recent content in Css on Memorandum</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2018 &lt;a href=&#34;https://nagatani.me/&#34; target=&#34;_blank&#34;&gt;Nagatani&lt;/a&gt;</copyright>
+    <lastBuildDate>Tue, 08 May 2018 08:28:45 +0900</lastBuildDate>
+    
+	<atom:link href="https://nagatani.github.io/tags/css/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CSSで何となくランダムっぽいスタイルを作る</title>
+      <link>https://nagatani.github.io/posts/css-pseudo-rundom/</link>
+      <pubDate>Tue, 08 May 2018 08:28:45 +0900</pubDate>
+      
+      <guid>https://nagatani.github.io/posts/css-pseudo-rundom/</guid>
+      <description>pure CSSにはrandom()がない SCSSとかにはある。 何らかの理由で、random()関数がある便利なツールが使えない場合にCSSのみでそれっぽく見せる方法を書き残しておく。 サンプルコード HTML &amp;lt;div class=&amp;quot;random&amp;quot;&amp;gt; &amp;lt;div&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;div&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;div&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;div&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;div&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;div&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;div&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;div&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;div&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;div&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; CSS 雑に必要な部分を取り出す。 .random&amp;gt;div { width: 100px; height: 100px; } .random&amp;gt;div { background: #ff7c5c; transform: rotate(2.75deg); } .random&amp;gt;div:nth-child(2n) { background: #5cff7c; transform: rotate(-0.5deg); } .random&amp;gt;div:nth-child(3n) { background: #7c5cff; transform: rotate(-2.5deg); } .random&amp;gt;div:nth-child(5n) { background: #ffce5c; transform: rotate(1.2deg); } .random&amp;gt;div:nth-child(7n) { background: #ff5c8e; transform: rotate(5deg); } やってること :nth-child()擬似クラスを使って、素数倍の要素に</description>
+    </item>
+    
+  </channel>
+</rss>

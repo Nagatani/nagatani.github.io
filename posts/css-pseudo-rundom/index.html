@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="" name="keywords">
+<meta content="Nagatani" name="author">
+<meta property="og:title" content="CSSで何となくランダムっぽいスタイルを作る - Memorandum">
+<meta property="og:url" content="https://nagatani.github.io/posts/css-pseudo-rundom/">
+<meta property="og:description" content="メモにメモ以上の価値を求めるのはいけない">
+<meta property="og:type" content="website" />
+<title>CSSで何となくランダムっぽいスタイルを作る | Memorandum</title>
+<link rel="shortcut icon" href="https://nagatani.github.io/favicon.ico">
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Handlee">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+<link rel="stylesheet" href="https://nagatani.github.io/css/style.css">
+<link rel="stylesheet" href="https://nagatani.github.io/css/custom.css">
+</head>
+
+<body>
+<header>
+  <div class="container">
+    <div class="blog-title">
+      <h1><a class="nav-item" href="https://nagatani.github.io/">Memorandum</a></h1>
+      <div><small>メモにメモ以上の価値を求めるのはいけない</small></div>
+    </div>
+    <ul class="social">
+      
+      <li class="social-item"><a href="https://github.com/Nagatani"><span class="icon"><i class="fab fa-github"></i></span></a></li>
+      
+      <li class="social-item"><a href="https://twitter.com/Nagatani"><span class="icon"><i class="fab fa-twitter"></i></span></a></li>
+      
+      <li class="social-item"><a href="/index.xml"><span class="icon"><i class="fas fa-rss"></i></span></a></li>
+      
+    </ul>
+  </div>
+</header>
+
+<main class="single">
+  <div class="container">
+    <article>
+      <p class="meta-date">2018-05-08 </p>
+      <h1 class="title">CSSで何となくランダムっぽいスタイルを作る</h1>
+      <div class="post-meta">
+        <p class="meta-categories">
+          
+            <ul class="categories">
+
+  <li class="categories-item"><a href="/categories/css">css</a></li>
+
+</ul>
+
+          
+          
+            <span>&nbsp;-&nbsp;</span>
+          
+          
+            <ul class="tags">
+
+  <li class="tags-item"><a href="/tags/css">css</a></li>
+
+  <li class="tags-item"><a href="/tags/tips">tips</a></li>
+
+</ul>
+
+          
+        </p>
+      </div>
+      <div class="content">
+        
+
+<h2 id="pure-cssにはrandom-がない">pure CSSにはrandom()がない</h2>
+
+<p>SCSSとかにはある。</p>
+
+<p>何らかの理由で、<code>random()</code>関数がある便利なツールが使えない場合にCSSのみでそれっぽく見せる方法を書き残しておく。</p>
+
+<h3 id="サンプルコード">サンプルコード</h3>
+
+<h4 id="html">HTML</h4>
+
+<pre><code class="language-html">&lt;div class=&quot;random&quot;&gt;
+  &lt;div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<h4 id="css">CSS</h4>
+
+<p>雑に必要な部分を取り出す。</p>
+
+<pre><code class="language-css">.random&gt;div {
+  width: 100px;
+  height: 100px;
+}
+.random&gt;div                { background: #ff7c5c; transform: rotate(2.75deg); }
+.random&gt;div:nth-child(2n)  { background: #5cff7c; transform: rotate(-0.5deg); }
+.random&gt;div:nth-child(3n)  { background: #7c5cff; transform: rotate(-2.5deg); }
+.random&gt;div:nth-child(5n)  { background: #ffce5c; transform: rotate(1.2deg); }
+.random&gt;div:nth-child(7n)  { background: #ff5c8e; transform: rotate(5deg); }
+</code></pre>
+
+<h3 id="やってること">やってること</h3>
+
+<p><code>:nth-child()</code>擬似クラスを使って、素数倍の要素に対してそれぞれ個別のスタイルを書いておく。</p>
+
+<p>これだけで何となくランダムっぽいスタイルが適用できる。</p>
+
+<p>疑似ランダムにしたい要素数が多くなる場合は、素数倍で使用する素数(2,3,5,7,11,13,17,19,23&hellip;)を行単位で増やすと、更にそれっぽくなるはず。</p>
+
+<h3 id="codepenで動作確認">CodePenで動作確認</h3>
+
+<p><code>.random</code>要素の中に、100個の<code>div</code>要素が入っています。</p>
+
+<p><p data-height="500" data-theme-id="0" data-slug-hash="JvOZxd" data-default-tab="css,result" data-user="Nagatani" data-embed-version="2" data-pen-title="JvOZxd" class="codepen">See the Pen <a href="https://codepen.io/Nagatani/pen/JvOZxd/">JvOZxd</a> by Nagatani (<a href="https://codepen.io/Nagatani">@Nagatani</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script></p>
+
+<h1 id="まとめ">まとめ</h1>
+
+<p><code>:nth-child(素数n)</code>で暫定的にCSSのみでランダムっぽい表現をすることができる。</p>
+
+<p>普通に<code>random()</code>が使えるやつ使うと良いですよ。</p>
+
+      </div>
+    </article>
+  </div>
+</main>
+
+<section class="disqus">
+  <div class="container">
+    <aside><div id="disqus_thread"></div></aside>
+    <script type="text/javascript">
+      var disqus_shortname = 'nagatanigithubio';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+<footer>
+  <div class="container">
+    <div class="footer-container">
+      <div class="footer-item">
+        <div class="profile-container">
+  <img src="https://nagatani.github.io/image/profile.jpg" alt="profile-photo">
+  <div class="profile-text-container">
+    <h3 class="profile-name">Nagatani</h3>
+    <p class="profile-text">世知辛い世の中を静かに暮らしたい<br><a href="https://nagatani.me/" target="_blank">https://nagatani.me/</a></p>
+    <nav>
+      <ul class="social">
+      
+      <li class="social-item"><a href="https://github.com/Nagatani"><span class="icon"><i class="fab fa-github"></i></span></a></li>
+      
+      <li class="social-item"><a href="https://twitter.com/Nagatani"><span class="icon"><i class="fab fa-twitter"></i></span></a></li>
+      
+      <li class="social-item"><a href="/index.xml"><span class="icon"><i class="fas fa-rss"></i></span></a></li>
+      
+      </ul>
+    </nav>
+  </div>
+</div>
+
+      </div>
+    </div>
+    <p class="copyright">&copy; 2018 <a href="https://nagatani.me/" target="_blank">Nagatani</a></p>
+  </div>
+</footer>
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css" />
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-43292130-3', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
+</body>

@@ -41,6 +41,44 @@
   <div class="container">
     
     <article>
+      <p class="meta-date">2018-05-08 </p>
+      <h1 class="title"><a href="https://nagatani.github.io/posts/css-pseudo-rundom/">CSSで何となくランダムっぽいスタイルを作る</a></h1>
+      <div class="post-meta">
+        <p class="meta-categories">
+          
+            <ul class="categories">
+
+  <li class="categories-item"><a href="/categories/css">css</a></li>
+
+</ul>
+
+          
+          
+            <span>&nbsp;-&nbsp;</span>
+          
+          
+            <ul class="tags">
+
+  <li class="tags-item"><a href="/tags/css">css</a></li>
+
+  <li class="tags-item"><a href="/tags/tips">tips</a></li>
+
+</ul>
+
+          
+        </p>
+      </div>
+      <p class="content content-summary">
+        pure CSSにはrandom()がない SCSSとかにはある。 何らかの理由で、random()関数がある便利なツールが使えない場合にCSSのみでそれっぽく見せる方法を書き残しておく。 サンプルコード HTML &lt;div class=&quot;random&quot;&gt; &lt;div&gt;&lt;/div&gt; &lt;div&gt;&lt;/div&gt; &lt;div&gt;&lt;/div&gt; &lt;div&gt;&lt;/div&gt; &lt;div&gt;&lt;/div&gt; &lt;div&gt;&lt;/div&gt; &lt;div&gt;&lt;/div&gt; &lt;div&gt;&lt;/div&gt; &lt;div&gt;&lt;/div&gt; &lt;div&gt;&lt;/div&gt; &lt;/div&gt; CSS 雑に必要な部分を取り出す。 .random&gt;div { width: 100px; height: 100px; } .random&gt;div { background: #ff7c5c; transform: rotate(2.75deg); } .random&gt;div:nth-child(2n) { background: #5cff7c; transform: rotate(-0.5deg); } .random&gt;div:nth-child(3n) { background: #7c5cff; transform: rotate(-2.5deg); } .random&gt;div:nth-child(5n) { background: #ffce5c; transform: rotate(1.2deg); } .random&gt;div:nth-child(7n) { background: #ff5c8e; transform: rotate(5deg); } やってること :nth-child()擬似クラスを使って、素数倍の要素に ... 
+      </p>
+      
+      <div class="read-more">
+        <a class="button" href="https://nagatani.github.io/posts/css-pseudo-rundom/">続きを読む</a>
+      </div>
+      
+    </article>
+    
+    <article>
       <p class="meta-date">2018-05-06 </p>
       <h1 class="title"><a href="https://nagatani.github.io/posts/hugo-theme-created/">Hugoのテーマ作りました。</a></h1>
       <div class="post-meta">
@@ -336,44 +374,6 @@
       
       <div class="read-more">
         <a class="button" href="https://nagatani.github.io/posts/javafx8-fxml-lookandfeel/">続きを読む</a>
-      </div>
-      
-    </article>
-    
-    <article>
-      <p class="meta-date">2014-10-07 </p>
-      <h1 class="title"><a href="https://nagatani.github.io/posts/mac-finder-view-allfile/">MacのFinederで不可視となっているディレクトリやファイルを表示する方法</a></h1>
-      <div class="post-meta">
-        <p class="meta-categories">
-          
-            <ul class="categories">
-
-  <li class="categories-item"><a href="/categories/mac">Mac</a></li>
-
-</ul>
-
-          
-          
-            <span>&nbsp;-&nbsp;</span>
-          
-          
-            <ul class="tags">
-
-  <li class="tags-item"><a href="/tags/mac">Mac</a></li>
-
-  <li class="tags-item"><a href="/tags/terminal">terminal</a></li>
-
-</ul>
-
-          
-        </p>
-      </div>
-      <p class="content content-summary">
-        ターミナル開いてls -a使え！ 嘘です。ごめん。 ls -a使えば見れるけど、Finderでも見たい。 そんなあなたに、以下のコマンドを捧げる。 ターミナル開いて、2行入れるだけ。 $ defaults write com.apple.finder AppleShowAllFiles true $ killall Finder ※killall FinderでFinderが再起動されるので一応注意すること。 戻し方も教えとく 1行目のコマンドの最後をtrueからfalseに変えるだけ。 $ defaults write com.apple.finder AppleShowAllFiles false $ killall Finder Finderでシステム関連の大事なファイル ... 
-      </p>
-      
-      <div class="read-more">
-        <a class="button" href="https://nagatani.github.io/posts/mac-finder-view-allfile/">続きを読む</a>
       </div>
       
     </article>
