@@ -99,9 +99,11 @@
 <p>雑に必要な部分を取り出す。</p>
 
 <pre><code class="language-css">.random&gt;div {
+  /* ランダム要素の共通スタイル */
   width: 100px;
   height: 100px;
 }
+/* ↓揺らぎの設定 */
 .random&gt;div                { background: #ff7c5c; transform: rotate(2.75deg); }
 .random&gt;div:nth-child(2n)  { background: #5cff7c; transform: rotate(-0.5deg); }
 .random&gt;div:nth-child(3n)  { background: #7c5cff; transform: rotate(-2.5deg); }
