@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nightmarejs on Memorandum</title>
+    <link>https://nagatani.github.io/tags/nightmarejs/</link>
+    <description>Recent content in Nightmarejs on Memorandum</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>&amp;copy; 2018 &lt;a href=&#34;https://nagatani.me/&#34; target=&#34;_blank&#34;&gt;Nagatani&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 30 May 2018 23:30:36 +0900</lastBuildDate>
+    
+	<atom:link href="https://nagatani.github.io/tags/nightmarejs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Twitterを過去に遡って検索してデータを取得するやつ作った</title>
+      <link>https://nagatani.github.io/posts/tweet-search-from-web/</link>
+      <pubDate>Wed, 30 May 2018 23:30:36 +0900</pubDate>
+      
+      <guid>https://nagatani.github.io/posts/tweet-search-from-web/</guid>
+      <description>APIの仕様変更にうんざりしている皆様こんにちは。 ↓まぁこんなことがあったので、日頃の情報収集のツールから検索の部分だけ取り出して加筆修正したのを公開しました。 Twitter APIでの検索が過去7日だっけかの制限があるから過去データ検索できないっつってる人いたんだけど、Twitter Webでの検索は日付の制限ないの教えてあげれば良かったかなって &amp;mdash; ながたに🐈 (@Nagatani) May 30, 2018 SeleniumでもNightmare.jsで</description>
+    </item>
+    
+  </channel>
+</rss>
