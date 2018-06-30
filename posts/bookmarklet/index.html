@@ -155,6 +155,15 @@
 
       </div>
     </article>
+
+    
+    <aside class="share">
+  <a class="twitter" href="https://twitter.com/intent/tweet?url=https%3a%2f%2fnagatani.github.io%2fposts%2fbookmarklet%2f&text=%e3%81%84%e3%81%a4%e3%82%82%e4%bd%bf%e3%81%a3%e3%81%a6%e3%82%8b%e3%83%96%e3%83%83%e3%82%af%e3%83%9e%e3%83%bc%e3%82%af%e3%83%ac%e3%83%83%e3%83%88&tw_p=tweetbutton" onclick="window.open(this.href, 'shareWindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fab fa-twitter"></i></a>
+  <a class="facebook" href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fnagatani.github.io%2fposts%2fbookmarklet%2f&t=%e3%81%84%e3%81%a4%e3%82%82%e4%bd%bf%e3%81%a3%e3%81%a6%e3%82%8b%e3%83%96%e3%83%83%e3%82%af%e3%83%9e%e3%83%bc%e3%82%af%e3%83%ac%e3%83%83%e3%83%88" onclick="window.open(this.href, 'shareWindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fab fa-facebook"></i></a>
+  <a class="googleplus" href="https://plus.google.com/share?url=https%3a%2f%2fnagatani.github.io%2fposts%2fbookmarklet%2f" onclick="window.open(this.href, 'shareWindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fab fa-google-plus"></i></a>
+</aside>
+
+    
   </div>
 </main>
 
@@ -211,11 +220,15 @@
 
 
 <script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-43292130-3', 'auto');
-ga('send', 'pageview');
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-43292130-3', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
 
