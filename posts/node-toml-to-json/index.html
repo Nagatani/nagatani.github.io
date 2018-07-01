@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta content="" name="keywords">
 <meta content="Nagatani" name="author">
-<meta property="og:title" content="Nodejs - Memorandum">
-<meta property="og:url" content="https://nagatani.github.io/tags/nodejs/">
+<meta property="og:title" content="TomlデータをJSONに変換する - Memorandum">
+<meta property="og:url" content="https://nagatani.github.io/posts/node-toml-to-json/">
 <meta property="og:description" content="メモにメモ以上の価値を求めるのはいけない">
 <meta property="og:type" content="website" />
-<title>Nodejs | Memorandum</title>
+<title>TomlデータをJSONに変換する | Memorandum</title>
 <link rel="shortcut icon" href="https://nagatani.github.io/favicon.ico">
 <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Handlee">
@@ -37,12 +37,11 @@
   </div>
 </header>
 
-<main class="list">
+<main class="single">
   <div class="container">
-    
     <article>
       <p class="meta-date">2018-06-30 </p>
-      <h1 class="title"><a href="https://nagatani.github.io/posts/node-toml-to-json/">TomlデータをJSONに変換する</a></h1>
+      <h1 class="title">TomlデータをJSONに変換する</h1>
       <div class="post-meta">
         <p class="meta-categories">
           
@@ -57,61 +56,58 @@
           
         </p>
       </div>
-      <p class="content content-summary">
-        作りました。 Nagatani/toml2json: TomlファイルをJSONファイルに変換します。 なんで作ったかと言うと、JSONデータでの設定ファイルの場合、コメントが残せないという愚痴を聞いて、tomlで設定ファイル書いてデプロイスクリプトのにJSONデータに変換すれば良くないか？と普通に疑問に思ったからですね。 で、何してるかというと、npmのtoml 使うと、tomlファイルをJavaScriptのオブジェクトにパースできるので ... 
-      </p>
-      
-      <div class="read-more">
-        <a class="button" href="https://nagatani.github.io/posts/node-toml-to-json/">続きを読む</a>
+      <div class="content">
+        <p>作りました。</p>
+
+<ul>
+<li><a href="https://github.com/Nagatani/toml2json">Nagatani/toml2json: TomlファイルをJSONファイルに変換します。</a></li>
+</ul>
+
+<p>なんで作ったかと言うと、JSONデータでの設定ファイルの場合、コメントが残せないという愚痴を聞いて、tomlで設定ファイル書いてデプロイスクリプトのにJSONデータに変換すれば良くないか？と普通に疑問に思ったからですね。</p>
+
+<p>で、何してるかというと、npmの<a href="https://www.npmjs.com/package/toml">toml</a> 使うと、tomlファイルをJavaScriptのオブジェクトにパースできるので、それを<code>JSON.stringify</code>すれば、はい、JSONファイルの出来上がり。という簡単なやつです。</p>
+
+<p>詳しくはGitHub見てね。</p>
+
+<p>あと全然関係ないけど、WebStormのライセンス買いました。</p>
+
+<ul>
+<li><a href="https://www.jetbrains.com/webstorm/">WebStorm: The Smartest JavaScript IDE by JetBrains</a></li>
+</ul>
+
+<p>Node.jsだけじゃなく、React,Vueのコーディングサポートがあるので便利。</p>
+
+<p>私からは以上です。</p>
+
       </div>
-      
     </article>
+
     
-    <article>
-      <p class="meta-date">2018-05-30 </p>
-      <h1 class="title"><a href="https://nagatani.github.io/posts/tweet-search-from-web/">Twitterを過去に遡って検索してデータを取得するやつ作った</a></h1>
-      <div class="post-meta">
-        <p class="meta-categories">
-          
-          
-          
-            <ul class="tags">
+    <aside class="share">
+  <a class="twitter" href="https://twitter.com/intent/tweet?url=https%3a%2f%2fnagatani.github.io%2fposts%2fnode-toml-to-json%2f&text=Toml%e3%83%87%e3%83%bc%e3%82%bf%e3%82%92JSON%e3%81%ab%e5%a4%89%e6%8f%9b%e3%81%99%e3%82%8b&tw_p=tweetbutton" onclick="window.open(this.href, 'shareWindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fab fa-twitter"></i></a>
+  <a class="facebook" href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fnagatani.github.io%2fposts%2fnode-toml-to-json%2f&t=Toml%e3%83%87%e3%83%bc%e3%82%bf%e3%82%92JSON%e3%81%ab%e5%a4%89%e6%8f%9b%e3%81%99%e3%82%8b" onclick="window.open(this.href, 'shareWindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fab fa-facebook"></i></a>
+  <a class="googleplus" href="https://plus.google.com/share?url=https%3a%2f%2fnagatani.github.io%2fposts%2fnode-toml-to-json%2f" onclick="window.open(this.href, 'shareWindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fab fa-google-plus"></i></a>
+</aside>
 
-  <li class="tags-item"><a href="/tags/nodejs">nodejs</a></li>
-
-  <li class="tags-item"><a href="/tags/nightmarejs">nightmarejs</a></li>
-
-  <li class="tags-item"><a href="/tags/twitter">twitter</a></li>
-
-</ul>
-
-          
-        </p>
-      </div>
-      <p class="content content-summary">
-        APIの仕様変更にうんざりしている皆様こんにちは。 ↓まぁこんなことがあったので、日頃の情報収集のツールから検索の部分だけ取り出して加筆修正したのを公開しました。 Twitter APIでの検索が過去7日だっけかの制限があるから過去データ検索できないっつってる人いたんだけど、Twitter Webでの検索は日付の制限ないの教えてあげれば良かったかなって &mdash; ながたに🐈 (@Nagatani) May 30, 2018 SeleniumでもNightmare.jsで ... 
-      </p>
-      
-      <div class="read-more">
-        <a class="button" href="https://nagatani.github.io/posts/tweet-search-from-web/">続きを読む</a>
-      </div>
-      
-    </article>
     
   </div>
 </main>
-<section class="pagination">
+
+<section class="disqus">
   <div class="container">
-    <nav class="pagination-nav">
-      <div class="pagination-prev">
-        
-      </div>
-      <div class="pagination-next">
-        
-      </div>
-    </nav>
+    <aside><div id="disqus_thread"></div></aside>
+    <script type="text/javascript">
+      var disqus_shortname = 'nagatanigithubio';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
   </div>
 </section>
+
 
 <footer>
   <div class="container">
@@ -163,4 +159,3 @@ if (!doNotTrack) {
 
 
 </body>
-

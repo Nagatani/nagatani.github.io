@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://nagatani.github.io/posts/node-toml-to-json/</loc>
+    <lastmod>2018-06-30T23:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://nagatani.github.io/posts/tweet-search-from-web/</loc>
     <lastmod>2018-05-30T23:30:36+09:00</lastmod>
   </url>
@@ -215,7 +220,7 @@
   
   <url>
     <loc>https://nagatani.github.io/</loc>
-    <lastmod>2018-05-30T23:30:36+09:00</lastmod>
+    <lastmod>2018-06-30T23:00:00+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -227,13 +232,13 @@
   
   <url>
     <loc>https://nagatani.github.io/tags/nodejs/</loc>
-    <lastmod>2018-05-30T23:30:36+09:00</lastmod>
+    <lastmod>2018-06-30T23:00:00+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://nagatani.github.io/posts/</loc>
-    <lastmod>2018-05-30T23:30:36+09:00</lastmod>
+    <lastmod>2018-06-30T23:00:00+09:00</lastmod>
     <priority>0</priority>
   </url>
   
