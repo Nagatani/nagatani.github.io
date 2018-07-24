@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://nagatani.github.io/posts/m5stack-dht12-temptoifttt/</loc>
+    <lastmod>2018-07-25T02:43:48+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://nagatani.github.io/posts/node-toml-to-json/</loc>
     <lastmod>2018-06-30T23:00:00+09:00</lastmod>
   </url>
@@ -111,14 +116,20 @@
   </url>
   
   <url>
-    <loc>https://nagatani.github.io/categories/</loc>
-    <lastmod>2014-09-14T18:39:30+00:00</lastmod>
+    <loc>https://nagatani.github.io/tags/arduino/</loc>
+    <lastmod>2018-07-25T02:43:48+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://nagatani.github.io/tags/cms/</loc>
-    <lastmod>2014-09-12T04:00:46+00:00</lastmod>
+    <loc>https://nagatani.github.io/tags/c&#43;&#43;/</loc>
+    <lastmod>2018-07-25T02:43:48+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nagatani.github.io/categories/</loc>
+    <lastmod>2014-09-14T18:39:30+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -129,8 +140,8 @@
   </url>
   
   <url>
-    <loc>https://nagatani.github.io/tags/css/</loc>
-    <lastmod>2018-05-08T08:28:45+09:00</lastmod>
+    <loc>https://nagatani.github.io/tags/cms/</loc>
+    <lastmod>2014-09-12T04:00:46+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -141,8 +152,20 @@
   </url>
   
   <url>
+    <loc>https://nagatani.github.io/tags/css/</loc>
+    <lastmod>2018-05-08T08:28:45+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://nagatani.github.io/categories/diary/</loc>
     <lastmod>2014-09-11T15:11:01+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nagatani.github.io/tags/esp32/</loc>
+    <lastmod>2018-07-25T02:43:48+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -159,13 +182,13 @@
   </url>
   
   <url>
-    <loc>https://nagatani.github.io/tags/hugo/</loc>
+    <loc>https://nagatani.github.io/categories/hugo/</loc>
     <lastmod>2018-05-06T12:54:26+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://nagatani.github.io/categories/hugo/</loc>
+    <loc>https://nagatani.github.io/tags/hugo/</loc>
     <lastmod>2018-05-06T12:54:26+09:00</lastmod>
     <priority>0</priority>
   </url>
@@ -183,13 +206,13 @@
   </url>
   
   <url>
-    <loc>https://nagatani.github.io/tags/javafx8/</loc>
+    <loc>https://nagatani.github.io/categories/javafx8/</loc>
     <lastmod>2014-10-08T17:00:56+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://nagatani.github.io/categories/javafx8/</loc>
+    <loc>https://nagatani.github.io/tags/javafx8/</loc>
     <lastmod>2014-10-08T17:00:56+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -201,13 +224,19 @@
   </url>
   
   <url>
-    <loc>https://nagatani.github.io/tags/mac/</loc>
-    <lastmod>2014-10-07T14:40:51+00:00</lastmod>
+    <loc>https://nagatani.github.io/tags/m5stack/</loc>
+    <lastmod>2018-07-25T02:43:48+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://nagatani.github.io/categories/mac/</loc>
+    <lastmod>2014-10-07T14:40:51+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nagatani.github.io/tags/mac/</loc>
     <lastmod>2014-10-07T14:40:51+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -220,7 +249,7 @@
   
   <url>
     <loc>https://nagatani.github.io/</loc>
-    <lastmod>2018-06-30T23:00:00+09:00</lastmod>
+    <lastmod>2018-07-25T02:43:48+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -238,7 +267,7 @@
   
   <url>
     <loc>https://nagatani.github.io/posts/</loc>
-    <lastmod>2018-06-30T23:00:00+09:00</lastmod>
+    <lastmod>2018-07-25T02:43:48+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -249,13 +278,13 @@
   </url>
   
   <url>
-    <loc>https://nagatani.github.io/tags/spark/</loc>
+    <loc>https://nagatani.github.io/categories/spark/</loc>
     <lastmod>2016-06-23T01:42:53+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://nagatani.github.io/categories/spark/</loc>
+    <loc>https://nagatani.github.io/tags/spark/</loc>
     <lastmod>2016-06-23T01:42:53+00:00</lastmod>
     <priority>0</priority>
   </url>

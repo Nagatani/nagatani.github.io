@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>&amp;copy; 2018 &lt;a href=&#34;https://nagatani.me/&#34; target=&#34;_blank&#34;&gt;Nagatani&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 30 Jun 2018 23:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 25 Jul 2018 02:43:48 +0900</lastBuildDate>
     
 	<atom:link href="https://nagatani.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>M5StackとDHT12で作る部屋の温度湿度をIFTTTのWebhooksへ投げるやつ</title>
+      <link>https://nagatani.github.io/posts/m5stack-dht12-temptoifttt/</link>
+      <pubDate>Wed, 25 Jul 2018 02:43:48 +0900</pubDate>
+      
+      <guid>https://nagatani.github.io/posts/m5stack-dht12-temptoifttt/</guid>
+      <description>タイトルの通りですが、作りました。 制作動機は、我が家のリビングがめっちゃ暑いのと、我が家のネコたちが暑さでぐったりしているのがかわいそうというのがあります。で、先月ぐらいに買って、そのうちなにか作ろうとしていた M5Stack Basic と 温湿度センサのDHT12がセットになったプロトキットがあったので、これで作るか、となった次第です。 やりたかったことは、リビングが指定された温度以上になった場合に、Slackへ通知するシ</description>
+    </item>
     
     <item>
       <title>TomlデータをJSONに変換する</title>
