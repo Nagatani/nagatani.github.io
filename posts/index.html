@@ -42,6 +42,29 @@
     
     <article>
       <p class="meta-date">2018-07-25 </p>
+      <h1 class="title"><a href="https://nagatani.github.io/posts/hugo-commands/">Hugoアップデートといつも使うコマンド</a></h1>
+      <div class="post-meta">
+        <p class="meta-categories">
+          
+          
+          
+            <ul class="tags">
+
+  <li class="tags-item"><a href="/tags/hugo">hugo</a></li>
+
+</ul>
+
+          
+        </p>
+      </div>
+      <p class="content content-summary">
+        いつも忘れるので書いとく この投稿は、完全にメモです。 Hugoバージョンアップ $ brew update $ brew upgrade hugo 新規投稿作成 $ hugo new posts/new-post.md ローカルサーバ立ち上げ $ hugo server -D デプロイ $ ./deploy.sh deploy.shの中身は↓ #!/bin/bash echo -e &quot;\033[0;32mDeploying updates to GitHub...\033[0m&quot; # Build the project. hugo -t Memorandum # if using a theme, replace with `hugo -t &lt;YOURTHEME&gt;` # Go To Public folder cd public # Add changes to git. git add . # Commit changes. msg=&quot;rebuilding site `date`&quot; if [ $# -eq 1 ] then msg=&quot;$1&quot; fi git commit -m &quot;$msg&quot; # Push source and build repos. git push origin master # Come Back up to the Project Root cd ..
+      </p>
+      
+    </article>
+    
+    <article>
+      <p class="meta-date">2018-07-25 </p>
       <h1 class="title"><a href="https://nagatani.github.io/posts/m5stack-dht12-temptoifttt/">M5StackとDHT12で作る部屋の温度湿度をIFTTTのWebhooksへ投げるやつ</a></h1>
       <div class="post-meta">
         <p class="meta-categories">
@@ -305,46 +328,6 @@
       
       <div class="read-more">
         <a class="button" href="https://nagatani.github.io/posts/netbeans-spark-web-4/">続きを読む</a>
-      </div>
-      
-    </article>
-    
-    <article>
-      <p class="meta-date">2016-06-13 </p>
-      <h1 class="title"><a href="https://nagatani.github.io/posts/netbeans-spark-web-3/">NetBeansでSparkを使ってサクッとWebアプリケーションを作る ③サーバーログの出力</a></h1>
-      <div class="post-meta">
-        <p class="meta-categories">
-          
-            <ul class="categories">
-
-  <li class="categories-item"><a href="/categories/spark">Spark</a></li>
-
-</ul>
-
-          
-          
-            <span>&nbsp;-&nbsp;</span>
-          
-          
-            <ul class="tags">
-
-  <li class="tags-item"><a href="/tags/java8">Java8</a></li>
-
-  <li class="tags-item"><a href="/tags/spark">Spark</a></li>
-
-  <li class="tags-item"><a href="/tags/tutorial">Tutorial</a></li>
-
-</ul>
-
-          
-        </p>
-      </div>
-      <p class="content content-summary">
-        前回までで、一旦Webアプリケーションの作成の基本の基本ぐらいなところまでできている。 WebアプリケーションのAPIの作成について触れていきたいところだけど、その前に、NetBeansで実行時にログの出力を有効にしておこう。 ログの出力は、サーバーとクライアントで一対多の通信を行うWebアプリケーションでは必須の機能と言えるので、今回だけでなく次回以降のプロジェクトも同様にログ出力を有効にしておこう ... 
-      </p>
-      
-      <div class="read-more">
-        <a class="button" href="https://nagatani.github.io/posts/netbeans-spark-web-3/">続きを読む</a>
       </div>
       
     </article>
