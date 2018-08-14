@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="" name="keywords">
+<meta content="Nagatani" name="author">
+<meta property="og:title" content="Atomのメンテナンスでやったこと - Memorandum">
+<meta property="og:url" content="https://nagatani.github.io/posts/atom-cleanup/">
+<meta property="og:description" content="メモにメモ以上の価値を求めるのはいけない">
+<meta property="og:type" content="website" />
+<title>Atomのメンテナンスでやったこと | Memorandum</title>
+<link rel="shortcut icon" href="https://nagatani.github.io/favicon.ico">
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Handlee">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+<link rel="stylesheet" href="https://nagatani.github.io/css/style.css">
+<link rel="stylesheet" href="https://nagatani.github.io/css/custom.css">
+</head>
+
+<body>
+<header>
+  <div class="container">
+    <div class="blog-title">
+      <h1><a class="nav-item" href="https://nagatani.github.io/">Memorandum</a></h1>
+      <div><small>メモにメモ以上の価値を求めるのはいけない</small></div>
+    </div>
+    <ul class="social">
+      
+      <li class="social-item"><a href="https://github.com/Nagatani"><span class="icon"><i class="fab fa-github"></i></span></a></li>
+      
+      <li class="social-item"><a href="https://twitter.com/Nagatani"><span class="icon"><i class="fab fa-twitter"></i></span></a></li>
+      
+      <li class="social-item"><a href="/index.xml"><span class="icon"><i class="fas fa-rss"></i></span></a></li>
+      
+    </ul>
+  </div>
+</header>
+
+<main class="single">
+  <div class="container">
+    <article>
+      <p class="meta-date">2018-08-13 </p>
+      <h1 class="title">Atomのメンテナンスでやったこと</h1>
+      <div class="post-meta">
+        <p class="meta-categories">
+          
+          
+          
+            <ul class="tags">
+
+  <li class="tags-item"><a href="/tags/atom">Atom</a></li>
+
+  <li class="tags-item"><a href="/tags/apm">apm</a></li>
+
+  <li class="tags-item"><a href="/tags/maintenance">maintenance</a></li>
+
+</ul>
+
+          
+        </p>
+      </div>
+      <div class="content">
+        
+
+<p>Atomって言ってもいろいろあるけど、テキストエディタの<a href="https://atom.io/">Atom</a>の話。</p>
+
+<p>新しいプログラミング言語の開発環境を構築する際に、いつも使っているAtomのパッケージにも、「language-〇〇」とか「AutoComplete〇〇」などのパッケージを追加している。
+でも、ちょっと使ってみてnot for meだったりで消したり、違うものをまた試してみたりを繰り返していると、パッケージ周りでエラーが発生してしまうことが稀によくある。</p>
+
+<p>で、今回、消したはずのパッケージなのに、エラーがずっと残ってしまう現象が発生してしまった。
+エラーログ残していなかったのを今更後悔しているんだけど、エラーメッセージを見ていろいろ調べてみてもそのパッケージはすでに消去済みで、原因を追っかけようにも追っかけられない状況だったりすることがある。</p>
+
+<p>そんなときにはapm使うと良い。
+apmはAtom Package Managerの略だと思う。</p>
+
+<p>Mac版Atomだと、メニューバーにある「Atom」→「シェルコマンドをインストール」で使えるようになったと思うが記憶は定かでない。</p>
+
+<p>全部紹介するのはめんどいので、メンテナンスで使うやつに留める。</p>
+
+<h2 id="キャッシュの削除">キャッシュの削除</h2>
+
+<p>以下のコマンドでキャッシュの削除等ができる。</p>
+
+<pre><code class="language-bash">$ cd ~/.atom
+$ apm clean
+</code></pre>
+
+<p><code>apm clean</code> は、どうやら内部的には、<code>npm cache clean</code> のような機能を呼んでいるっぽい挙動をしているので、cdでディレクトリを<code>.atom</code>に変更せずにホームディレクトリとかでやるとコマンドが全然終わらないっぽい。</p>
+
+<h2 id="重複しているnode-modulesの削除">重複しているnode_modulesの削除</h2>
+
+<pre><code class="language-bash">$ apm dedupe
+</code></pre>
+
+<p>無駄に重複してしまっているnode_modulesのなんやかんやを再構築してくれる。</p>
+
+<h2 id="パッケージのアップデート">パッケージのアップデート</h2>
+
+<pre><code class="language-bash">$ apm update
+</code></pre>
+
+<p>もしインストール済みのパッケージにアップデートがある場合、以下のメッセージが出る。</p>
+
+<pre><code>Would you like to install these updates? (yes)
+</code></pre>
+
+<p>アップデートしてよければ、そのままenterキーでOK。</p>
+
+<h2 id="パッケージのリビルド">パッケージのリビルド</h2>
+
+<pre><code class="language-bash">$ apm rebuild
+</code></pre>
+
+<p>インストール済みのパッケージをリビルドしてくれる。</p>
+
+<h2 id="その他まとめて">その他まとめて</h2>
+
+<pre><code class="language-bash"># apmのヘルプ表示
+$ apm -h
+# インストール済みパッケージ一覧
+$ apm ls
+# パッケージインストール
+$ apm install パッケージ名
+# パッケージ有効化
+$ apm enable パッケージ名
+# パッケージ無効化
+$ apm disable パッケージ名
+# パッケージアンインストール
+$ apm uninstall パッケージ名
+</code></pre>
+
+<p>この辺知っておけばほぼほぼ問題なさそうかなー。</p>
+
+<p>以上です。</p>
+
+      </div>
+    </article>
+
+    
+    <aside class="share">
+  <a class="twitter" href="https://twitter.com/intent/tweet?url=https%3a%2f%2fnagatani.github.io%2fposts%2fatom-cleanup%2f&text=Atom%e3%81%ae%e3%83%a1%e3%83%b3%e3%83%86%e3%83%8a%e3%83%b3%e3%82%b9%e3%81%a7%e3%82%84%e3%81%a3%e3%81%9f%e3%81%93%e3%81%a8&tw_p=tweetbutton" onclick="window.open(this.href, 'shareWindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fab fa-twitter"></i></a>
+  <a class="facebook" href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fnagatani.github.io%2fposts%2fatom-cleanup%2f&t=Atom%e3%81%ae%e3%83%a1%e3%83%b3%e3%83%86%e3%83%8a%e3%83%b3%e3%82%b9%e3%81%a7%e3%82%84%e3%81%a3%e3%81%9f%e3%81%93%e3%81%a8" onclick="window.open(this.href, 'shareWindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fab fa-facebook"></i></a>
+  <a class="googleplus" href="https://plus.google.com/share?url=https%3a%2f%2fnagatani.github.io%2fposts%2fatom-cleanup%2f" onclick="window.open(this.href, 'shareWindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fab fa-google-plus"></i></a>
+</aside>
+
+    
+  </div>
+</main>
+
+<section class="disqus">
+  <div class="container">
+    <aside><div id="disqus_thread"></div></aside>
+    <script type="text/javascript">
+      var disqus_shortname = 'nagatanigithubio';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+<footer>
+  <div class="container">
+    <div class="footer-container">
+      <div class="footer-item">
+        <div class="profile-container">
+  <img src="https://nagatani.github.io/image/profile.jpg" alt="profile-photo">
+  <div class="profile-text-container">
+    <h3 class="profile-name">Nagatani</h3>
+    <p class="profile-text">世知辛い世の中を静かに暮らしたい<br><a href="https://nagatani.me/" target="_blank">https://nagatani.me/</a></p>
+    <nav>
+      <ul class="social">
+      
+      <li class="social-item"><a href="https://github.com/Nagatani"><span class="icon"><i class="fab fa-github"></i></span></a></li>
+      
+      <li class="social-item"><a href="https://twitter.com/Nagatani"><span class="icon"><i class="fab fa-twitter"></i></span></a></li>
+      
+      <li class="social-item"><a href="/index.xml"><span class="icon"><i class="fas fa-rss"></i></span></a></li>
+      
+      </ul>
+    </nav>
+  </div>
+</div>
+
+      </div>
+    </div>
+    <p class="copyright">&copy; 2018 <a href="https://nagatani.me/" target="_blank">Nagatani</a></p>
+  </div>
+</footer>
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css" />
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-43292130-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+</body>
