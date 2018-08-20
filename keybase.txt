@@ -1,0 +1,76 @@
+==================================================================
+https://keybase.io/nagatani
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://nagatani.github.io
+  * I am nagatani (https://keybase.io/nagatani) on keybase.
+  * I have a public key with fingerprint 30FE 7AD6 4EFF 9E83 0A36  4B46 488C 0295 E7F9 0F50
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120b106ed73aa6776d30ede5c8b7dcb6c9d6397e861f8b4690a209cfa25af134aef0a",
+      "fingerprint": "30fe7ad64eff9e830a364b46488c0295e7f90f50",
+      "host": "keybase.io",
+      "key_id": "488c0295e7f90f50",
+      "kid": "0101816ebb45175c6c65ad70c41d5e1978249d8d56658591e96a4694bd7803505c2d0a",
+      "uid": "84e876b1b422268d7f66eff4299bff19",
+      "username": "nagatani"
+    },
+    "service": {
+      "hostname": "nagatani.github.io",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1534788655,
+  "expire_in": 157680000,
+  "prev": "baa512dcd335cb1026c721f9089baad8d3db3410ba667ff07ac9e75f24a0ce7a",
+  "seqno": 15,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.77
+Comment: https://keybase.io/crypto
+
+yMN1AnicbVJ7UFRVHF4USZZkYaQGm2DoCgQNj/s8994li6bEFGMIKs2U9dx7z10u
+rLvr7kIS0NDDQAnFYCcdJZlp18FHA0EaMTxaBGYA42HxiDEqRgd8jIqSilp0l/Kf
+pvPPmfP7fd93vt+ja8VSjdbn1U+XOKfndek+/Z4v8jTvFPomFmKCRSrA9IVYLlq8
+kElCdochV5EwPYYTJC4QOEASS0EIWBZIFI4kxIicwEqiAEReAhTPIg4QMifQgMch
+ifOiDEkGygRFQyTjEIvDZMVsRDarTTE7VFkKlxELJUAjWeYRR+GQArTKpjlOxEme
+QazM4zKDq8Rsi93LUM0J0I4SFIsaUx+GRXv/g3/kGyc4AiBBoBmCZUQgAgZKLC7S
+hMQggmc5kuYlTmIAYDiGJxAPoGqeFiSWwykGZ0RSWvSdtyjH0YhjgUAINEmSgJNY
+GQDVOk3yvCDLBO8F2pHNDHcgFW2GRuiAZgUrjsPUaL4iIm9jvZX8B5FgVBzZecI/
+VVltFodFtJjUfLbDYbXrvXxHgdVLeBcJhn+lDIJiltRuqox8ZLMrFjOmJ1Sk6FC8
+2gRD0SzHAYaJw9Auq2JDBsWLYFjA4erx/oPyVUkBQoYgJVGiKEZUZ0wCkSUJtY8c
+r6bU3lCSQNEELkAAWFnGWSjyiGVkkoa4qE4P8xa302zxaqs+oVHVtCtGM3Tk2RBW
+3OnZ6qvx0Wr8li3xrplG6x/0aPlGwnQLG3aBz22u7g3lZW/FzN4+FDSq7al1kvNW
++uRI1roIQ+8TabPnX8+Nb9L+6LqwL3Phg6AdxNOnq7vrOq6Ha264AgMyWtzrW2dj
+G39b1f7+L67sowEhU+sjv5r28zdH7/swrL/jouWl+TPJrTVfv0LotZsEnW/7hTXu
+kT0tqUVFphnf8SOcbunKTTUlHWlX20Iu/XSttHp5pHM4WKz/JmhZSWaZu33a+UJK
+VehsYorl5v5t2xYaXusoSds8e/Xt7qaskGfnhnfv7Jl4ENS/O2QqPCEGzjyTEBYT
+/9zqvwL5xkuh1cf0xWdzDsy4tDFwot43c6yIHwxoeYw9ZVzeJTb0/dHi+fLse2sC
+mVXocktbHHbt1MPUicrK2M3RqYm/Rh2P6erL2pIckZCxUYu5h+qojyUwNmBsbh07
+03vQONk3UHAv+tyLZs+9O/kPUn4/8XOw8/7Gsd6E8pmLB5mjJF92viKsoQrjJ5Jm
+IufL/IOvmPQF39ZVTjbevR/XnOTZfvPYOtdnW+c6E0/eqV+be+DuuK6zqeGpFck5
+fldCq8bdqzNiR7eXVIW80Xw58AZHlT6Z1nll+PahjKhJdu/oy8JxFOFMb7215zCf
+d8Q4dOKTQPfUYBiVljhY7tHFP//duaG1GDDVRlW0FZk7tnz/ZkXNR6aHOUmlP7TP
+9QzUXg+n9688fOvPx3VZhafT/wbI/cSR
+=Fi1X
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/nagatani
+
+==================================================================
+
