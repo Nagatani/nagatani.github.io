@@ -33,11 +33,15 @@ excerpt: 'Next.jsをそこまで使っていなかったので、ここらでな
 でもいざ blog-only-mode にするかーってなったら、公式ドキュメントにある手順をやってもエラーで先に進めなくなった。
 いろいろ調べたところ、エラーの原因となっている箇所がコアの部分にあって開発側も既知なんだけど、修正後回しになってるってIssueがあって、そっかーじゃあ使うのやめるかー回避策手間かかるっぽいしってなった次第。
 
-ブログじゃなくて、ドキュメントを書くのは Docusaurus とても便利なのでおすすめですが、今回の僕の要件にはマッチしなかった。
+ブログじゃなくて、ドキュメントを書くのは Docusaurus とても便利なのでおすすめ。  
+残念ながら、今回は僕の要件にはマッチしなかった。
 
 - [Build optimized websites quickly, focus on your content | Docusaurus](https://docusaurus.io/)
 
-Docusaurus 見てて思ったのが、仕事以外で React 使ってないし、使ってるやつだったらよさそうかな。ということで、Next.jsを使おうってなった。
+Docusaurus 見てて思ったのが、そういえば仕事以外で React 使ってないな。  
+React 使ってるブログシステムだったらよさそうかな。  
+そうだ、 Next.js でそういうのあったな。  
+ということで、 Next.js を使おうってなった。
 
 Next.jsのblog-starterテンプレートにはCSSフレームワークのTailwindが入ってたんだけど、正直CSSフレームワーク使うのは個人的にいやかな。という思いと、Tailwind ほぼ使ったことないし学習コストが見合わないかもな。って気持ちがあって、消した。
 
@@ -59,6 +63,6 @@ Next.jsで作ったこのサイトにも記事を移行しようと思えばで�
 
 詳しいことはAboutページ作ってあるのでそっちを見てほしい
 
-- [About | Memorandum](http://localhost:3000/posts/about)
+- [About | Memorandum](http://nagatani.github.io/posts/about)
 
 以上
