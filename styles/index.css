@@ -119,15 +119,14 @@ a:active,
 }
 .post-preview .postTitle {
   font-size: 1rem;
-  display: inline;
-  padding-right: 1rem;
+  padding-bottom: 0.4rem;
 }
-.post-preview .date {
-  font-size: 0.8rem;
-  display: inline;
-  color: #23232380;
-}
+.post-preview .date,
 .post-preview p {
-  margin-top: 0.5rem;
   font-size: 0.8rem;
+  color: #23232380;
+  display: inline;
+}
+.post-preview p::before {
+  content: " - ";
 }
