@@ -37,6 +37,11 @@ const Meta = () => {
         content={`${CMS_NAME} - ${CMS_DESC}`}
       />
       <meta property="og:image" content={HOME_OG_IMAGE_URL} />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@Nagatani" />
+      <meta name="twitter:title" content={`${CMS_NAME} - ${CMS_DESC}`} />
+      <meta name="twitter:description" content={`@Nagataniが雑にいろいろ書くブログ`} />
+      <meta name="twitter:image" content="https://farm6.staticflickr.com/5510/14338202952_93595258ff_z.jpg" />
       <meta name="twitter:image" content="https://nagatani.github.io/twcard.jpg" />
     </Head>
   )
