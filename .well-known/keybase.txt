@@ -21,6 +21,16 @@ To do so, I am signing this object:
       "uid": "84e876b1b422268d7f66eff4299bff19",
       "username": "nagatani"
     },
+    "merkle_root": {
+      "ctime": 1654325637,
+      "hash_meta": "3ee2826a29f2860fff981092360916386da27b165d8df4f19909b618bb28482e",
+      "seqno": 22611943
+    },
+    "revoke": {
+      "sig_ids": [
+        "546f69214260ff01c7c613f4c2508ff9df8c19d7c2106a0a197ec0e5e7c40b130f"
+      ]
+    },
     "service": {
       "hostname": "nagatani.github.io",
       "protocol": "https:"
@@ -28,43 +38,46 @@ To do so, I am signing this object:
     "type": "web_service_binding",
     "version": 1
   },
-  "ctime": 1534788655,
+  "ctime": 1654325640,
   "expire_in": 157680000,
-  "prev": "baa512dcd335cb1026c721f9089baad8d3db3410ba667ff07ac9e75f24a0ce7a",
-  "seqno": 15,
+  "prev": "aa76e3ffed6fb496f0c785862916989035067f350895ac0d49945591310bf7eb",
+  "seqno": 22,
   "tag": "signature"
 }
 
 which yields the signature:
 
 -----BEGIN PGP MESSAGE-----
-Version: Keybase OpenPGP v2.0.77
+Version: Keybase OpenPGP v2.1.13
 Comment: https://keybase.io/crypto
 
-yMN1AnicbVJ7UFRVHF4USZZkYaQGm2DoCgQNj/s8994li6bEFGMIKs2U9dx7z10u
-rLvr7kIS0NDDQAnFYCcdJZlp18FHA0EaMTxaBGYA42HxiDEqRgd8jIqSilp0l/Kf
-pvPPmfP7fd93vt+ja8VSjdbn1U+XOKfndek+/Z4v8jTvFPomFmKCRSrA9IVYLlq8
-kElCdochV5EwPYYTJC4QOEASS0EIWBZIFI4kxIicwEqiAEReAhTPIg4QMifQgMch
-ifOiDEkGygRFQyTjEIvDZMVsRDarTTE7VFkKlxELJUAjWeYRR+GQArTKpjlOxEme
-QazM4zKDq8Rsi93LUM0J0I4SFIsaUx+GRXv/g3/kGyc4AiBBoBmCZUQgAgZKLC7S
-hMQggmc5kuYlTmIAYDiGJxAPoGqeFiSWwykGZ0RSWvSdtyjH0YhjgUAINEmSgJNY
-GQDVOk3yvCDLBO8F2pHNDHcgFW2GRuiAZgUrjsPUaL4iIm9jvZX8B5FgVBzZecI/
-VVltFodFtJjUfLbDYbXrvXxHgdVLeBcJhn+lDIJiltRuqox8ZLMrFjOmJ1Sk6FC8
-2gRD0SzHAYaJw9Auq2JDBsWLYFjA4erx/oPyVUkBQoYgJVGiKEZUZ0wCkSUJtY8c
-r6bU3lCSQNEELkAAWFnGWSjyiGVkkoa4qE4P8xa302zxaqs+oVHVtCtGM3Tk2RBW
-3OnZ6qvx0Wr8li3xrplG6x/0aPlGwnQLG3aBz22u7g3lZW/FzN4+FDSq7al1kvNW
-+uRI1roIQ+8TabPnX8+Nb9L+6LqwL3Phg6AdxNOnq7vrOq6Ha264AgMyWtzrW2dj
-G39b1f7+L67sowEhU+sjv5r28zdH7/swrL/jouWl+TPJrTVfv0LotZsEnW/7hTXu
-kT0tqUVFphnf8SOcbunKTTUlHWlX20Iu/XSttHp5pHM4WKz/JmhZSWaZu33a+UJK
-VehsYorl5v5t2xYaXusoSds8e/Xt7qaskGfnhnfv7Jl4ENS/O2QqPCEGzjyTEBYT
-/9zqvwL5xkuh1cf0xWdzDsy4tDFwot43c6yIHwxoeYw9ZVzeJTb0/dHi+fLse2sC
-mVXocktbHHbt1MPUicrK2M3RqYm/Rh2P6erL2pIckZCxUYu5h+qojyUwNmBsbh07
-03vQONk3UHAv+tyLZs+9O/kPUn4/8XOw8/7Gsd6E8pmLB5mjJF92viKsoQrjJ5Jm
-IufL/IOvmPQF39ZVTjbevR/XnOTZfvPYOtdnW+c6E0/eqV+be+DuuK6zqeGpFck5
-fldCq8bdqzNiR7eXVIW80Xw58AZHlT6Z1nll+PahjKhJdu/oy8JxFOFMb7215zCf
-d8Q4dOKTQPfUYBiVljhY7tHFP//duaG1GDDVRlW0FZk7tnz/ZkXNR6aHOUmlP7TP
-9QzUXg+n9688fOvPx3VZhafT/wbI/cSR
-=Fi1X
+yMP+AnicbZN7bBRFHMf74FppqEJAEEOQLlgwlDL7mp05AoanFHmUh0FybS+zOzO9
+pe3deXt3tLQNL42ApTW0UCnhoYiClQRNIaFJMW0qUK0YEgMlgAiIPBRCBZECgrNV
+EkPcP3Yzu9/v7/fdz2+mPT05IS1xZlXSpis9z+UmfttWGUswtyauLZfMEC2TvOVS
+Eet9sGLKnKi/yKaSVwKyAkwZQEYNlRBoGJCqgFGmW8g0qGVCC1OoYoMhKHNkahAD
+ogBscaLohMuqRhgHRMqSuB0sZJFwxA5GRVkVcGYQCjXGOWZIBUSFmnBrCFlAwToz
+OAZcB8IYCDmuQ4QzicOy7ZB4Jxb+3nj/o3+SG8hIhsw0NV02dAtaUCfUAJYmU53J
+2ECKhimiOoQ60rHMMCQivGZSAwFVB7ql0N7csd5ySGPIgKZsaoqiQEQNDqGIrikY
+m5zL2BU6LBIkJUyog6SQREnQliqzpBIWKSpm/kgoFHXhWlHblchQ11RFh6ohfpA4
+AX8JixKXC2MKUiBRMFcQBFzQQTLAigoBlqGKICWKYQq3iM410RgDbEIZmaaCNKQw
+kcNhbwVDklfElGWsqSJChMVDRczt7tiFgpsjeX2SrkEOsSJritsGyJZhQVnlmqXo
+AIm2lCNLxtSwFDF9AohAxizABGlLEztCDFDKr3S7ReK21VvcHdRTALIL7WggZv4z
+tHAkFA1ZoWLxPRCNhh2viydaFnYNy5jp/7eU37SDVGwW4YiziGOHggKXUD5FTgNZ
+EisN2xHmt12FbkAExOX2YXFRkhADMpVzRiE3NQw5sAykI6gIkBhhd8jQ4OKOsE4s
+QDWMNV3sBFUGJjeY+V+UIicpFDUFvyCJxiJMqmxrzeuTkJiWkOJJck9RQlrf/k/O
+1g+vPvfAw70jLm+57u9OvVGXsaes6/K7/k9XNXZn7tkwv5H+FDhY3zo0o71g1a4p
+L2wa8HHPZutecPmWU9Xx+OWOQV+NmnjA2cliTdKEpgzSUzNxCVlyYuTaEWU1D9Nz
+f8t5bzfwhO+Oy4lW9Vu8wP9g89n2EwMLXs+fVtZTllyhDx6Wt8hp6cytVRfWth9v
+zM5dcWHlFD6NZs2ctMN/u2n2SbxienU52XZv/GcVLz069P66my+v/7wkMnzA2e5B
+nsdzFr+W2tblZG/c/rDu96NJnzx/xNkQO9x/Neubd6f5yI0hvp1VO5rOB7vScld2
+jjJPWY9P/DKjxVdxa9ultkB4tj4jvS1zTKeneWlKa/u+vMb7b55OHls37NZ4ef7G
+zPZLx+iAM+cAHxXfn5pTMebai2/nf/fnjnWwYPyXXbMmT56/8PjEQSv3sYwbp2Fl
+w4pabe/+CdvvtKSkXzkQ9EmDzdSHkwZ2/lreMHdRR7+lxYte6bhebfmW3fpi/c+x
++OhxI3b9daHm7rBv8s/3ubr1mfUXD83LLFYDNxuoZPgOr5k+blJddUfO3asjjY82
+zvpReqOquLSA55d+uP3kH56L5+SxzVM7tiZd65637Ci5X9vzDsnzHgmtbpm6q2ZK
+Msjdpp1q9d0u3btcrx86p/PYoeUNbHdX67EzbWc9rQmP6rueTVnw/eLVB+d+cGbI
+6H2Hv65f0/xg6PC/AVog/4Y=
+=bmZW
 -----END PGP MESSAGE-----
 
 And finally, I am proving ownership of this host by posting or
@@ -73,4 +86,3 @@ appending to this document.
 View my publicly-auditable identity here: https://keybase.io/nagatani
 
 ==================================================================
-
