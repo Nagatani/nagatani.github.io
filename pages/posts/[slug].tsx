@@ -38,6 +38,12 @@ const Post = ({ post, morePosts, preview }: Props) => {
                   {post.title} | {CMS_NAME}
                 </title>
                 <meta property="og:image" content={post.ogImage ? post.ogImage.url : HOME_OG_IMAGE_URL} />
+                <meta property="og:title" content={post.title + " | " + CMS_NAME} />
+                <meta property="og:description" content={post.excerpt} />
+
+                <meta name="twitter:image" content={post.ogImage ? post.ogImage.url : HOME_OG_IMAGE_URL} />
+                <meta name="twitter:title" content={post.title + " | " + CMS_NAME} />
+                <meta name="twitter:description" content={post.excerpt} />
               </Head>
               <PostHeader
                 title={post.title}
