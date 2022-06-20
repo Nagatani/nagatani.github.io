@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 import Container from '../../components/container'
@@ -15,12 +16,12 @@ import markdownToHtml from 'zenn-markdown-html'
 
 type Props = {
   post: PostType
-  morePosts: PostType[]
   preview?: boolean
 }
 
-const Post = ({ post, morePosts, preview }: Props) => {
+const Post = ({ post, preview }: Props) => {
   const router = useRouter()
+
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
   }
@@ -40,7 +41,6 @@ const Post = ({ post, morePosts, preview }: Props) => {
                 <meta property="og:image" content={post.ogImage ? post.ogImage.url : HOME_OG_IMAGE_URL} />
                 <meta property="og:title" content={post.title + " | " + CMS_NAME} />
                 <meta property="og:description" content={post.excerpt} />
-
                 <meta name="twitter:image" content={post.ogImage ? post.ogImage.url : HOME_OG_IMAGE_URL} />
                 <meta name="twitter:title" content={post.title + " | " + CMS_NAME} />
                 <meta name="twitter:description" content={post.excerpt} />
@@ -72,6 +72,8 @@ export async function getStaticProps({ params }: Params) {
     'date',
     'slug',
     'content',
+    'excerpt',
+    'ogImage'
   ])
   const content = await markdownToHtml(post.content || '')
 
