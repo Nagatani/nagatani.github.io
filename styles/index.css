@@ -37,6 +37,7 @@ a:visited {
   color: var(--link-color);
   text-decoration: underline;
   transition: all 0.3s;
+  word-break: break-all;
 }
 a:hover,
 a:active,
