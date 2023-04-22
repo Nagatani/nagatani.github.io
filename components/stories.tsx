@@ -10,7 +10,7 @@ const sortInfoByDate = (a: Post, b: Post) => {
   return adate < bdate ? 1 : -1;
 };
 
-const MoreStories = ({ posts }: Props) => {
+const Stories = ({ posts }: Props) => {
   return (
     <section>
       {posts.sort((a, b) => sortInfoByDate(a,b)).map((post) => (
@@ -26,4 +26,4 @@ const MoreStories = ({ posts }: Props) => {
   )
 }
 
-export default MoreStories
+export default Stories

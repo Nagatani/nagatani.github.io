@@ -1,5 +1,5 @@
 import Container from '../components/container'
-import MoreStories from '../components/more-stories'
+import Stories from '../components/stories'
 import Layout from '../components/layout'
 import { getAllPostsWithOutNoDate } from '../lib/api'
 import Head from 'next/head'
@@ -20,7 +20,7 @@ const Index = ({ allPosts }: Props) => {
         </Head>
         <Container>
           <Header />
-          {allPosts.length > 0 && <MoreStories posts={allPosts} />}
+          {allPosts.length > 0 && <Stories posts={allPosts} />}
         </Container>
       </Layout>
     </>
