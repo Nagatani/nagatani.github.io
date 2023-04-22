@@ -9,7 +9,7 @@ import Layout from '../../components/layout'
 import { getPostBySlug, getAllPosts } from '../../lib/api'
 import PostTitle from '../../components/post-title'
 import Head from 'next/head'
-import { CMS_NAME, HOME_OG_IMAGE_URL } from '../../lib/constants'
+import { CMS_NAME, CMS_DESC, HOME_OG_IMAGE_URL, HOME_TW_IMAGE_URL } from '../../lib/constants'
 import PostType from '../../types/post'
 import 'zenn-content-css'
 import markdownToHtml from 'zenn-markdown-html'
@@ -38,12 +38,16 @@ const Post = ({ post, preview }: Props) => {
                 <title>
                   {post.title} | {CMS_NAME}
                 </title>
+                <meta
+                  name="description"
+                  content={`${CMS_NAME} - ${CMS_DESC} | ${post.excerpt}`}
+                />
                 <meta property="og:image" content={post.ogImage ? post.ogImage.url : HOME_OG_IMAGE_URL} />
                 <meta property="og:title" content={post.title + " | " + CMS_NAME} />
-                <meta property="og:description" content={post.excerpt} />
-                <meta name="twitter:image" content={post.ogImage ? post.ogImage.url : HOME_OG_IMAGE_URL} />
+                <meta property="og:description" content={`${CMS_NAME} - ${CMS_DESC} | ${post.excerpt}`} />
+                <meta name="twitter:image" content={post.ogImage ? post.ogImage.url : HOME_TW_IMAGE_URL} />
                 <meta name="twitter:title" content={post.title + " | " + CMS_NAME} />
-                <meta name="twitter:description" content={post.excerpt} />
+                <meta name="twitter:description" content={`${CMS_NAME} - ${CMS_DESC} | ${post.excerpt}`} />
               </Head>
               <PostHeader
                 title={post.title}

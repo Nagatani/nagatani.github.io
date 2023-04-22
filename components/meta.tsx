@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { CMS_NAME, CMS_DESC, HOME_OG_IMAGE_URL } from '../lib/constants'
+import { CMS_NAME, CMS_DESC, HOME_OG_IMAGE_URL, HOME_TW_IMAGE_URL } from '../lib/constants'
 
 const Meta = () => {
   return (
@@ -41,7 +41,7 @@ const Meta = () => {
       <meta name="twitter:site" content="@Nagatani" />
       <meta name="twitter:title" content={`${CMS_NAME} - ${CMS_DESC}`} />
       <meta name="twitter:description" content={`@Nagataniが雑にいろいろ書くブログ`} />
-      <meta name="twitter:image" content="https://nagatani.github.io/twcard.jpg" />
+      <meta name="twitter:image" content={HOME_TW_IMAGE_URL} />
     </Head>
   )
 }
