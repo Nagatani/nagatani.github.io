@@ -9,6 +9,7 @@
 
 :root {
   font-family: 'Courier New', 'BIZ UDMincho', serif, "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-display: fallback;
   font-size: 5mm;
   font-feature-settings: normal;
   text-underline-offset: 0.2em;
