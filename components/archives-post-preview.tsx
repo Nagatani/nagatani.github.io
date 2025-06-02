@@ -19,8 +19,8 @@ const ArchivesPostPreview = ({
       </div>
       <span> - </span>
       <h3 className="postTitle">
-        <Link as={`/posts/${slug}`} href="/posts/[slug]">
-          <a className="hover_underline">{title}</a>
+        <Link as={`/posts/${slug}`} href="/posts/[slug]" className="hover_underline">
+          {title}
         </Link>
       </h3>
     </div>

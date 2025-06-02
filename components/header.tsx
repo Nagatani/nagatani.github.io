@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <section className='post-header'>
       <h2>
-        <Link href="/"><a className="hover:underline">{CMS_NAME}</a></Link>
+        <Link href="/" className="hover:underline">{CMS_NAME}</Link>
       </h2>
     </section>
   )

@@ -17,8 +17,8 @@ const PostPreview = ({
   return (
     <div className='post-preview'>
       <h3 className="postTitle">
-        <Link as={`/posts/${slug}`} href="/posts/[slug]">
-          <a className="hover_underline">{title}</a>
+        <Link as={`/posts/${slug}`} href="/posts/[slug]" className="hover_underline">
+          {title}
         </Link>
       </h3>
       <div className="date">

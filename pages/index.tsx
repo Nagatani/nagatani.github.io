@@ -29,7 +29,7 @@ const Index = ({ allPosts }: Props) => {
         </Container>
         <div className='archives_link'>
           <p>(1 / {maxPage})</p>
-          <Link as={`/archives`} href="/archives"><a className="fusen">すべての記事を見る</a></Link>
+          <Link as={`/archives`} href="/archives" className="fusen">すべての記事を見る</Link>
         </div>
       </Layout>
     </>
