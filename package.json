@@ -8,26 +8,26 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "caniuse-lite": "^1.0.30001481",
-    "classnames": "2.3.1",
-    "date-fns": "2.21.3",
+    "caniuse-lite": "^1.0.30001590",
+    "classnames": "2.5.1",
+    "date-fns": "3.6.0",
     "gray-matter": "4.0.3",
-    "next": "latest",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "remark": "14.0.2",
-    "remark-html": "15.0.1",
+    "next": "15.3.3",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "remark": "15.0.1",
+    "remark-html": "16.0.1",
     "ress": "^5.0.2",
-    "typescript": "^4.2.4",
-    "zenn-content-css": "^0.1.110",
-    "zenn-markdown-html": "^0.1.110"
+    "typescript": "5.8.3",
+    "zenn-content-css": "^0.1.149",
+    "zenn-markdown-html": "^0.1.149"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.23",
-    "@types/node": "^15.6.0",
-    "@types/react": "^17.0.6",
-    "@types/react-dom": "^17.0.5",
-    "autoprefixer": "10.4.0",
-    "postcss": "8.4.5"
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.12.7",
+    "@types/react": "19.1.6",
+    "@types/react-dom": "19.1.5",
+    "autoprefixer": "10.4.19",
+    "postcss": "8.4.38"
   }
 }
