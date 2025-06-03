@@ -11,9 +11,10 @@
   const coverImageUrl = post.coverImage?.url || post.coverImage;
 </script>
 
+<!-- Use raw content for excerpt for the description meta tag -->
 <Meta
   title={post.title}
-  description={post.excerpt || post.content?.substring(0, 150)} /* Use raw content for excerpt */
+  description={post.excerpt || post.content?.substring(0, 150)}
   image={coverImageUrl}
   canonicalUrl={`/posts/${post.slug}`}
 />
