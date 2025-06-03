@@ -7,3 +7,5 @@ export const load: PageServerLoad = async () => {
     posts
   };
 };
+
+export const prerender = true; // Explicitly set prerender for homepage

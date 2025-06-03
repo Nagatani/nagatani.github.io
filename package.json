@@ -1,23 +1,20 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start",
-    "typecheck": "tsc",
+    "dev": "vite dev",
+    "build": "vite build",
+    "start": "vite preview",
+    "typecheck": "svelte-check --tsconfig ./tsconfig.json",
     "test": "vitest",
-    "test:ui": "vitest --ui"
+    "test:ui": "vitest --ui",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@sveltejs/adapter-static": "^3.0.8",
     "@testing-library/svelte": "^5.2.8",
-    "caniuse-lite": "^1.0.30001590",
     "classnames": "2.5.1",
     "date-fns": "^3.6.0",
     "gray-matter": "^4.0.3",
-    "next": "15.3.3",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
     "remark": "^15.0.1",
     "remark-html": "^16.0.1",
     "ress": "^5.0.2",
@@ -27,20 +24,9 @@
     "zenn-markdown-html": "^0.1.149"
   },
   "devDependencies": {
-    "@babel/core": "^7.27.4",
-    "@babel/preset-env": "^7.27.2",
-    "@babel/preset-react": "^7.27.1",
-    "@babel/preset-typescript": "^7.27.1",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@types/jest": "^29.5.12",
-    "@types/node": "^20.12.7",
-    "@types/react": "19.1.6",
-    "@types/react-dom": "19.1.5",
-    "autoprefixer": "10.4.19",
-    "babel-jest": "^29.7.0",
-    "jest-environment-jsdom": "^29.7.0",
-    "postcss": "8.4.38",
-    "ts-jest": "^29.1.2"
+    "@types/node": "^20.12.7"
   }
 }

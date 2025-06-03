@@ -1,16 +1,18 @@
-import { getPostBySlug } from '$lib/server/posts';
+import { getPostBySlug, getPostSlugs } from '$lib/server/posts'; // Added getPostSlugs
 import { error } from '@sveltejs/kit';
-import type { PageServerLoad } from './$types';
+import type { PageServerLoad, EntryGenerator } from './$types'; // Added EntryGenerator
 
 export const load: PageServerLoad = async ({ params }) => {
   const post = getPostBySlug(params.slug, [
     'slug',
     'title',
     'date',
-    'content',
+    'content', // Raw markdown for meta excerpt
+    'html',    // HTML content for display
     'coverImage',
-    'author', // Assuming 'author' might be a field
-    'ogImage' // Assuming 'ogImage' might be a field
+    'author',
+    'ogImage',
+    'excerpt' // Explicitly request excerpt if available from frontmatter
   ]);
 
   if (!post) {
@@ -20,4 +22,13 @@ export const load: PageServerLoad = async ({ params }) => {
   return {
     post
   };
+};
+
+export const prerender = true;
+
+export const entries: EntryGenerator = () => {
+  const slugs = getPostSlugs(); // Get all .md file names
+  return slugs.map((filename) => ({
+    slug: filename.replace(/\.md$/, '') // Remove .md for the slug parameter
+  }));
 };
