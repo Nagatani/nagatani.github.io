@@ -3,13 +3,8 @@
 </h1>
 
 <style>
-/* Add styles for .postTitle if they were global or component-specific in Next.js */
-/* For now, assuming it might be in a global stylesheet or markdown-styles.module.css */
-/* We will migrate styles in a later step. */
-.postTitle {
-  /* Example: */
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
+  /* .postTitle styles are now in app.css */
+  /* Keep this style block if there are truly component-specific overrides. */
+  /* For example, if its use in PostHeader needs a specific margin adjustment not in global: */
+  /* .postTitle { margin-bottom: 0.5rem; } /* This is an example */
 </style>

@@ -1,6 +1,226 @@
-/* Basic reset or global styles */
-body {
-  margin: 0;
-  font-family: sans-serif;
+/* Import ress (CSS Reset) */
+@import 'ress/ress.css';
+
+/* Import zenn-content-css */
+/* Adjust path if necessary based on actual node_modules structure */
+@import 'zenn-content-css/dist/esm/style.css';
+
+/* Original styles from styles/index.css */
+@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono&family=BIZ+UDMincho&display=swap');
+
+* {
+  box-sizing: border-box;
 }
-/* More styles will be added based on 'styles/index.css' and 'ress' later */
+*::before, *::after {
+  box-sizing: inherit;
+}
+
+:root {
+  font-family: 'Courier New', 'BIZ UDMincho', serif, "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-display: fallback;
+  /* font-size: 5mm; /* This might be too large for typical web viewing, consider adjusting */
+  font-size: 16px; /* A more standard base font size, adjust as needed */
+  line-height: 1.6; /* Added for better readability from znc .postBody p */
+  font-feature-settings: normal;
+  text-underline-offset: 0.2em;
+
+  background-color: #fefefe;
+  background-image: linear-gradient(0deg, transparent calc(100% - 1px), #E3FDFF calc(100% - 1px)),
+                    linear-gradient(90deg, transparent calc(100% - 1px), #E3FDFF calc(100% - 1px));
+  /* background-size: 5mm 5mm; /* Corresponds to original font-size, adjust if font-size changes */
+  background-size: 20px 20px; /* Example size if 5mm is too large */
+  background-repeat: repeat;
+  background-position: center center;
+
+  --text-color: #232323;
+  --link-color: #0f83fd;
+  --accent-color: #CB1B45;
+
+  color: var(--text-color);
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-weight: normal;
+}
+
+a,
+a:visited {
+  color: var(--link-color);
+  text-decoration: underline;
+  transition: color 0.3s;
+  word-break: break-all;
+}
+a:hover,
+a:active,
+.znc a:hover, /* .znc styles are from zenn-content-css, good to keep overrides */
+.znc a:active {
+  color: var(--accent-color);
+}
+
+/* Styles from original .intro-header, .post-header combined for Header.svelte */
+/* These will be applied via a class in Header.svelte */
+.site-header {
+  font-family: "Azeret Mono", monospace;
+  position: fixed;
+  z-index: 1000; /* Ensure it's above other content */
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem; /* Adjusted from 2rem, can be fine-tuned */
+  text-align: center;
+  background-color: #2c3e50;
+  color: #fefefe;
+  box-shadow:
+      0 3px 6px rgba(0, 0, 0, 0.16),
+      0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.site-header a {
+  color: #fefefe;
+  text-decoration: none;
+}
+.site-header a.hover\:underline:hover { /* For CMS_NAME link if it uses this class */
+    text-decoration: underline;
+}
+
+.site-header h1, /* If Intro component is used in header */
+.site-header h2 { /* For Header.svelte's title */
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Main layout container adjustments - replaces old .layout class */
+/* This padding will be applied to the <main> element in +layout.svelte */
+.main-content-area {
+  /* padding: 180px 0; /* Original top padding was very large */
+  padding-top: 80px; /* Adjust based on actual fixed header height */
+  padding-bottom: 2rem; /* Example bottom padding */
+  /* max-width: 90%; /* From .layout */
+  /* width: 960px; /* From .layout */
+  /* margin: 0 auto; /* From .layout - Container.svelte already does this */
+  min-height: calc(100vh - 3rem); /* From .layout, assuming 3rem is footer height */
+}
+
+
+/* Footer styles from original .footer */
+.site-footer {
+  padding: 1rem;
+  font-size: 0.8rem;
+  /* background-color: #f8f9fa; /* from Footer.svelte example, can be added */
+  /* border-top: 1px solid #eee; /* from Footer.svelte example */
+}
+/* .container styles are in Container.svelte, but footer might have specific layout */
+.site-footer .container-inner { /* Assuming Container.svelte has an inner div or this class is added */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* PostPreview styles from original .post-preview */
+/* These apply to classes inside PostPreview.svelte */
+.post-preview {
+  margin-bottom: 2rem;
+}
+.post-preview .postTitle { /* Applied to h3 in PostPreview.svelte */
+  font-size: 1rem; /* Was 1.75rem in component, 1rem in global */
+  padding-bottom: 0.4rem;
+  margin-bottom: 0.5rem; /* From component */
+}
+.post-preview .date,
+.post-preview .excerpt { /* excerpt is <p> */
+  font-size: 0.8rem;
+  color: #23232380;
+  display: inline;
+}
+.post-preview .excerpt::before { /* <p class="excerpt"> */
+  content: " - ";
+}
+
+/* Archives page styles */
+.archives-section { /* Applied to <section> in ArchiveStories.svelte */
+  font-size: 0.75rem;
+}
+.archive-post-preview { /* Applied to outer div in ArchivesPostPreview.svelte */
+  margin-bottom: 0.5rem;
+  /* display: flex; /* Already in component */
+  /* gap: 0.5rem; /* Already in component */
+  font-size: 0.75rem;
+}
+.archive-post-preview .date {
+  font-size: 0.75rem;
+}
+.archive-post-preview .postTitle { /* Applied to h3 in ArchivesPostPreview.svelte */
+  font-size: 0.75rem; /* Was 1.1rem in component */
+}
+
+/* Styles for .archives_link, .fusen (if these components/classes are created/used) */
+.archives_link {
+  display: grid;
+  place-items: center;
+}
+.archives_link > p {
+  font-size: 0.75rem;
+  margin-bottom: 1rem;
+}
+.archives_link > .fusen {
+  display: inline-block;
+  position: relative;
+  padding: .5em 1em;
+  border-right: 27px solid var(--accent-color); /* Use CSS var */
+  background-color: #f5f5f5;
+  color: var(--text-color); /* Use CSS var */
+  text-decoration: none;
+  font-size: 0.75rem;
+}
+.archives_link > .fusen::before {
+  position: absolute;
+  bottom: 2px;
+  right: -20px;
+  z-index: -1;
+  transform: rotate(5deg);
+  width: 100%;
+  height: 50%;
+  background-color: #d0d0d0;
+  content: "";
+  filter: blur(4px);
+}
+
+/* Styles for Alert.svelte utility classes - define them here */
+.border-b { border-bottom-width: 1px; }
+.bg-neutral-800 { background-color: #262626; } /* Example: neutral-800 */
+.border-neutral-800 { border-color: #262626; }
+.text-white { color: #fff; }
+.bg-neutral-50 { background-color: #fafafa; } /* Example: neutral-50 */
+.border-neutral-200 { border-color: #e5e5e5; } /* Example: neutral-200 */
+.py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+.text-center { text-align: center; }
+.text-sm { font-size: 0.875rem; }
+/* .underline is default browser style for <a> */
+/* .hover\:text-cyan:hover - handled by a:hover */
+/* .duration-200, .transition-colors - handled by a transition */
+
+/* Ensure .znc styles from zenn-content-css are not overly specific if they cause issues */
+/* Original styles for znc content */
+.znc .postBody h1,
+.znc .postBody h2,
+.znc .postBody h3,
+.znc .postBody h4 {
+  border-bottom: none;
+  line-height: 1.2;
+}
+.znc .postTitle { /* This might conflict if PostTitle.svelte is used within .znc context */
+  border-bottom: none;
+  margin-bottom: 0;
+}
+.znc .postBody p {
+  line-height: 1.6;
+  text-align: justify;
+}
+.znc .postBody p+p {
+  margin-top: 0.5rem;
+}
+.znc .postBody p code,
+.znc .postBody .code-block-container code,
+.znc .postBody .code-block-container .code-block-filename {
+  font-family: "Azeret Mono","SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}

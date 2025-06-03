@@ -5,10 +5,6 @@
   export let date: string;
   export let excerpt: string;
   export let slug: string;
-
-  // Assuming 'coverImage' might be passed if needed in the future,
-  // but the original component didn't use it.
-  // export let coverImage: { url: string } | string | undefined = undefined;
 </script>
 
 <div class="post-preview">
@@ -26,33 +22,14 @@
 </div>
 
 <style>
-  .post-preview {
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #eee; /* Example separator */
-  }
-  .post-preview:last-child {
-    border-bottom: none;
-  }
-  .postTitle { /* Reusing class from PostTitle.svelte for consistency, or define locally */
-    font-size: 1.75rem;
-    margin-bottom: 0.5rem;
-  }
-  .postTitle a {
-    text-decoration: none;
-    color: inherit;
-  }
+  /* All styles for .post-preview, .postTitle, .date, .excerpt are now primarily in app.css */
+  /* Keep this style block if there are truly component-specific overrides or additions. */
+  /* For example, if hover_underline needs to be scoped: */
   .hover_underline:hover {
-    text-decoration: underline;
+    text-decoration: underline; /* This is likely covered by global 'a:hover' too */
   }
-  .date {
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 0.5rem;
-  }
-  .excerpt {
-    font-size: 1rem;
-    color: #333;
-    line-height: 1.6;
+  /* If .post-preview has a specific last-child behavior not in app.css: */
+  .post-preview:last-child {
+     border-bottom: none; /* Assuming this wasn't in app.css or needs to be component-specific */
   }
 </style>

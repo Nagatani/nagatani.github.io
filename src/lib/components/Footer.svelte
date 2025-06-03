@@ -2,9 +2,10 @@
   import Container from '$lib/components/Container.svelte';
 </script>
 
-<footer class="footer">
+<footer class="site-footer"> <!-- Use class from global app.css -->
   <Container>
-    <div class="footer-content">
+    <!-- Add a class here if .site-footer .container-inner needs to apply -->
+    <div class="container-inner">
       <a href="/posts/about" class="hover_underline">
         About this web site.
       </a>
@@ -14,25 +15,10 @@
 </footer>
 
 <style>
-  .footer {
-    padding: 2rem 0;
-    background-color: #f8f9fa; /* Example */
-    text-align: center;
-    font-size: 0.9rem;
-    border-top: 1px solid #eee; /* Example */
-  }
-  .footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .footer a {
-    color: inherit;
-  }
+  /* Most styles are now in app.css under .site-footer */
+  /* Keep only truly component-specific styles if any, or remove style tag */
   .hover_underline:hover {
     text-decoration: underline;
   }
-  small {
-    display: block; /* Or inline-block as needed */
-  }
+  /* .container-inner styles are in app.css if needed */
 </style>

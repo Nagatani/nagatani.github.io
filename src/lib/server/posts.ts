@@ -1,28 +1,28 @@
 import fs from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
+import zennMarkdownToHtml from 'zenn-markdown-html'; // Import Zenn's converter
 
-// Define the posts directory, assuming it's at the root of the project
 const postsDirectory = join(process.cwd(), '_posts');
 
 export function getPostSlugs(): string[] {
   try {
     const allFiles = fs.readdirSync(postsDirectory);
-    // Filter out files starting with '.' or '_' and ensure they are .md files
     const slugs = allFiles.filter(
       (filePath) => filePath.charAt(0) !== '.' && filePath.charAt(0) !== '_' && filePath.endsWith('.md')
     );
     return slugs;
   } catch (error) {
     console.error('Error reading post slugs:', error);
-    return []; // Return empty array on error
+    return [];
   }
 }
 
 export interface Post {
   slug: string;
-  content: string;
-  [key: string]: any; // For other frontmatter fields like title, date, coverImage, etc.
+  content: string; // Raw markdown content
+  html: string;    // Rendered HTML content
+  [key: string]: any;
 }
 
 export function getPostBySlug(slug: string, fields: string[] = []): Post | null {
@@ -31,22 +31,35 @@ export function getPostBySlug(slug: string, fields: string[] = []): Post | null 
 
   try {
     const fileContents = fs.readFileSync(fullPath, 'utf8');
-    const { data, content } = matter(fileContents);
+    const { data, content: rawMarkdownContent } = matter(fileContents);
 
-    const items: Post = { slug: realSlug, content };
+    // Convert Markdown to HTML using zenn-markdown-html
+    const htmlContent = zennMarkdownToHtml(rawMarkdownContent);
 
-    // Ensure only the minimal needed data is exposed
+    // Base items, always include slug, raw content, and HTML content
+    const items: Omit<Post, 'content' | 'html' | 'slug' | keyof typeof data> & { slug: string; content: string; html: string; [key: string]: any; } = {
+        slug: realSlug,
+        content: rawMarkdownContent,
+        html: htmlContent
+    };
+
+
+    // Populate requested fields from frontmatter (data)
     fields.forEach((field) => {
       if (field === 'slug') {
         items[field] = realSlug;
-      } else if (field === 'content') {
-        items[field] = content;
+      } else if (field === 'content') { // if 'content' is requested, provide raw markdown
+        items[field] = rawMarkdownContent;
+      } else if (field === 'html') { // if 'html' is requested, provide rendered html
+        items[field] = htmlContent;
       } else if (typeof data[field] !== 'undefined') {
         items[field] = data[field];
       }
     });
 
-    // Add all frontmatter data if no specific fields are requested, or if fields includes '*'
+    // Ensure all frontmatter data is included if no specific fields are requested (or '*')
+    // and also ensure that slug, content, html are there even if not explicitly asked for by 'fields'
+    // because they are part of the Post interface.
     if (fields.length === 0 || fields.includes('*')) {
       for (const key in data) {
         if (Object.prototype.hasOwnProperty.call(data, key)) {
@@ -55,23 +68,14 @@ export function getPostBySlug(slug: string, fields: string[] = []): Post | null 
       }
     }
 
-    // Ensure essential fields like title and date are present, even if not in 'fields'
-    // This helps prevent errors in components expecting these fields.
-    // However, the original API only returned requested fields. Let's stick to that for now.
-    // If `data.date` exists, ensure it's properly formatted or typed if necessary.
-    // For now, we assume it's a string as in the original.
-    if (data.date) {
-        items.date = data.date;
-    }
-    if (data.title) {
-        items.title = data.title;
-    }
+    // Ensure essential frontmatter fields like title and date are present if they exist in data
+    if (data.date) items.date = data.date;
+    if (data.title) items.title = data.title;
 
-
-    return items;
+    return items as Post; // Cast to Post, assuming all necessary fields are populated
   } catch (error) {
     console.error(`Error reading post by slug "${slug}":`, error);
-    return null; // Return null if file not found or other error
+    return null;
   }
 }
 
@@ -79,10 +83,8 @@ export function getAllPosts(fields: string[] = []): Post[] {
   const slugs = getPostSlugs();
   const posts = slugs
     .map((slug) => getPostBySlug(slug, fields))
-    .filter((post): post is Post => post !== null) // Type guard to filter out nulls
-    // sort posts by date in descending order
+    .filter((post): post is Post => post !== null)
     .sort((post1, post2) => {
-      // Ensure date fields exist and are comparable, defaulting if necessary
       const date1 = post1.date ? new Date(post1.date).getTime() : 0;
       const date2 = post2.date ? new Date(post2.date).getTime() : 0;
       return date1 > date2 ? -1 : 1;
