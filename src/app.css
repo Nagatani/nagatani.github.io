@@ -1,0 +1,6 @@
+/* Basic reset or global styles */
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+/* More styles will be added based on 'styles/index.css' and 'ress' later */
