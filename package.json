@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build",
+    "build": "svelte-kit sync && vite build",
     "start": "vite preview",
     "typecheck": "svelte-check --tsconfig ./tsconfig.json",
     "test": "vitest",
@@ -24,9 +24,7 @@
     "zenn-markdown-html": "^0.1.149"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^16.3.0",
-    "@types/jest": "^29.5.12",
     "@types/node": "^20.12.7"
-  }
+  },
+  "type": "module"
 }
