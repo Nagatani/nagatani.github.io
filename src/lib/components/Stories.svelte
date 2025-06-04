@@ -23,8 +23,8 @@
       title={post.title}
       date={post.date}
       excerpt={post.excerpt}
-      <!-- coverImage={post.coverImage} -->
     />
+    <!-- Example of a valid comment placement: information about the PostPreview above -->
   {/each}
 </section>
 
