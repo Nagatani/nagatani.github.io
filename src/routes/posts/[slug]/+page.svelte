@@ -28,7 +28,8 @@
       coverImageAlt={`Cover for ${post.title}`}
     />
 
-    <PostBody html={post.html} /> {/* Pass the 'html' field */}
+    <PostBody html={post.html} />
+    <!-- Old comment: Pass the 'html' field -->
   </Container>
 </article>
 
