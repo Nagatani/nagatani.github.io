@@ -3,7 +3,7 @@
 
 /* Import zenn-content-css */
 /* Adjust path if necessary based on actual node_modules structure */
-@import 'zenn-content-css/dist/style.css';
+@import 'zenn-content-css';
 
 /* Original styles from styles/index.css */
 @import url('https://fonts.googleapis.com/css2?family=Azeret+Mono&family=BIZ+UDMincho&display=swap');
