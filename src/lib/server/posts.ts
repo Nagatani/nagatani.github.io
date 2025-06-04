@@ -1,8 +1,13 @@
 import fs from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
-// Corrected import: use named import 'markdownToHtml'
-import { markdownToHtml } from 'zenn-markdown-html';
+
+// Corrected import based on build error suggestion for CommonJS module
+import pkgZennMarkdown from 'zenn-markdown-html';
+const { markdownToHtml } = pkgZennMarkdown;
+// If 'markdownToHtml' was not found on pkgZennMarkdown, an alternative would be that pkgZennMarkdown itself is the function:
+// const markdownToHtml = pkgZennMarkdown; // This would be if module.exports = function() { ... }
+// But the error "Named export 'markdownToHtml' not found" and the suggestion imply destructuring is needed.
 
 const postsDirectory = join(process.cwd(), '_posts');
 
@@ -34,7 +39,7 @@ export function getPostBySlug(slug: string, fields: string[] = []): Post | null 
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const { data, content: rawMarkdownContent } = matter(fileContents);
 
-    // Use the correctly imported named function
+    // Use the correctly imported function via destructuring from the default import
     const htmlContent = markdownToHtml(rawMarkdownContent);
 
     const items: Omit<Post, 'content' | 'html' | 'slug' | keyof typeof data> & { slug: string; content: string; html: string; [key: string]: any; } = {
@@ -68,10 +73,7 @@ export function getPostBySlug(slug: string, fields: string[] = []): Post | null 
 
     return items as Post;
   } catch (error) {
-    // Log the specific slug that caused the error for better debugging
     console.error(`Error reading or processing post by slug "${slug}":`, error);
-    // Also log the error that occurred during markdownToHtml if it's different
-    // This part is tricky as the error might be from fs.readFileSync or matter as well
     return null;
   }
 }
