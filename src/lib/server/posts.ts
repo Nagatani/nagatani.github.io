@@ -1,7 +1,8 @@
 import fs from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
-import zennMarkdownToHtml from 'zenn-markdown-html'; // Import Zenn's converter
+// Corrected import: use named import 'markdownToHtml'
+import { markdownToHtml } from 'zenn-markdown-html';
 
 const postsDirectory = join(process.cwd(), '_posts');
 
@@ -33,33 +34,27 @@ export function getPostBySlug(slug: string, fields: string[] = []): Post | null 
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const { data, content: rawMarkdownContent } = matter(fileContents);
 
-    // Convert Markdown to HTML using zenn-markdown-html
-    const htmlContent = zennMarkdownToHtml(rawMarkdownContent);
+    // Use the correctly imported named function
+    const htmlContent = markdownToHtml(rawMarkdownContent);
 
-    // Base items, always include slug, raw content, and HTML content
     const items: Omit<Post, 'content' | 'html' | 'slug' | keyof typeof data> & { slug: string; content: string; html: string; [key: string]: any; } = {
         slug: realSlug,
         content: rawMarkdownContent,
         html: htmlContent
     };
 
-
-    // Populate requested fields from frontmatter (data)
     fields.forEach((field) => {
       if (field === 'slug') {
         items[field] = realSlug;
-      } else if (field === 'content') { // if 'content' is requested, provide raw markdown
+      } else if (field === 'content') {
         items[field] = rawMarkdownContent;
-      } else if (field === 'html') { // if 'html' is requested, provide rendered html
+      } else if (field === 'html') {
         items[field] = htmlContent;
       } else if (typeof data[field] !== 'undefined') {
         items[field] = data[field];
       }
     });
 
-    // Ensure all frontmatter data is included if no specific fields are requested (or '*')
-    // and also ensure that slug, content, html are there even if not explicitly asked for by 'fields'
-    // because they are part of the Post interface.
     if (fields.length === 0 || fields.includes('*')) {
       for (const key in data) {
         if (Object.prototype.hasOwnProperty.call(data, key)) {
@@ -68,13 +63,15 @@ export function getPostBySlug(slug: string, fields: string[] = []): Post | null 
       }
     }
 
-    // Ensure essential frontmatter fields like title and date are present if they exist in data
     if (data.date) items.date = data.date;
     if (data.title) items.title = data.title;
 
-    return items as Post; // Cast to Post, assuming all necessary fields are populated
+    return items as Post;
   } catch (error) {
-    console.error(`Error reading post by slug "${slug}":`, error);
+    // Log the specific slug that caused the error for better debugging
+    console.error(`Error reading or processing post by slug "${slug}":`, error);
+    // Also log the error that occurred during markdownToHtml if it's different
+    // This part is tricky as the error might be from fs.readFileSync or matter as well
     return null;
   }
 }
