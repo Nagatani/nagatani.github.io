@@ -9,7 +9,7 @@ import Header from "../components/Header.astro";
 type Props = CollectionEntry<"blog">["data"] & { id: string };
 
 const { title, description, pubDate, updatedDate, heroImage, id } = Astro.props;
-const image = heroImage?.src || `/og/${id}.png`;
+const image = heroImage || `/og/${id}.png`;
 ---
 
 <html lang="ja">
