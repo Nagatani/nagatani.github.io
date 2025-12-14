@@ -7,7 +7,11 @@ import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 
 // 記事を取得し、日付順にソートして最新5件を抽出
-const posts = (await getCollection("blog"))
+const posts = (
+	await getCollection("blog", ({ data }) => {
+		return import.meta.env.PROD ? data.draft !== true : true;
+	})
+)
 	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
 	.slice(0, 5);
 ---
