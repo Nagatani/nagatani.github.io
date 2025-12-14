@@ -18,8 +18,9 @@
 /* ダークモードクラス (.dark) が付いた時の色定義 */
 html.dark {
   --bg-color: #0a0a0a;
-  --text-color: #ededed;
+  --text-color: #edededA0;
   --text-muted: #a3a3a3;
+  --hedding-color: #edededFF;
   --link-color: #ededed;
   --link-hover: #0f83fd;
   --border-color: #262626;
@@ -74,7 +75,7 @@ main {
 }
 
 main>section {
-  padding-bottom: 3rem !important;
+  padding-bottom: 3rem;
 }
 
 h1,
@@ -148,6 +149,11 @@ img {
 }
 
 /* 記事リスト（トップページ用） */
+.all-posts-link {
+  margin-top: 1.5rem;
+  display: inline-block;
+}
+
 .posts-list {
   list-style: none;
   padding: 0;
@@ -267,6 +273,47 @@ article li {
   display: list-item;
   border-bottom: none;
   justify-content: flex-start;
+}
+
+/* Definition List (dl/dt/dd) */
+dl {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem 2rem;
+  margin: 1.5rem 0;
+  align-items: baseline;
+}
+
+dt {
+  font-weight: 700;
+  color: var(--hedding-color);
+  margin: 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed var(--border-color);
+}
+
+dd {
+  margin: 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed var(--border-color);
+}
+
+/* Mobile responsiveness for dl */
+@media (max-width: 640px) {
+  dl {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  dt {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-top: 1rem;
+  }
+
+  dt:first-child {
+    margin-top: 0;
+  }
 }
 
 /* 引用 (Blockquote) */

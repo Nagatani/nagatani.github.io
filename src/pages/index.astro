@@ -15,20 +15,6 @@ const posts = (await getCollection("blog"))
 <html lang="ja">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			/* トップページ固有のスタイル調整 */
-
-			/* セクション間の余白 */
-			section {
-				margin-bottom: 3rem;
-			}
-
-			/* 記事一覧へのリンク周り */
-			.all-posts-link {
-				margin-top: 1.5rem;
-				display: inline-block;
-			}
-		</style>
 	</head>
 	<body>
 		<Header />
@@ -50,9 +36,9 @@ const posts = (await getCollection("blog"))
 					>
 				</p>
 				<p>
-					メールでのお問い合わせは、 <a href="mailto:hey@nagatani.me"
-						>hey@nagatani.me</a
-					> まで。
+					メールでのお問い合わせは、
+					<a href="mailto:hey@nagatani.me">hey@nagatani.me</a>
+					まで。
 				</p>
 			</section>
 
@@ -79,13 +65,18 @@ const posts = (await getCollection("blog"))
 			</section>
 
 			<section>
-				<h2>書いている人について</h2>
-				<p>お仕事: フリーランスプログラマ、大学非常勤講師、法人経営 など</p>
+				<h2>Nagataniについて</h2>
+				<dl>
+					<dt>何してる人？</dt>
+					<dd>
+						フリーランスプログラマ、非常勤講師(工学系大学の情報科)、法人経営
+						など
+					</dd>
+					<dt>趣味は？</dt>
+					<dd>DIY、ねこ、プログラミング、読書、コーヒー、カメラ、料理 など</dd>
+				</dl>
 				<p>
-					趣味: DIY、ねこ、プログラミング、読書、コーヒー、カメラ、料理 など
-				</p>
-				<p>
-					詳しくは個人サイトへどうぞ。
+					詳しくは個人サイトへ。
 					<a
 						href="https://nagatani.me/"
 						target="_blank"
