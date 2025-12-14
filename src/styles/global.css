@@ -220,37 +220,76 @@ article {
   margin-top: 3rem;
 }
 
-/* 記事タイトル周り */
-.hero-image {
-  width: 100%;
-}
-
-.hero-image img {
-  display: block;
-  margin: 0 auto;
+/* 記事タイトル周り (Hero Header) */
+.hero-header {
+  position: relative;
   border-radius: 12px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 2rem;
 }
 
-.title {
-  margin-bottom: 2rem;
-  text-align: left;
+.hero-header.has-image {
+  height: 24rem;
+  color: white;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  border-radius: 0;
+  margin: 0;
+  /* Override global img styles if necessary */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.hero-header.has-image .hero-content {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 80%);
+}
+
+.hero-header h1 {
+  margin: 0;
+  line-height: 1.2;
+}
+
+.hero-header .date {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+/* Adjust title/date colors if inside has-image */
+.hero-header.has-image h1,
+.hero-header.has-image .date,
+.hero-header.has-image .last-updated-on {
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-header:not(.has-image) .hero-content {
   padding: 1rem 0;
   border-bottom: 1px solid var(--border-color);
 }
 
-.title h1 {
-  font-size: 1.8rem;
-  margin: 0 0 0.5rem 0;
+.hero-header:not(.has-image) h1 {
+  color: var(--hedding-color);
+  font-size: 2.2rem;
 }
 
-.date {
-  color: #666;
-  font-size: 0.9rem;
-}
-
-.title>.date {
-  margin-bottom: 0.5rem;
+.hero-header:not(.has-image) .date {
+  color: var(--text-color);
 }
 
 /* 本文の見出し */
