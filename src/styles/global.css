@@ -68,6 +68,7 @@ header {
   height: 4rem;
   top: 0;
   background: linear-gradient(to bottom, var(--bg-color), transparent);
+  z-index: 99999;
 }
 
 main {
@@ -107,6 +108,13 @@ nav a {
 
 nav a:hover {
   color: var(--link-hover);
+}
+
+header>nav,
+footer nav {
+  display: flex;
+  gap: 0 1rem;
+  align-items: center;
 }
 
 /* 記事一覧やコンテンツのスタイル */
@@ -150,8 +158,25 @@ img {
 
 /* 記事リスト（トップページ用） */
 .all-posts-link {
-  margin-top: 1.5rem;
+  margin-top: 3rem;
+  text-align: right;
+}
+
+.all-posts-link a {
   display: inline-block;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 9999px;
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.all-posts-link a:hover {
+  background-color: var(--code-bg);
+  border-color: var(--text-muted);
+  text-decoration: none;
 }
 
 .posts-list {
@@ -456,4 +481,27 @@ footer {
 
 .separator {
   color: var(--border-color);
+}
+
+/* 記事下部の戻るボタン */
+.back-link {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.back-link a {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 9999px;
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.back-link a:hover {
+  background-color: var(--code-bg);
+  border-color: var(--text-muted);
+  text-decoration: none;
 }

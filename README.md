@@ -1,62 +1,51 @@
-# Astro Starter Kit: Blog
+# Nagatani's Memorandum
 
-```sh
-npm create astro@latest -- --template blog
+[Astro](https://astro.build/) で構築された個人ブログです。
+
+## 始め方
+
+### 前提条件
+
+- Node.js v20以上
+- npm
+
+### インストール
+
+```bash
+npm ci
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+### 開発
 
-Features:
+以下のコマンドでローカル開発サーバーを起動します：
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-├── public/
-├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
+```bash
+npm run dev
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+http://localhost:4321/ にアクセスして確認できます。
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## 記事の書き方
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+ブログ記事は `src/content/blog/` ディレクトリに配置されています。
+新しい Markdown ファイル (例: `my-new-post.md`) を作成し、以下のようなフロントマターを記述してください：
 
-Any static assets, like images, can be placed in the `public/` directory.
+```markdown
+---
+title: '記事のタイトル'
+description: 'リスト表示やSEO用の短い説明'
+pubDate: '2025-12-14'
+heroImage: '../../assets/placeholder.jpg'  # 任意。ヒーロー画像およびサムネイルとして表示されます。
+draft: false                               # trueにするとビルドから除外されます（下書き）。
+---
 
-## 🧞 Commands
+ここに本文を書きます...
+```
 
-All commands are run from the root of the project, from a terminal:
+通常の Markdown 記法が使用できます。
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## デ゙プロイ
 
-## 👀 Want to learn more?
+このプロジェクトは、`main` ブ゙ランチにプ゙ッシュされると、GitHub Actions を使用して自動的に **GitHub Pages** にデプロイされるように設定されています。
 
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+設定の詳細は `.github/workflows/deploy.yml` を参照してください。

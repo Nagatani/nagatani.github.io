@@ -2,6 +2,7 @@
 // src/components/Header.astro
 import HeaderLink from "./HeaderLink.astro";
 import { SITE_TITLE } from "../consts";
+import ThemeIcon from "./ThemeIcon.astro";
 ---
 
 <header>
@@ -9,6 +10,8 @@ import { SITE_TITLE } from "../consts";
 		<a href="/">{SITE_TITLE}</a>
 	</h2>
 	<nav>
-		<HeaderLink href="/">top</HeaderLink> / <HeaderLink href="/memo">memo</HeaderLink>
+		<HeaderLink href="/">top</HeaderLink> / <HeaderLink href="/memo"
+			>memo</HeaderLink
+		> / <ThemeIcon />
 	</nav>
 </header>

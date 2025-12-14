@@ -44,7 +44,7 @@ const posts = (await getCollection("blog"))
 			</section>
 
 			<section>
-				<h2>最近のメモ</h2>
+				<h2>新しいメモ</h2>
 				<ul class="posts-list">
 					{
 						posts.map((post) => (
@@ -71,7 +71,9 @@ const posts = (await getCollection("blog"))
 					}
 				</ul>
 
-				<a href="/memo" class="all-posts-link">See all memo &rarr;</a>
+				<div class="all-posts-link">
+					<a href="/memo">全部見る &rarr;</a>
+				</div>
 			</section>
 
 			<section>
