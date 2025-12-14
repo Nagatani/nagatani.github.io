@@ -40,6 +40,7 @@ body {
   color: var(--text-color);
   transition: background-color 0.2s ease, color 0.2s ease;
   margin: 0;
+  overflow-wrap: anywhere;
 }
 
 /* 日付などの薄い文字色を適用 */
