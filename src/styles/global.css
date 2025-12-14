@@ -81,7 +81,6 @@ header h2 a {
 }
 
 nav a {
-  margin-left: 1rem;
   text-decoration: none;
   color: var(--link-color);
   font-size: 0.95rem;

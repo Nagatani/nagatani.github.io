@@ -62,7 +62,7 @@ const posts = (await getCollection("blog"))
 					{
 						posts.map((post) => (
 							<li>
-								<a href={`/blog/${post.slug || post.id}/`}>{post.data.title}</a>
+								<a href={`/memo/${post.slug || post.id}/`}>{post.data.title}</a>
 								<span class="date">
 									{post.data.pubDate.toLocaleDateString("ja-JP", {
 										year: "numeric",
@@ -75,7 +75,7 @@ const posts = (await getCollection("blog"))
 					}
 				</ul>
 
-				<a href="/blog" class="all-posts-link">See all memo &rarr;</a>
+				<a href="/memo" class="all-posts-link">See all memo &rarr;</a>
 			</section>
 
 			<section>
