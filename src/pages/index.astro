@@ -1,0 +1,100 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+
+// 記事を取得し、日付順にソートして最新5件を抽出
+const posts = (await getCollection("blog"))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 5);
+---
+
+<!doctype html>
+<html lang="ja">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section>
+				<h1>Hi, I'm Nagatani👋</h1>
+				<p>
+					このサイトは適当な文章をだらだらと書き残したり、技術的なことの覚え書きを残す個人的なメモ帳です。<br
+					/>
+					サイトコンテンツは以下の GitHub にて管理されております。<br />
+					記事に間違いがある場合は Issue 、サイトにバグがある場合は、Pull Request
+					または Issue を立ててくれると見ます。<br />
+					<br />
+					<a
+						href="https://github.com/Nagatani/nagatani.github.io"
+						target="_blank"
+						rel="nofollow noopener noreferrer"
+						>Nagatani/nagatani.github.io: Memorandum</a
+					>
+				</p>
+				<p>
+					メールでのお問い合わせは、
+					<a href="mailto:hey@nagatani.me">hey@nagatani.me</a>
+					まで。
+				</p>
+			</section>
+
+			<section>
+				<h2>最近のメモ</h2>
+				<ul class="posts-list">
+					{
+						posts.map((post) => (
+							<li>
+								{post.data.heroImage && (
+									<Image
+										src={post.data.heroImage}
+										alt=""
+										width={720}
+										height={360}
+										class="thumbnail"
+									/>
+								)}
+								<a href={`/memo/${post.slug || post.id}/`}>{post.data.title}</a>
+								<span class="date">
+									{post.data.pubDate.toLocaleDateString("ja-JP", {
+										year: "numeric",
+										month: "2-digit",
+										day: "2-digit",
+									})}
+								</span>
+							</li>
+						))
+					}
+				</ul>
+
+				<a href="/memo" class="all-posts-link">See all memo &rarr;</a>
+			</section>
+
+			<section>
+				<h2>Nagataniについて</h2>
+				<dl>
+					<dt>何してる人？</dt>
+					<dd>
+						フリーランスプログラマ、非常勤講師(工学系大学の情報科)、法人経営
+						など
+					</dd>
+					<dt>趣味は？</dt>
+					<dd>DIY、ねこ、プログラミング、読書、コーヒー、カメラ、料理 など</dd>
+				</dl>
+				<p>
+					詳しくは個人サイトへ。
+					<a
+						href="https://nagatani.me/"
+						target="_blank"
+						rel="nofollow noopener noreferrer">https://nagatani.me/</a
+					>
+				</p>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>

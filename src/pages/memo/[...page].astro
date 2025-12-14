@@ -1,0 +1,83 @@
+---
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import BaseHead from "../../components/BaseHead.astro";
+import Footer from "../../components/Footer.astro";
+import FormattedDate from "../../components/FormattedDate.astro";
+import Header from "../../components/Header.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
+
+export async function getStaticPaths({ paginate }) {
+	const posts = (await getCollection("blog")).sort(
+		(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+	);
+	return paginate(posts, { pageSize: 10 });
+}
+
+const { page } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ja">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			.pagination {
+				display: flex;
+				justify-content: space-between;
+				margin-top: 2rem;
+			}
+			.pagination a {
+				text-decoration: none;
+				color: var(--link-color);
+				padding: 0.5rem 1rem;
+				border: 1px solid var(--border-color);
+				border-radius: 8px;
+			}
+			.pagination a:hover {
+				background-color: var(--code-bg);
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section>
+				<h2>Memo</h2>
+				<ul class="posts-list">
+					{
+						page.data.map((post) => (
+							<li>
+								{post.data.heroImage && (
+									<Image
+										src={post.data.heroImage}
+										alt=""
+										width={720}
+										height={360}
+										class="thumbnail"
+									/>
+								)}
+								<a href={`/memo/${post.slug || post.id}/`}>{post.data.title}</a>
+								<span class="date">
+									<FormattedDate date={post.data.pubDate} />
+								</span>
+							</li>
+						))
+					}
+				</ul>
+
+				<nav class="pagination">
+					{
+						page.url.prev ? (
+							<a href={page.url.prev}>&larr; Previous</a>
+						) : (
+							<div />
+						)
+					}
+					{page.url.next ? <a href={page.url.next}>Next &rarr;</a> : <div />}
+				</nav>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>

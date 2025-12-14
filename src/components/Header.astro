@@ -1,0 +1,14 @@
+---
+// src/components/Header.astro
+import HeaderLink from "./HeaderLink.astro";
+import { SITE_TITLE } from "../consts";
+---
+
+<header>
+	<h2>
+		<a href="/">{SITE_TITLE}</a>
+	</h2>
+	<nav>
+		<HeaderLink href="/">top</HeaderLink> / <HeaderLink href="/memo">memo</HeaderLink>
+	</nav>
+</header>

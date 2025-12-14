@@ -1,0 +1,459 @@
+/* src/styles/global.css */
+
+/* 基本設定 */
+:root {
+  --font-body: "Courier New", "BIZ UDMincho", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --max-width: 640px;
+
+  --bg-color: rgb(245 245 244);
+  --text-color: #000000A0;
+  --text-muted: #737373;
+  --hedding-color: #000000FF;
+  --link-color: #171717;
+  --link-hover: #0f83fd;
+  --border-color: #e5e5e5;
+  --code-bg: #f5f5f5;
+}
+
+/* ダークモードクラス (.dark) が付いた時の色定義 */
+html.dark {
+  --bg-color: #0a0a0a;
+  --text-color: #edededA0;
+  --text-muted: #a3a3a3;
+  --hedding-color: #edededFF;
+  --link-color: #ededed;
+  --link-hover: #0f83fd;
+  --border-color: #262626;
+  --code-bg: #171717;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+/* 全体の設定 */
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.2s ease, color 0.2s ease;
+  margin: 0;
+}
+
+/* 日付などの薄い文字色を適用 */
+.date,
+article .date,
+footer {
+  color: var(--text-muted) !important;
+}
+
+/* ページ全体を中央寄せのシングルカラムにする */
+main,
+footer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ヘッダーのデザイン: ロゴとナビを左右に配置 */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  position: fixed;
+  width: 100%;
+  height: 4rem;
+  top: 0;
+  background: linear-gradient(to bottom, var(--bg-color), transparent);
+}
+
+main {
+  padding-top: 5rem;
+}
+
+main>section {
+  padding-bottom: 3rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--hedding-color);
+}
+
+/* ナビゲーションリンク */
+header h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+header h2 a {
+  text-decoration: none;
+  color: inherit;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--link-color);
+  font-size: 0.95rem;
+}
+
+nav a:hover {
+  color: var(--link-hover);
+}
+
+/* 記事一覧やコンテンツのスタイル */
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+h2 {
+  margin-top: 2rem;
+}
+
+h3 {
+  margin-top: 1rem;
+}
+
+p {
+  line-height: 1.6;
+}
+
+/* リンク全般 */
+a {
+  color: var(--link-color);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--link-hover);
+}
+
+/* 画像 */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+/* 記事リスト（トップページ用） */
+.all-posts-link {
+  margin-top: 1.5rem;
+  display: inline-block;
+}
+
+.posts-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.posts-list li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.25rem;
+  transition: all 0.2s ease;
+}
+
+.posts-list li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  border-color: var(--text-muted);
+}
+
+.posts-list li a {
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--link-color);
+  width: 100%;
+}
+
+.posts-list li a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.posts-list li .date {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  white-space: nowrap;
+  width: 100%;
+  text-align: right;
+  margin-top: 0.5rem;
+  z-index: 1;
+}
+
+.posts-list li .thumbnail {
+  width: 100%;
+  height: 5rem;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 0 0 0.5rem 0;
+  flex-shrink: 0;
+}
+
+
+/* --- 記事本文 (Markdownコンテンツ) のスタイル --- */
+article {
+  margin-top: 3rem;
+}
+
+/* 記事タイトル周り (Hero Header) */
+.hero-header {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.hero-header.has-image {
+  height: 24rem;
+  color: white;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  border-radius: 0;
+  margin: 0;
+  /* Override global img styles if necessary */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.hero-header.has-image .hero-content {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 80%);
+}
+
+.hero-header h1 {
+  margin: 0;
+  line-height: 1.2;
+}
+
+.hero-header .date {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+/* Adjust title/date colors if inside has-image */
+.hero-header.has-image h1,
+.hero-header.has-image .date,
+.hero-header.has-image .last-updated-on {
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-header:not(.has-image) .hero-content {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.hero-header:not(.has-image) h1 {
+  color: var(--hedding-color);
+  font-size: 2.2rem;
+}
+
+.hero-header:not(.has-image) .date {
+  color: var(--text-color);
+}
+
+/* 本文の見出し */
+article h2 {
+  font-size: 1.5rem;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+article h3 {
+  font-size: 1.25rem;
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+}
+
+/* 本文の段落 */
+article p {
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+  /* 行間を広めにとって読みやすく */
+  font-size: 1rem;
+}
+
+/* リスト */
+article ul,
+article ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+article li {
+  margin-bottom: 0.5rem;
+  /* トップページのリストスタイルを打ち消してデフォルトに戻す */
+  display: list-item;
+  border-bottom: none;
+  justify-content: flex-start;
+}
+
+/* Definition List (dl/dt/dd) */
+dl {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem 2rem;
+  margin: 1.5rem 0;
+  align-items: baseline;
+}
+
+dt {
+  font-weight: 700;
+  color: var(--hedding-color);
+  margin: 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed var(--border-color);
+}
+
+dd {
+  margin: 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed var(--border-color);
+}
+
+/* Mobile responsiveness for dl */
+@media (max-width: 640px) {
+  dl {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  dt {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-top: 1rem;
+  }
+
+  dt:first-child {
+    margin-top: 0;
+  }
+}
+
+/* 引用 (Blockquote) */
+article blockquote {
+  border-left: 4px solid var(--border-color);
+  margin: 1.5rem 0;
+  padding-left: 1rem;
+  font-style: italic;
+  color: #555;
+  background: transparent;
+}
+
+/* インラインコード (`code`) */
+article code {
+  background-color: #f1f1f1;
+  color: #d63384;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* ダークモード時のコード背景調整 */
+@media (prefers-color-scheme: dark) {
+  article code {
+    background-color: #333;
+    color: #ff79c6;
+  }
+}
+
+/* コードブロック (```code```) */
+article pre {
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+  background-color: #24292e;
+  /* ダーク背景 */
+}
+
+article pre code {
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+/* --- フッターのスタイル --- */
+
+footer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-top: 1px dashed var(--border-color);
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.back-to-top {
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.social-links {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.social-links a {
+  text-decoration: none;
+  color: var(--link-color);
+}
+
+.social-links a:hover {
+  text-decoration: underline;
+}
+
+.separator {
+  color: var(--border-color);
+}
