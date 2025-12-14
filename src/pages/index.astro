@@ -1,0 +1,85 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { getCollection } from 'astro:content';
+
+// 1. 記事を取得し、日付順にソートして最新10件を抽出
+const posts = (await getCollection('blog'))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 10);
+---
+
+<!doctype html>
+<html lang="ja">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			/* トップページ固有のスタイル調整 */
+			
+			/* セクション間の余白 */
+			section {
+				margin-bottom: 3rem;
+			}
+
+			/* 記事一覧へのリンク周り */
+			.all-posts-link {
+				margin-top: 1.5rem;
+				display: inline-block;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			
+			<section>
+				<h1>Hi, I'm Nagatani👋</h1>				
+				<p>
+					このサイトは適当な文章をだらだらと書き残したり、技術的なことの覚え書きを残す個人的なメモ帳です。<br />
+					サイトコンテンツは以下の GitHub にて管理されております。<br />
+					記事に間違いがある場合は Issue 、サイトにバグがある場合は、Pull Request または Issue を立ててくれると見ます。<br />
+					<br />
+					<a href="https://github.com/Nagatani/nagatani.github.io" target="_blank" rel="nofollow noopener noreferrer">Nagatani/nagatani.github.io: Memorandum</a>
+				</p>
+				<p>メールでのお問い合わせは、 <a href="mailto:hey@nagatani.me">hey@nagatani.me</a> まで。</p>
+			</section>
+
+			<section>
+				<h2>最近のメモ</h2>
+				<ul>
+					{
+						posts.map((post) => (
+							<li>
+								<a href={`/blog/${post.slug || post.id}/`}>
+									{post.data.title}
+								</a>
+								<span class="date">
+									{post.data.pubDate.toLocaleDateString('ja-JP', {
+										year: 'numeric',
+										month: '2-digit',
+										day: '2-digit',
+									})}
+								</span>
+							</li>
+						))
+					}
+				</ul>
+				
+				<a href="/blog" class="all-posts-link">See all memo &rarr;</a>
+			</section>
+
+			<section>
+				<h2>書いている人について</h2>
+				<p>お仕事: フリーランスプログラマ、大学非常勤講師、法人経営 など</p>
+				<p>趣味: DIY、ねこ、読書、コーヒー、プログラミング など</p>
+				<p>
+					詳しくは個人サイトへどうぞ。
+					<a href="https://nagatani.me/" target="_blank" rel="nofollow noopener noreferrer">https://nagatani.me/</a>
+				</p>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>

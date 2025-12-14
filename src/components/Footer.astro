@@ -1,0 +1,16 @@
+---
+// src/components/Footer.astro
+const today = new Date();
+import ThemeIcon from './ThemeIcon.astro';
+---
+
+<footer>
+	<div class="footer-content">
+		
+		<ThemeIcon />
+
+		<div class="copyright">
+			&copy; {today.getFullYear()} <a href="https://nagatani.me/">Nagatani</a>. All rights reserved.
+		</div>
+	</div>
+</footer>
