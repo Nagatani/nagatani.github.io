@@ -3,6 +3,7 @@ title: '私の最初の記事'
 description: 'これはAstroで作った最初のブログ記事です。'
 pubDate: '2025-12-14'
 heroImage: '../../assets/blog-placeholder-3.jpg'
+draft: true
 ---
 
 ## こんにちは、Astro！
