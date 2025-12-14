@@ -62,7 +62,7 @@ const posts = (
 										class="thumbnail"
 									/>
 								)}
-								<a href={`/memo/${post.slug || post.id}/`}>{post.data.title}</a>
+								<a href={`/memo/${post.id}/`}>{post.data.title}</a>
 								<span class="date">
 									{post.data.pubDate.toLocaleDateString("ja-JP", {
 										year: "numeric",
