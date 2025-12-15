@@ -92,3 +92,33 @@ const imageURL =
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={imageURL} />
+
+<script is:inline>
+	const theme = (() => {
+		if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+			return localStorage.getItem("theme");
+		}
+		if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+			return "dark";
+		}
+		return "light";
+	})();
+
+	if (theme === "dark") {
+		document.documentElement.classList.add("dark");
+	} else {
+		document.documentElement.classList.remove("dark");
+	}
+
+	window
+		.matchMedia("(prefers-color-scheme: dark)")
+		.addEventListener("change", (e) => {
+			if (!localStorage.getItem("theme")) {
+				if (e.matches) {
+					document.documentElement.classList.add("dark");
+				} else {
+					document.documentElement.classList.remove("dark");
+				}
+			}
+		});
+</script>
