@@ -4,6 +4,7 @@ import { Image } from "astro:assets";
 import BaseHead from "../../components/BaseHead.astro";
 import Footer from "../../components/Footer.astro";
 import Header from "../../components/Header.astro";
+import FormattedDate from "../../components/FormattedDate.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
 
 export async function getStaticPaths({ paginate }) {
@@ -60,11 +61,9 @@ const { page } = Astro.props;
 								)}
 								<a href={`/memo/${post.slug || post.id}/`}>{post.data.title}</a>
 								<span class="date">
-									{post.data.pubDate.toLocaleDateString("ja-JP", {
-										year: "numeric",
-										month: "2-digit",
-										day: "2-digit",
-									})}
+									<a href={`/memo/${post.slug || post.id}/`}>
+										<FormattedDate date={post.data.pubDate} />
+									</a>
 								</span>
 							</li>
 						))
