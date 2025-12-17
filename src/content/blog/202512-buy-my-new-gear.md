@@ -45,6 +45,19 @@ draft: false
 折りたたみ式だったり、専用ケースついてたりして、現住所と実家の二拠点生活をしている我が身からすれば、持ち運べて便利なのでとてもよかった。
 
 
+## ちょっとした不満点
+
+付属のタンパーのサイズ、ちょっと小さくない？？
+
+タンピングしたあとに、フチに豆の粉がたっぷり残る感じがして、調べてたら↓の記事をredditで見つけた。
+
+- <a href="https://www.reddit.com/r/FlairEspresso/comments/1j0ksou/flair_go_tamper_maximum_diameter_size/?tl=ja" target="_blank">Flair Go - タンパー：最大直径（サイズ） : r/FlairEspresso</a>
+
+恐らく同じであろうものを中国の某通販サイトで見つけたので注文はしておいた。
+近日中に届くはず。
+
+
+
 ----
 
 P.S. 
