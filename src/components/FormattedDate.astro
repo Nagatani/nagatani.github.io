@@ -1,20 +1,30 @@
 ---
 const { date } = Astro.props;
 
-// YYYY-MM-DD 形式で入力された場合、UTC 00:00:00 (JST 09:00:00) になる仕様を利用して、
-// 日本時間 09:00:00 の場合は時刻を表示しない判定を行う。
-// ※意図的に 09:00:00 に設定された場合も時刻が非表示になるが、仕様とする。
+// YYYY-MM-DD 形式で入力された場合、UTC 00:00:00 になる仕様。
+// これを "日付のみ" とみなし、時間は "00:00" として表示する。
+// それ以外の場合は JST で時間を表示する。
 const isDateOnly = date.getUTCHours() === 0 && date.getUTCMinutes() === 0;
+
+const options: Intl.DateTimeFormatOptions = {
+	year: "numeric",
+	month: "2-digit",
+	day: "2-digit",
+	hour: "2-digit",
+	minute: "2-digit",
+	timeZone: "Asia/Tokyo",
+};
 ---
 
 <time datetime={date.toISOString()}>
 	{
-		date.toLocaleDateString("ja-JP", {
-			year: "numeric",
-			month: "2-digit",
-			day: "2-digit",
-			hour: isDateOnly ? undefined : "2-digit",
-			minute: isDateOnly ? undefined : "2-digit",
-		})
+		isDateOnly
+			? date.toLocaleDateString("ja-JP", {
+					year: "numeric",
+					month: "2-digit",
+					day: "2-digit",
+					timeZone: "Asia/Tokyo",
+				}) + " 00:00"
+			: date.toLocaleString("ja-JP", options)
 	}
 </time>
