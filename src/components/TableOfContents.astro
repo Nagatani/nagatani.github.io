@@ -1,0 +1,62 @@
+---
+import type { MarkdownHeading } from "astro";
+
+interface Props {
+  headings: MarkdownHeading[];
+}
+
+const { headings } = Astro.props;
+
+const toc = headings.filter((heading) => heading.depth <= 3);
+---
+
+{
+  toc.length > 0 && (
+    <nav class="toc">
+      <div class="toc-title">目次</div>
+      <ul>
+        {toc.map((heading) => (
+          <li class={`toc-level-${heading.depth}`}>
+            <a href={`#${heading.slug}`}>{heading.text}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )
+}
+
+<style>
+  .toc {
+    background-color: #f9f9f9;
+    padding: 1em;
+    border-radius: 8px;
+    margin-bottom: 2em;
+    font-size: 0.9em;
+  }
+  .toc-title {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+  }
+  .toc ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .toc li {
+    margin-bottom: 0.3em;
+  }
+  .toc li a {
+    text-decoration: none;
+    color: #333;
+  }
+  .toc li a:hover {
+    text-decoration: underline;
+    color: var(--accent);
+  }
+  .toc-level-2 {
+    padding-left: 1em;
+  }
+  .toc-level-3 {
+    padding-left: 2em;
+  }
+</style>

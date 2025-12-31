@@ -5,10 +5,24 @@ import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import FormattedDate from "../components/FormattedDate.astro";
+import TableOfContents from "../components/TableOfContents.astro";
+import type { MarkdownHeading } from "astro";
 
-type Props = CollectionEntry<"blog">["data"] & { id: string };
+type Props = CollectionEntry<"blog">["data"] & {
+	id: string;
+	headings?: MarkdownHeading[];
+};
 
-const { title, description, pubDate, updatedDate, heroImage, id } = Astro.props;
+const {
+	title,
+	description,
+	pubDate,
+	updatedDate,
+	heroImage,
+	id,
+	headings,
+	toc,
+} = Astro.props;
 const image = heroImage || `/og/${id}.png`;
 ---
 
@@ -47,6 +61,11 @@ const image = heroImage || `/og/${id}.png`;
 			</div>
 			<article>
 				<div class="prose">
+					{
+						toc && headings && headings.length > 0 && (
+							<TableOfContents headings={headings} />
+						)
+					}
 					<slot />
 				</div>
 				<div class="back-link">
