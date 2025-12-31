@@ -27,6 +27,10 @@ html.dark {
   --code-bg: #171717;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 *,
 *:before,
 *:after {
@@ -88,6 +92,7 @@ h4,
 h5,
 h6 {
   color: var(--hedding-color);
+  scroll-margin-top: 5rem;
 }
 
 /* ナビゲーションリンク */

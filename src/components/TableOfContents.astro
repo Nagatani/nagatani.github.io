@@ -12,8 +12,8 @@ const toc = headings.filter((heading) => heading.depth <= 3);
 
 {
   toc.length > 0 && (
-    <nav class="toc">
-      <div class="toc-title">目次</div>
+    <details class="toc" open>
+      <summary class="toc-title">目次</summary>
       <ul>
         {toc.map((heading) => (
           <li class={`toc-level-${heading.depth}`}>
@@ -21,20 +21,20 @@ const toc = headings.filter((heading) => heading.depth <= 3);
           </li>
         ))}
       </ul>
-    </nav>
+    </details>
   )
 }
 
 <style>
   .toc {
-    background-color: #f9f9f9;
-    padding: 1em;
+    padding: 1em 0;
     border-radius: 8px;
     margin-bottom: 2em;
     font-size: 0.9em;
   }
   .toc-title {
     font-weight: bold;
+    cursor: pointer;
     margin-bottom: 0.5em;
   }
   .toc ul {
