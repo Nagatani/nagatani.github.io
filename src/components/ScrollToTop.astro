@@ -1,0 +1,62 @@
+---
+
+---
+
+<button id="scroll-to-top" aria-label="Scroll to Top"> ↑ Page Top </button>
+
+<style>
+  #scroll-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: none;
+    padding: 0.5rem 1.5rem;
+    border: 1px solid var(--border-color);
+    background-color: var(
+      --bg-color
+    ); /* Ensure background is opaque over content */
+    border-radius: 9999px;
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    transition:
+      all 0.2s ease,
+      opacity 0.3s ease;
+    cursor: pointer;
+    z-index: 1000;
+    opacity: 0;
+  }
+
+  #scroll-to-top.visible {
+    display: block;
+    opacity: 1;
+  }
+
+  #scroll-to-top:hover {
+    background-color: var(--code-bg);
+    border-color: var(--text-muted);
+  }
+</style>
+
+<script>
+  const scrollToTopBtn = document.getElementById("scroll-to-top");
+
+  if (scrollToTopBtn) {
+    // Show button when page is scrolled down
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        scrollToTopBtn.classList.add("visible");
+      } else {
+        scrollToTopBtn.classList.remove("visible");
+      }
+    });
+
+    // Scroll to top when button is clicked
+    scrollToTopBtn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    });
+  }
+</script>
