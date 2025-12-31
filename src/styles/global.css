@@ -384,16 +384,15 @@ dl {
 
 dt {
   font-weight: 700;
+  font-size: 1rem;
   color: var(--hedding-color);
   margin: 0;
   padding-bottom: 0.5rem;
-  border-bottom: 1px dashed var(--border-color);
 }
 
 dd {
   margin: 0;
   padding-bottom: 0.5rem;
-  border-bottom: 1px dashed var(--border-color);
 }
 
 /* Mobile responsiveness for dl */
@@ -412,6 +411,38 @@ dd {
   dt:first-child {
     margin-top: 0;
   }
+}
+
+/* QA List Styling */
+.qa-list dt {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.qa-list dt::before {
+  content: "Q.";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 900;
+  color: var(--link-hover);
+  line-height: inherit;
+}
+
+.qa-list dd {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.qa-list dd::before {
+  content: "A.";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 900;
+  color: var(--hedding-color);
+  line-height: inherit;
 }
 
 /* 引用 (Blockquote) */
