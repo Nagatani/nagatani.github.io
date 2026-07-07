@@ -1,6 +1,7 @@
 // @ts-check
 
 import mdx from '@astrojs/mdx';
+import { unified } from '@astrojs/markdown-remark';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
 
@@ -10,18 +11,7 @@ import rehypeExternalLinks from 'rehype-external-links';
 export default defineConfig({
 	site: 'https://nagatani.github.io',
 	markdown: {
-		rehypePlugins: [
-			[
-				rehypeExternalLinks,
-				{
-					target: '_blank',
-					rel: ['nofollow', 'noopener', 'noreferrer'],
-				},
-			],
-		],
-	},
-	integrations: [
-		mdx({
+		processor: unified({
 			rehypePlugins: [
 				[
 					rehypeExternalLinks,
@@ -32,6 +22,9 @@ export default defineConfig({
 				],
 			],
 		}),
+	},
+	integrations: [
+		mdx(),
 		sitemap(),
 	],
 });
