@@ -52,7 +52,7 @@ All external links in Markdown and MDX are configured (via `rehype-external-link
 
 ## Deployment
 
-Push to `master` triggers GitHub Actions (`.github/workflows/deploy.yml`): Node 20 → `npm ci` → `npm run build` → deploy to GitHub Pages.
+Push to `master` triggers GitHub Actions (`.github/workflows/deploy.yml`): Node 26 → `npm ci` → `npm run build` → deploy to GitHub Pages.
 
 ## Fonts
 
