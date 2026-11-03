@@ -26,6 +26,7 @@ export const GET: APIRoute = async ({ props }) => {
       props: {
         style: {
           display: "flex",
+          boxSizing: "border-box",
           height: "100%",
           width: "100%",
           backgroundColor: "#111",
