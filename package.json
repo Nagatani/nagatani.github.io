@@ -15,7 +15,7 @@
     "@astrojs/sitemap": "^3.7.4",
     "@fontsource/noto-sans-jp": "^5.3.1",
     "@resvg/resvg-js": "^2.6.2",
-    "astro": "^7.4.5",
+    "astro": "^7.4.12",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "rehype-external-links": "^3.0.0",
